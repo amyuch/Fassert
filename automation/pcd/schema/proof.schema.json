@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fassert.local/pcd/schema/proof.schema.json",
+  "title": "PCD proof package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case", "models", "primary_model", "nodes", "targets"],
+  "properties": {
+    "schema_version": {"const": "pcd-proof/0.1"},
+    "case": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$"},
+    "models": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string", "pattern": "^[a-z0-9]+:[0-9a-f]{64}$"}
+    },
+    "primary_model": {"type": "string", "pattern": "^[a-z0-9]+:[0-9a-f]{64}$"},
+    "model_artifacts": {
+      "type": "object",
+      "additionalProperties": {"$ref": "https://fassert.local/pcd/schema/obligation.schema.json#/$defs/artifact"}
+    },
+    "acceptance": {"enum": ["complete", "legacy"]},
+    "helpers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/helper"}
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "https://fassert.local/pcd/schema/obligation.schema.json"}
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/target"}
+    },
+    "metadata": {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "helper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "model": {"type": "string", "pattern": "^[a-z0-9]+:[0-9a-f]{64}$"},
+        "asserts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/helper_assert"}
+        },
+        "assumes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/helper_assert"}
+        },
+        "note": {"type": "string"}
+      }
+    },
+    "helper_assert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node", "name"],
+      "properties": {
+        "node": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "line": {"type": "integer", "minimum": 1},
+        "constraint": {"type": "string", "pattern": "^-?[1-9][0-9]*$"}
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "model", "goal", "requires", "tcb", "composition"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "statement": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "pattern": "^[a-z0-9]+:[0-9a-f]{64}$"},
+        "goal": {"type": "string", "minLength": 1},
+        "requires": {
+          "type": "array",
+          "items": {"$ref": "https://fassert.local/pcd/schema/obligation.schema.json#/$defs/premise"}
+        },
+        "tcb": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+          "uniqueItems": true
+        },
+        "composition": {"$ref": "#/$defs/composition"}
+      }
+    },
+    "composition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode"],
+          "properties": {
+            "mode": {"const": "STRUCTURAL"},
+            "notes": {"type": "string"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "checker", "payload"],
+          "properties": {
+            "mode": {"const": "CHECKED"},
+            "checker": {"enum": ["z3-implication"]},
+            "payload": {"$ref": "#/$defs/composition_payload"},
+            "artifact": {"$ref": "https://fassert.local/pcd/schema/obligation.schema.json#/$defs/artifact"},
+            "notes": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "composition_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["premises", "goal", "smt2"],
+      "properties": {
+        "premises": {
+          "type": "array",
+          "items": {"$ref": "https://fassert.local/pcd/schema/obligation.schema.json#/$defs/premise"}
+        },
+        "goal": {"type": "string", "minLength": 1},
+        "smt2": {"type": "string", "minLength": 1},
+        "timeout_ms": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

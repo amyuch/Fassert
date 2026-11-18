@@ -1,0 +1,3 @@
+[09:22:18 INFO] Yosys: parsing the DUT and generating BTOR.
+[09:22:18 INFO] BMC: Checking correctness of all properties.
+[38;5;9mA CEX violating h_branch_r was found. VCD generated at ric3proj/cill/cex.vcd.[39m

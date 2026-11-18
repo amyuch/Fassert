@@ -1,0 +1,4 @@
+Benchmark: serv / pc_bwd.
+Property focus: backward program-counter behavior.
+Checker: riscv-formal rvfi_pc_bwd_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

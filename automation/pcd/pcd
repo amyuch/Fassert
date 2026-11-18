@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Top-level convenience wrapper; the implementation lives in bin/pcd.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$HERE/bin/pcd" "$@"

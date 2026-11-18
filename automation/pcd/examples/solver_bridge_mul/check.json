@@ -1,0 +1,91 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "capture": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "28044f82ad6ad74cc32039b452b083e269cea1a0a397ce44aacbbcccf6fcabd2",
+            "result": "unsat",
+            "seconds": 0.000301
+          },
+          "step": {
+            "query_sha256": "ec7e26adb79827ca8b205af694437d062b100812515dbcaa5d6a143108c53c44",
+            "result": "unsat",
+            "seconds": 0.000334
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+      },
+      "close_imports": {
+        "accepted": true,
+        "destination_model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+        "destination_property": "o_result",
+        "discharged_constraints": {
+          "66": {
+            "query_sha256": "8e244317727553d1a417836e0056179bbfe61b4ae5ed27c9fe9c824e81975401",
+            "result": "unsat",
+            "seconds": 0.000373
+          },
+          "70": {
+            "query_sha256": "1bc364cef083d3688815d42943afdb81114945d73427b078ba27e40031f1ad36",
+            "result": "unsat",
+            "seconds": 0.00029
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 4,
+        "mapped_states": 10,
+        "source_constraints": 2,
+        "source_model": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a",
+        "source_property": "o_result"
+      },
+      "retirement": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "ec20545330425bf44dab7df0f89db3761ea8f1e780e9864a093c0a19c503e589",
+            "result": "unsat",
+            "seconds": 0.000296
+          },
+          "step": {
+            "query_sha256": "258631dd9e84d25f975fc6b202c30eea75da774099036423ba65d252a41804d1",
+            "result": "unsat",
+            "seconds": 0.000364
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "node_evidence": {
+    "capture": "CHECKED",
+    "close_imports": "CHECKED",
+    "engine": "REPLAY",
+    "retirement": "CHECKED",
+    "root": "CHECKED"
+  },
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "close_imports.P"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

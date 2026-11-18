@@ -1,0 +1,4 @@
+Benchmark: nerv / csrc_inc_mhpmcounter5.
+Property focus: mhpmcounter5 increments on commit.
+Checker: riscv-formal rvfi_csrc_inc_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

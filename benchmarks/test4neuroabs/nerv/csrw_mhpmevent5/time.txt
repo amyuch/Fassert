@@ -1,0 +1,2 @@
+The total time is: 0.487697
+The average time of abstracting: 0.004098

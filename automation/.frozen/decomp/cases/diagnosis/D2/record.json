@@ -1,0 +1,33 @@
+{
+  "case_id": "D2",
+  "target_obligation": "MUL one-step ring identity / arithmetic closure",
+  "initial_engine": "z3 BV (raw) vs purified linear",
+  "bad_config": "raw bit-vector multiplication identity at W=16/32",
+  "failure_artifact": "D2/log.txt",
+  "diagnosis_hypothesis": {
+    "failure_type": "representation",
+    "evidence_tests": [
+      "raw W=8/10/12 timings; W>=16 unknown/timeout",
+      "purified form proves width-independently (~ms)"
+    ],
+    "competing": [
+      "encoding bug",
+      "missing intermediate lemma"
+    ]
+  },
+  "selected_strategy": "S3",
+  "repair_hypothesis": "purified multiplication atoms + ring identities (S1/S15 interface)",
+  "new_obligations": [
+    "ring identity certificate",
+    "purified consecution"
+  ],
+  "proof_outcome": "REPAIRED: raw BV W=8 0.10s, W=10 4.58s, W=12/16 unknown(30s); purified ring PASS 0.14ms @W=64",
+  "kernel_outcome": "ACCEPT (reference graph; ring is PROVED_CHECKED)",
+  "budget": "<=60s per query",
+  "provenance": "PLAN S1/S2/S15",
+  "observed": {
+    "bad": "raw BV: W=8 unsat 0.10s; W=10 unsat 4.58s; W=12/16 unknown 30s",
+    "good": "purified ring identity PASS 0.143 ms (kernel poly checker, W=64)",
+    "repair": "purified atoms + ring identity (S1/S15 interface)"
+  }
+}

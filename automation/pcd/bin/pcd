@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# One-click entry point for the PCD workbench.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$HERE/.." && pwd)"
+export PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m pipeline.cli "$@"

@@ -1,0 +1,84 @@
+  assign { \uut.cpu.alu.add_cy , \uut.cpu.alu.result_add  } = _0009_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.bufreg.c , \uut.cpu.bufreg.q  } = _0040_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.ctrl.pc_plus_offset_cy , \uut.cpu.ctrl.pc_plus_offset  } = _0123_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [3] = _1153_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [2] = _1154_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [1] = _1156_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [0] = _1146_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign { \uut.cpu.alu.add_cy , \uut.cpu.alu.result_add  } = _0009_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.bufreg.c , \uut.cpu.bufreg.q  } = _0040_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.ctrl.pc_plus_offset_cy , \uut.cpu.ctrl.pc_plus_offset  } = _0123_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [3] = _1153_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [2] = _1154_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [1] = _1156_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [0] = _1146_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign { \uut.cpu.alu.add_cy , \uut.cpu.alu.result_add  } = _0009_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.bufreg.c , \uut.cpu.bufreg.q  } = _0040_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign { \uut.cpu.ctrl.pc_plus_offset_cy , \uut.cpu.ctrl.pc_plus_offset  } = _0123_;
+
+gate failed: Syntax error at '{', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [3] = _1153_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [2] = _1154_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [1] = _1156_;
+
+gate failed: Syntax error at '[', line 1
+
+  assign \uut.cpu.mem_if.o_wb_sel [0] = _1146_;
+
+gate failed: Syntax error at '[', line 1
+

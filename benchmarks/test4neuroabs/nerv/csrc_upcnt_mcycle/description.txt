@@ -1,0 +1,4 @@
+Benchmark: nerv / csrc_upcnt_mcycle.
+Property focus: mcycle counts up.
+Checker: riscv-formal rvfi_csrc_upcnt_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

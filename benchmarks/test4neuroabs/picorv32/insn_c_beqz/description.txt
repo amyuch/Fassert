@@ -1,0 +1,5 @@
+Benchmark: picorv32 / insn_c_beqz.
+Property focus: riscv-formal rvfi_insn_check for the C_BEQZ instruction.
+Instruction source: the RVFI instruction word (rvfi_insn; in the picorv32 wrapper this comes from mem_rdata).
+Decode guard: rvfi_valid && !insn_padding && insn_funct3 == 3'b 110 && insn_opcode == 2'b 01
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

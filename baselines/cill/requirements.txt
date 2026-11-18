@@ -1,0 +1,4 @@
+# Python dependencies for the CIll VCD MCP server.
+# Verified with Python 3.12 in the current environment.
+mcp==2.2.0
+vcdvcd==2.6.0

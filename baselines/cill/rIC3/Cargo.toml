@@ -1,0 +1,52 @@
+[package]
+name = "rIC3"
+version = "1.5.2"
+edition = "2024"
+authors = ["Yuheng Su <gipsyh.icu@gmail.com>"]
+repository = "https://github.com/gipsyh/rIC3"
+description = "hardware model checker"
+keywords = ["formal-method", "model-checking", "IC3"]
+license = "GPL-3.0"
+
+[[bin]]
+name = "ric3"
+path = "src/main.rs"
+
+[dependencies]
+aig = { path = "./deps/aig-rs", version = "0.4.6" }
+cadical = { package = "satif-cadical", path = "./deps/cadical-rs", version = "0.2.2" }
+kissat = { package = "satif-kissat", path = "./deps/kissat-rs", version = "0.5.2" }
+bitwuzla = { package = "smtif-bitwuzla", path = "./deps/bitwuzla-rs", version = "0.1.0" }
+logicrs = { path = "./deps/logicrs", version = "0.6.1" }
+giputils = { path = "./deps/giputils", version = "0.3.6" }
+btor = { path = "./deps/btor-rs", version = "0.2.2" }
+clap = { version = "4.5.52", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+rand = "0.9.0"
+ctrlc = { version = "3.4.1", features = ["termination"] }
+bitfield-struct = "0.12.1"
+tempfile = "3.10.1"
+process_control = "5.0.0"
+nix = { version = "0.30.1", features = ["signal"] }
+env_logger = "0.11.8"
+log = "0.4.27"
+time = { version = "0.3.44", features = ["formatting", "macros"] }
+toml = "0.9.8"
+serde = { version = "1.0.228", features = ["derive"] }
+sha2 = "0.10.9"
+ratatui = "0.30.0"
+anyhow = "1.0.100"
+ron = "0.12.0"
+strum = "0.27.2"
+tabled = { version = "0.20.0", features = ["ansi"] }
+vcd = "0.7.0"
+enum-as-inner = "0.6.1"
+rayon = "1.10.0"
+
+[profile.dev]
+opt-level = 3
+
+[profile.release]
+lto = true
+panic = "abort"
+strip = true

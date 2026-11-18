@@ -1,0 +1,10 @@
+[13:46:12 INFO] the model to be checked: /home/AM2/sec/cur_work/fassert/automation/pcd/experiments/nerv_closure/runs/core_nerv_bus_dmem/20261106T134600Z-core_nerv_bus_dmem-exact-extension/models/extension.btor
+[13:46:13 INFO] origin ts has 61741 vars, 743 inputs, 4961 latches, 214755 clauses, 70 constraints
+[13:46:13 INFO] trivial simplified ts: 20128 vars, 491 inputs, 4737 latches, 102655 clauses, 46 constraints
+[13:46:13 INFO] scorr: eliminates 0 latchs out of 4737 in 0.10s
+[13:46:14 INFO] scorr: simplified ts: 19919 vars, 490 inputs, 4737 latches, 101785 clauses, 46 constraints
+[13:46:15 INFO] frts: eliminates 2621 out of 19919 vars in 1.00s
+[13:46:16 INFO] frts: simplified ts: 17215 vars, 490 inputs, 4737 latches, 87619 clauses, 38 constraints
+[13:46:16 INFO] preprocessed ts has 17215 vars, 490 inputs, 4737 latches, 87619 clauses, 38 constraints
+UNSAT
+rc=0

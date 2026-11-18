@@ -1,0 +1,70 @@
+{
+  "artifact": "mul_spc_package",
+  "btor_sha256": "e0693b18d2fa90315717676f5a9acaed716d57c876d15345bfc30fc36438cfbc",
+  "front_end_tcb": "yosys-slang (TCB)",
+  "obligations": {
+    "O0_rtl_link": {
+      "status": "tcb",
+      "note": "Yosys/Slang front-end; hash-tied"
+    },
+    "O1O2_manifold": {
+      "status": "proved",
+      "engine": "ric3-ic3",
+      "source": "S7"
+    },
+    "B_ring": {
+      "status": "proved",
+      "engine": "poly Z/2^W",
+      "seconds": 0.0
+    },
+    "B_consecution": {
+      "status": "proved",
+      "engine": "purified-linear",
+      "assumes": [
+        "O1O2_manifold"
+      ],
+      "seconds": 0.0013
+    },
+    "O5_endpoint": {
+      "status": "proved",
+      "engine": "symbolic-unroll (op-local)",
+      "seconds": 0.0643
+    },
+    "O4_finalization": {
+      "status": "proved",
+      "engine": "linear",
+      "assumes": [
+        "B_consecution",
+        "O5_endpoint"
+      ],
+      "seconds": 0.0006
+    },
+    "O6_observable": {
+      "status": "open",
+      "note": "deep; needs op-local temporal summary"
+    }
+  },
+  "edges": [
+    [
+      "O1O2_manifold",
+      "B_consecution"
+    ],
+    [
+      "B_ring",
+      "B_consecution"
+    ],
+    [
+      "B_consecution",
+      "O4_finalization"
+    ],
+    [
+      "O5_endpoint",
+      "O4_finalization"
+    ],
+    [
+      "O4_finalization",
+      "O6_observable"
+    ]
+  ],
+  "verdict": "MUL SPC composition checked (op-model) \u2014 O6 open"
+}

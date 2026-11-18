@@ -1,0 +1,42 @@
+{
+  "artifact": "mul_manifold",
+  "btor_sha256": "e0693b18d2fa90315717676f5a9acaed716d57c876d15345bfc30fc36438cfbc",
+  "front_end": "yosys-slang (TCB)",
+  "engine": "ric3-ic3 (SAT)",
+  "properties": [
+    {
+      "name": "h_carrysave",
+      "index": 0,
+      "engine": "ric3-ic3",
+      "status": "proved",
+      "seconds": 7.59,
+      "returncode": 0
+    },
+    {
+      "name": "h_counter",
+      "index": 1,
+      "engine": "ric3-ic3",
+      "status": "proved",
+      "seconds": 1.04,
+      "returncode": 0
+    },
+    {
+      "name": "h_shift_rs1",
+      "index": 3,
+      "engine": "ric3-ic3",
+      "status": "proved",
+      "seconds": 40.94,
+      "returncode": 0
+    },
+    {
+      "name": "h_shift_rs2",
+      "index": 4,
+      "engine": "ric3-ic3",
+      "status": "proved",
+      "seconds": 93.32,
+      "returncode": 0
+    }
+  ],
+  "missing": [],
+  "verdict": "MANIFOLD CERTIFIED (ric3 IC3, RTL/BTOR)"
+}

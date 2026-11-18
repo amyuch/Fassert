@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fassert.local/pcd/schema/case.schema.json",
+  "title": "PCD case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case",
+    "claim_scope",
+    "inputs",
+    "build",
+    "targets",
+    "budgets",
+    "run_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "pcd-case/0.1"
+    },
+    "case": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "acceptance": {
+      "enum": [
+        "complete",
+        "legacy"
+      ]
+    },
+    "claim_scope": {
+      "enum": [
+        "safety",
+        "partial_correctness",
+        "total_correctness"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "files",
+        "environment"
+      ],
+      "properties": {
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/file"
+          }
+        },
+        "environment": {
+          "$ref": "#/$defs/environment"
+        }
+      }
+    },
+    "build": {
+      "$ref": "#/$defs/build"
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/target"
+      }
+    },
+    "budgets": {
+      "$ref": "#/$defs/budgets"
+    },
+    "run_policy": {
+      "$ref": "#/$defs/run_policy"
+    }
+  },
+  "$defs": {
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "role"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "rtl",
+            "spec",
+            "checker",
+            "harness",
+            "defines",
+            "include",
+            "target",
+            "helper",
+            "other"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "top",
+        "reset",
+        "frontend"
+      ],
+      "properties": {
+        "top": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "clock": {
+          "type": "string"
+        },
+        "frontend": {
+          "enum": [
+            "yosys-slang",
+            "yosys",
+            "verilator",
+            "other"
+          ]
+        },
+        "defines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "recipe",
+        "outputs"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "btor",
+            "aig",
+            "smt2",
+            "native"
+          ]
+        },
+        "recipe": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "command"
+          ],
+          "properties": {
+            "command": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "cwd": {
+              "type": "string"
+            },
+            "env": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "timeout_s": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "kind"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "btor",
+                  "aig",
+                  "smt2",
+                  "native"
+                ]
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "expected_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "sha256"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "btor",
+                "aig",
+                "smt2",
+                "native"
+              ]
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "statement",
+        "claim_level"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "guard": {
+          "type": "string"
+        },
+        "observation": {
+          "type": "string"
+        },
+        "claim_level": {
+          "enum": [
+            "root",
+            "leaf"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+:[0-9a-f]{64}$"
+        },
+        "model_ref": {
+          "const": "primary"
+        },
+        "required_properties": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "model"
+          ]
+        },
+        {
+          "required": [
+            "model_ref"
+          ]
+        }
+      ]
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_seconds",
+        "max_iterations"
+      ],
+      "properties": {
+        "total_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_iterations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "engine_seconds": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "run_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "oracle_paths",
+        "pre_registered"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "dev",
+            "blind"
+          ]
+        },
+        "oracle_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pre_registered": {
+          "type": "boolean"
+        },
+        "planner": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "template_backend": {
+          "enum": [
+            "portfolio",
+            "ic3",
+            "kind",
+            "bmc",
+            "cill"
+          ]
+        }
+      }
+    }
+  }
+}

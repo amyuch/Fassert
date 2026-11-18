@@ -1,0 +1,33 @@
+{
+  "case_id": "D1",
+  "target_obligation": "mul_contract: rd+rdx == plain shift-add accumulator m_acc",
+  "initial_engine": "CIll IC3",
+  "bad_config": "finish-only: if (mul_finish) assert((rd+rdx)==m_acc)",
+  "failure_artifact": "D1/bad.log, D1/cti.vcd",
+  "diagnosis_hypothesis": {
+    "failure_type": "unreachable_cti",
+    "evidence_tests": [
+      "bad form BMC-clean but Not Inductive",
+      "CTI uses an arbitrary carry-save state at finish",
+      "good active-cycle form is inductive"
+    ],
+    "competing": [
+      "genuine counterexample at reachable finish",
+      "wrong m_acc sampling"
+    ]
+  },
+  "selected_strategy": "S1",
+  "repair_hypothesis": "assert the accumulator relation on active cycles (!mul_waiting) instead of only at finish",
+  "new_obligations": [
+    "active-cycle accumulator invariant"
+  ],
+  "proof_outcome": "REPAIRED: bad = BMC-clean/Not Inductive; good = inductive (PROVED_TRUSTED, 16s)",
+  "kernel_outcome": "NOT_APPLICABLE",
+  "budget": "<=120s per run",
+  "provenance": "PLAN S27; mul_contract sandbox",
+  "observed": {
+    "bad": "BMC found no CEX in limited steps; h_contract Not Inductive",
+    "good": "IC3 proved; All properties are inductive (16 s)",
+    "repair": "assert (rd+rdx)==m_acc on active cycles (!mul_waiting)"
+  }
+}

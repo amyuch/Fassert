@@ -1,0 +1,10 @@
+z3 5.1.0
+
+[bad: raw BV one-step identity]
+  W= 8: unsat  (0.10s)
+  W=10: unsat  (4.58s)
+  W=12: unknown  (30.01s)
+  W=16: unknown  (30.01s)
+
+[good: purified ring identity at W=64 (kernel checker)]
+  ring identity check: PASS (0.143ms)

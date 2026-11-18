@@ -1,0 +1,798 @@
+			instr_lui     <= mem_rdata_latched[6:0] == 7'b0110111;
+			instr_lui     <= mem_rdata_latched[6:0] == 7'b0110111;
+unsat
+										instr_lui <= 1;
+										instr_lui <= 1;
+unsat
+			instr_lh    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b001;
+			instr_lh    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b001;
+unsat
+			instr_fence <= (mem_rdata_q[6:0] == 7'b0001111 && !mem_rdata_q[14:12]);
+			instr_fence <= (mem_rdata_q[6:0] == 7'b0001111 && !mem_rdata_q[14:12]);
+unsat
+			instr_fence <= 0;
+			instr_fence <= 0;
+unsat
+			instr_slt   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b010 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_slt   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b010 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_slt   <= 0;
+			instr_slt   <= 0;
+unsat
+		is_sltiu_bltu_sltu <= |{instr_sltiu, instr_bltu, instr_sltu};
+		is_sltiu_bltu_sltu <= |{instr_sltiu, instr_bltu, instr_sltu};
+unsat
+		q_insn_opcode <= dbg_insn_opcode;
+		q_insn_opcode <= dbg_insn_opcode;
+unsat
+				count_instr <= 0;
+				count_instr <= 0;
+unsat
+						count_instr <= count_instr + 1;
+						count_instr <= count_instr + 1;
+unsat
+			instr_rdinstrh <=  (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000001000000010) && ENABLE_COUNTERS && ENABLE_COUNTERS64;
+			instr_rdinstrh <=  (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000001000000010) && ENABLE_COUNTERS && ENABLE_COUNTERS64;
+unsat
+			instr_sh    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b001;
+			instr_sh    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b001;
+unsat
+			instr_and   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b111 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_and   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b111 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_and   <= 0;
+			instr_and   <= 0;
+unsat
+			instr_sb    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b000;
+			instr_sb    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b000;
+unsat
+		decoder_trigger_q <= decoder_trigger;
+		decoder_trigger_q <= decoder_trigger;
+unsat
+		q_insn_rs1 <= dbg_insn_rs1;
+		q_insn_rs1 <= dbg_insn_rs1;
+unsat
+		is_lui_auipc_jal <= |{instr_lui, instr_auipc, instr_jal};
+		is_lui_auipc_jal <= |{instr_lui, instr_auipc, instr_jal};
+unsat
+			dbg_rs2val_valid <= 0;
+			dbg_rs2val_valid <= 0;
+unsat
+								dbg_rs2val_valid <= 1;
+								dbg_rs2val_valid <= 1;
+unsat
+							dbg_rs2val_valid <= 1;
+							dbg_rs2val_valid <= 1;
+unsat
+				dbg_rs2val_valid <= 1;
+				dbg_rs2val_valid <= 1;
+unsat
+		decoder_pseudo_trigger <= 0;
+		decoder_pseudo_trigger <= 0;
+unsat
+						decoder_pseudo_trigger <= 1;
+						decoder_pseudo_trigger <= 1;
+unsat
+						decoder_pseudo_trigger <= 1;
+						decoder_pseudo_trigger <= 1;
+unsat
+			instr_rdcycle  <= ((mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000000000000010) ||			                   (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000000100000010)) && ENABLE_COUNTERS;
+			instr_rdcycle  <= ((mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000000000000010) ||			                   (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000000100000010)) && ENABLE_COUNTERS;
+unsat
+			instr_bgeu  <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b111;
+			instr_bgeu  <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b111;
+unsat
+			instr_bgeu  <= 0;
+			instr_bgeu  <= 0;
+unsat
+			instr_jal     <= mem_rdata_latched[6:0] == 7'b1101111;
+			instr_jal     <= mem_rdata_latched[6:0] == 7'b1101111;
+unsat
+								instr_jal <= 1;
+								instr_jal <= 1;
+unsat
+								instr_jal <= 1;
+								instr_jal <= 1;
+unsat
+		q_insn_imm <= dbg_insn_imm;
+		q_insn_imm <= dbg_insn_imm;
+unsat
+			reg_pc <= PROGADDR_RESET;
+			reg_pc <= PROGADDR_RESET;
+unsat
+				reg_pc <= current_pc;
+				reg_pc <= current_pc;
+unsat
+			is_sb_sh_sw                  <= mem_rdata_latched[6:0] == 7'b0100011;
+			is_sb_sh_sw                  <= mem_rdata_latched[6:0] == 7'b0100011;
+unsat
+								is_sb_sh_sw <= 1;
+								is_sb_sh_sw <= 1;
+unsat
+								is_sb_sh_sw <= 1;
+								is_sb_sh_sw <= 1;
+unsat
+			instr_sltu  <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b011 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_sltu  <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b011 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_sltu  <= 0;
+			instr_sltu  <= 0;
+unsat
+			decoded_rs1 <= mem_rdata_latched[19:15];
+			decoded_rs1 <= mem_rdata_latched[19:15];
+unsat
+				decoded_rs1 <= 0;
+				decoded_rs1 <= 0;
+unsat
+								decoded_rs1 <= 2;
+								decoded_rs1 <= 2;
+unsat
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+								decoded_rs1 <= mem_rdata_latched[11:7];
+								decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+								decoded_rs1 <= 0;
+								decoded_rs1 <= 0;
+unsat
+										decoded_rs1 <= mem_rdata_latched[11:7];
+										decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+										decoded_rs1 <= 0;
+										decoded_rs1 <= 0;
+unsat
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+									decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+								decoded_rs1 <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rs1 <= mem_rdata_latched[11:7];
+									decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+									decoded_rs1 <= 2;
+									decoded_rs1 <= 2;
+unsat
+									decoded_rs1 <= mem_rdata_latched[11:7];
+									decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+									decoded_rs1 <= 0;
+									decoded_rs1 <= 0;
+unsat
+									decoded_rs1 <= mem_rdata_latched[11:7];
+									decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+									decoded_rs1 <= mem_rdata_latched[11:7];
+									decoded_rs1 <= mem_rdata_latched[11:7];
+unsat
+								decoded_rs1 <= 2;
+								decoded_rs1 <= 2;
+unsat
+			instr_andi  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b111;
+			instr_andi  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b111;
+unsat
+			instr_andi  <= 0;
+			instr_andi  <= 0;
+unsat
+			decoded_rs2 <= mem_rdata_latched[24:20];
+			decoded_rs2 <= mem_rdata_latched[24:20];
+unsat
+				decoded_rs2 <= 0;
+				decoded_rs2 <= 0;
+unsat
+								decoded_rs2 <= 8 + mem_rdata_latched[4:2];
+								decoded_rs2 <= 8 + mem_rdata_latched[4:2];
+unsat
+									decoded_rs2 <= {mem_rdata_latched[12], mem_rdata_latched[6:2]};
+									decoded_rs2 <= {mem_rdata_latched[12], mem_rdata_latched[6:2]};
+unsat
+									decoded_rs2 <= 8 + mem_rdata_latched[4:2];
+									decoded_rs2 <= 8 + mem_rdata_latched[4:2];
+unsat
+								decoded_rs2 <= 0;
+								decoded_rs2 <= 0;
+unsat
+								decoded_rs2 <= 0;
+								decoded_rs2 <= 0;
+unsat
+									decoded_rs2 <= {mem_rdata_latched[12], mem_rdata_latched[6:2]};
+									decoded_rs2 <= {mem_rdata_latched[12], mem_rdata_latched[6:2]};
+unsat
+									decoded_rs2 <= mem_rdata_latched[6:2];
+									decoded_rs2 <= mem_rdata_latched[6:2];
+unsat
+									decoded_rs2 <= mem_rdata_latched[6:2];
+									decoded_rs2 <= mem_rdata_latched[6:2];
+unsat
+								decoded_rs2 <= mem_rdata_latched[6:2];
+								decoded_rs2 <= mem_rdata_latched[6:2];
+unsat
+			instr_srli  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_srli  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_auipc   <= mem_rdata_latched[6:0] == 7'b0010111;
+			instr_auipc   <= mem_rdata_latched[6:0] == 7'b0010111;
+unsat
+				cached_insn_opcode <= next_insn_opcode;
+				cached_insn_opcode <= next_insn_opcode;
+unsat
+				cached_insn_opcode <= {16'b0, next_insn_opcode[15:0]};
+				cached_insn_opcode <= {16'b0, next_insn_opcode[15:0]};
+unsat
+			instr_bltu  <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b110;
+			instr_bltu  <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b110;
+unsat
+			instr_bltu  <= 0;
+			instr_bltu  <= 0;
+unsat
+			instr_lw    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b010;
+			instr_lw    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b010;
+unsat
+			instr_or    <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b110 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_or    <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b110 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_or    <= 0;
+			instr_or    <= 0;
+unsat
+			is_lb_lh_lw_lbu_lhu          <= mem_rdata_latched[6:0] == 7'b0000011;
+			is_lb_lh_lw_lbu_lhu          <= mem_rdata_latched[6:0] == 7'b0000011;
+unsat
+								is_lb_lh_lw_lbu_lhu <= 1;
+								is_lb_lh_lw_lbu_lhu <= 1;
+unsat
+									is_lb_lh_lw_lbu_lhu <= 1;
+									is_lb_lh_lw_lbu_lhu <= 1;
+unsat
+		q_insn_rd <= dbg_insn_rd;
+		q_insn_rd <= dbg_insn_rd;
+unsat
+			instr_sll   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_sll   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_sll   <= 0;
+			instr_sll   <= 0;
+unsat
+			instr_bge   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b101;
+			instr_bge   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b101;
+unsat
+			instr_bge   <= 0;
+			instr_bge   <= 0;
+unsat
+			instr_beq   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b000;
+			instr_beq   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b000;
+unsat
+			instr_beq   <= 0;
+			instr_beq   <= 0;
+unsat
+			instr_jalr    <= mem_rdata_latched[6:0] == 7'b1100111 && mem_rdata_latched[14:12] == 3'b000;
+			instr_jalr    <= mem_rdata_latched[6:0] == 7'b1100111 && mem_rdata_latched[14:12] == 3'b000;
+unsat
+									instr_jalr <= 1;
+									instr_jalr <= 1;
+unsat
+									instr_jalr <= 1;
+									instr_jalr <= 1;
+unsat
+		alu_out_q <= alu_out;
+		alu_out_q <= alu_out;
+unsat
+			instr_lb    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b000;
+			instr_lb    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b000;
+unsat
+			instr_sltiu <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b011;
+			instr_sltiu <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b011;
+unsat
+			instr_sltiu <= 0;
+			instr_sltiu <= 0;
+unsat
+					decoded_imm <= decoded_imm_j;
+					decoded_imm <= decoded_imm_j;
+unsat
+					decoded_imm <= mem_rdata_q[31:12] << 12;
+					decoded_imm <= mem_rdata_q[31:12] << 12;
+unsat
+			is_alu_reg_imm               <= mem_rdata_latched[6:0] == 7'b0010011;
+			is_alu_reg_imm               <= mem_rdata_latched[6:0] == 7'b0010011;
+unsat
+								is_alu_reg_imm <= |mem_rdata_latched[12:5];
+								is_alu_reg_imm <= |mem_rdata_latched[12:5];
+unsat
+								is_alu_reg_imm <= 1;
+								is_alu_reg_imm <= 1;
+unsat
+								is_alu_reg_imm <= 1;
+								is_alu_reg_imm <= 1;
+unsat
+										is_alu_reg_imm <= 1;
+										is_alu_reg_imm <= 1;
+unsat
+									is_alu_reg_imm <= 1;
+									is_alu_reg_imm <= 1;
+unsat
+									is_alu_reg_imm <= 1;
+									is_alu_reg_imm <= 1;
+unsat
+									is_alu_reg_imm <= 1;
+									is_alu_reg_imm <= 1;
+unsat
+			cached_insn_rs2 <= decoded_rs2;
+			cached_insn_rs2 <= decoded_rs2;
+unsat
+			instr_rdinstr  <=  (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000001000000010) && ENABLE_COUNTERS;
+			instr_rdinstr  <=  (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11000000001000000010) && ENABLE_COUNTERS;
+unsat
+			instr_srl   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_srl   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_srl   <= 0;
+			instr_srl   <= 0;
+unsat
+		is_slti_blt_slt <= |{instr_slti, instr_blt, instr_slt};
+		is_slti_blt_slt <= |{instr_slti, instr_blt, instr_slt};
+unsat
+		q_ascii_instr <= dbg_ascii_instr;
+		q_ascii_instr <= dbg_ascii_instr;
+unsat
+			cached_insn_rs1 <= decoded_rs1;
+			cached_insn_rs1 <= decoded_rs1;
+unsat
+		decoder_pseudo_trigger_q <= decoder_pseudo_trigger;
+		decoder_pseudo_trigger_q <= decoder_pseudo_trigger;
+unsat
+			instr_sub   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0100000;
+			instr_sub   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0100000;
+unsat
+			instr_sub   <= 0;
+			instr_sub   <= 0;
+unsat
+			is_beq_bne_blt_bge_bltu_bgeu <= mem_rdata_latched[6:0] == 7'b1100011;
+			is_beq_bne_blt_bge_bltu_bgeu <= mem_rdata_latched[6:0] == 7'b1100011;
+unsat
+								is_beq_bne_blt_bge_bltu_bgeu <= 1;
+								is_beq_bne_blt_bge_bltu_bgeu <= 1;
+unsat
+								is_beq_bne_blt_bge_bltu_bgeu <= 1;
+								is_beq_bne_blt_bge_bltu_bgeu <= 1;
+unsat
+			is_beq_bne_blt_bge_bltu_bgeu <= 0;
+			is_beq_bne_blt_bge_bltu_bgeu <= 0;
+unsat
+			instr_sw    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b010;
+			instr_sw    <= is_sb_sh_sw && mem_rdata_q[14:12] == 3'b010;
+unsat
+			instr_addi  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b000;
+			instr_addi  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b000;
+unsat
+			instr_addi  <= 0;
+			instr_addi  <= 0;
+unsat
+			instr_slli  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_slli  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_rdcycleh <= ((mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000000000000010) ||			                   (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000000100000010)) && ENABLE_COUNTERS && ENABLE_COUNTERS64;
+			instr_rdcycleh <= ((mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000000000000010) ||			                   (mem_rdata_q[6:0] == 7'b1110011 && mem_rdata_q[31:12] == 'b11001000000100000010)) && ENABLE_COUNTERS && ENABLE_COUNTERS64;
+unsat
+				mem_wordsize <= 0;
+				mem_wordsize <= 0;
+unsat
+							instr_sb: mem_wordsize <= 2;
+							instr_sb: mem_wordsize <= 2;
+unsat
+							instr_sh: mem_wordsize <= 1;
+							instr_sh: mem_wordsize <= 1;
+unsat
+							instr_sw: mem_wordsize <= 0;
+							instr_sw: mem_wordsize <= 0;
+unsat
+							instr_lw: mem_wordsize <= 0;
+							instr_lw: mem_wordsize <= 0;
+unsat
+			dbg_rs1val_valid <= 0;
+			dbg_rs1val_valid <= 0;
+unsat
+							dbg_rs1val_valid <= 1;
+							dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+			cached_ascii_instr <= new_ascii_instr;
+			cached_ascii_instr <= new_ascii_instr;
+unsat
+			instr_sra   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000;
+			instr_sra   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000;
+unsat
+			instr_sra   <= 0;
+			instr_sra   <= 0;
+unsat
+		dbg_next <= launch_next_insn;
+		dbg_next <= launch_next_insn;
+unsat
+			decoded_rd <= mem_rdata_latched[11:7];
+			decoded_rd <= mem_rdata_latched[11:7];
+unsat
+				decoded_rd <= 0;
+				decoded_rd <= 0;
+unsat
+								decoded_rd <= 8 + mem_rdata_latched[4:2];
+								decoded_rd <= 8 + mem_rdata_latched[4:2];
+unsat
+								decoded_rd <= 8 + mem_rdata_latched[4:2];
+								decoded_rd <= 8 + mem_rdata_latched[4:2];
+unsat
+								decoded_rd <= mem_rdata_latched[11:7];
+								decoded_rd <= mem_rdata_latched[11:7];
+unsat
+								decoded_rd <= 1;
+								decoded_rd <= 1;
+unsat
+								decoded_rd <= mem_rdata_latched[11:7];
+								decoded_rd <= mem_rdata_latched[11:7];
+unsat
+										decoded_rd <= mem_rdata_latched[11:7];
+										decoded_rd <= mem_rdata_latched[11:7];
+unsat
+										decoded_rd <= mem_rdata_latched[11:7];
+										decoded_rd <= mem_rdata_latched[11:7];
+unsat
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+									decoded_rd <= 8 + mem_rdata_latched[9:7];
+unsat
+									decoded_rd <= mem_rdata_latched[11:7];
+									decoded_rd <= mem_rdata_latched[11:7];
+unsat
+									decoded_rd <= mem_rdata_latched[11:7];
+									decoded_rd <= mem_rdata_latched[11:7];
+unsat
+									decoded_rd <= 0;
+									decoded_rd <= 0;
+unsat
+									decoded_rd <= mem_rdata_latched[11:7];
+									decoded_rd <= mem_rdata_latched[11:7];
+unsat
+									decoded_rd <= 1;
+									decoded_rd <= 1;
+unsat
+									decoded_rd <= mem_rdata_latched[11:7];
+									decoded_rd <= mem_rdata_latched[11:7];
+unsat
+				reg_out <= STACKADDR;
+				reg_out <= STACKADDR;
+unsat
+						reg_out <= irq_pending;
+						reg_out <= irq_pending;
+unsat
+									reg_out <= pcpi_int_rd;
+									reg_out <= pcpi_int_rd;
+unsat
+								reg_out <= count_cycle[31:0];
+								reg_out <= count_cycle[31:0];
+unsat
+								reg_out <= count_cycle[63:32];
+								reg_out <= count_cycle[63:32];
+unsat
+								reg_out <= count_instr[31:0];
+								reg_out <= count_instr[31:0];
+unsat
+								reg_out <= count_instr[63:32];
+								reg_out <= count_instr[63:32];
+unsat
+						reg_out <= cpuregs_rs1;
+						reg_out <= cpuregs_rs1;
+unsat
+						reg_out <= cpuregs_rs1;
+						reg_out <= cpuregs_rs1;
+unsat
+						reg_out <= CATCH_MISALIGN ? (cpuregs_rs1 & 32'hfffffffe) : cpuregs_rs1;
+						reg_out <= CATCH_MISALIGN ? (cpuregs_rs1 & 32'hfffffffe) : cpuregs_rs1;
+unsat
+						reg_out <= irq_mask;
+						reg_out <= irq_mask;
+unsat
+						reg_out <= timer;
+						reg_out <= timer;
+unsat
+							reg_out <= pcpi_int_rd;
+							reg_out <= pcpi_int_rd;
+unsat
+				reg_out <= reg_pc + decoded_imm;
+				reg_out <= reg_pc + decoded_imm;
+unsat
+					reg_out <= reg_op1;
+					reg_out <= reg_op1;
+unsat
+					reg_out <= reg_op2;
+					reg_out <= reg_op2;
+unsat
+							latched_is_lu: reg_out <= mem_rdata_word;
+							latched_is_lu: reg_out <= mem_rdata_word;
+unsat
+			instr_bne   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b001;
+			instr_bne   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b001;
+unsat
+			instr_bne   <= 0;
+			instr_bne   <= 0;
+unsat
+							dbg_rs1val <= cpuregs_rs1;
+							dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+						dbg_rs1val <= cpuregs_rs1;
+						dbg_rs1val <= cpuregs_rs1;
+unsat
+			instr_lbu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b100;
+			instr_lbu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b100;
+unsat
+			cached_insn_imm <= decoded_imm;
+			cached_insn_imm <= decoded_imm;
+unsat
+			instr_srai  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000;
+			instr_srai  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000;
+unsat
+			instr_xor   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b100 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_xor   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b100 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_xor   <= 0;
+			instr_xor   <= 0;
+unsat
+			instr_slti  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b010;
+			instr_slti  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b010;
+unsat
+			instr_slti  <= 0;
+			instr_slti  <= 0;
+unsat
+			instr_lhu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b101;
+			instr_lhu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b101;
+unsat
+								reg_op2 <= cpuregs_rs2;
+								reg_op2 <= cpuregs_rs2;
+unsat
+						reg_op2 <= decoded_imm;
+						reg_op2 <= decoded_imm;
+unsat
+							reg_op2 <= cpuregs_rs2;
+							reg_op2 <= cpuregs_rs2;
+unsat
+				reg_op2 <= cpuregs_rs2;
+				reg_op2 <= cpuregs_rs2;
+unsat
+			instr_ori   <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b110;
+			instr_ori   <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b110;
+unsat
+			instr_ori   <= 0;
+			instr_ori   <= 0;
+unsat
+			cached_insn_rd <= decoded_rd;
+			cached_insn_rd <= decoded_rd;
+unsat
+							reg_op1 <= cpuregs_rs1;
+							reg_op1 <= cpuregs_rs1;
+unsat
+						reg_op1 <= cpuregs_rs1;
+						reg_op1 <= cpuregs_rs1;
+unsat
+						reg_op1 <= cpuregs_rs1;
+						reg_op1 <= cpuregs_rs1;
+unsat
+						reg_op1 <= cpuregs_rs1;
+						reg_op1 <= cpuregs_rs1;
+unsat
+						reg_op1 <= cpuregs_rs1;
+						reg_op1 <= cpuregs_rs1;
+unsat
+						reg_op1 <= reg_op1 + decoded_imm;
+						reg_op1 <= reg_op1 + decoded_imm;
+unsat
+						reg_op1 <= reg_op1 + decoded_imm;
+						reg_op1 <= reg_op1 + decoded_imm;
+unsat
+			instr_add   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_add   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_add   <= 0;
+			instr_add   <= 0;
+unsat
+			is_alu_reg_reg               <= mem_rdata_latched[6:0] == 7'b0110011;
+			is_alu_reg_reg               <= mem_rdata_latched[6:0] == 7'b0110011;
+unsat
+									is_alu_reg_reg <= 1;
+									is_alu_reg_reg <= 1;
+unsat
+									is_alu_reg_reg <= 1;
+									is_alu_reg_reg <= 1;
+unsat
+									is_alu_reg_reg <= 1;
+									is_alu_reg_reg <= 1;
+unsat
+		is_compare <= |{is_beq_bne_blt_bge_bltu_bgeu, instr_slti, instr_slt, instr_sltiu, instr_sltu};
+		is_compare <= |{is_beq_bne_blt_bge_bltu_bgeu, instr_slti, instr_slt, instr_sltiu, instr_sltu};
+unsat
+			is_compare <= 0;
+			is_compare <= 0;
+unsat
+			is_compare <= 0;
+			is_compare <= 0;
+unsat
+			instr_blt   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b100;
+			instr_blt   <= is_beq_bne_blt_bge_bltu_bgeu && mem_rdata_q[14:12] == 3'b100;
+unsat
+			instr_blt   <= 0;
+			instr_blt   <= 0;
+unsat
+		q_insn_rs2 <= dbg_insn_rs2;
+		q_insn_rs2 <= dbg_insn_rs2;
+unsat
+			instr_xori  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b100;
+			instr_xori  <= is_alu_reg_imm && mem_rdata_q[14:12] == 3'b100;
+unsat
+			instr_xori  <= 0;
+			instr_xori  <= 0;
+unsat
+								dbg_rs2val <= cpuregs_rs2;
+								dbg_rs2val <= cpuregs_rs2;
+unsat
+							dbg_rs2val <= cpuregs_rs2;
+							dbg_rs2val <= cpuregs_rs2;
+unsat
+				dbg_rs2val <= cpuregs_rs2;
+				dbg_rs2val <= cpuregs_rs2;
+unsat
+		decoder_trigger_q <= decoder_trigger;
+		decoder_trigger_q <= decoder_trigger;
+unsat
+		decoder_pseudo_trigger_q <= decoder_pseudo_trigger;
+		decoder_pseudo_trigger_q <= decoder_pseudo_trigger;
+unsat
+			cached_ascii_instr <= new_ascii_instr;
+			cached_ascii_instr <= new_ascii_instr;
+unsat
+			dbg_rs2val_valid <= 0;
+			dbg_rs2val_valid <= 0;
+unsat
+								dbg_rs2val_valid <= 1;
+								dbg_rs2val_valid <= 1;
+unsat
+							dbg_rs2val_valid <= 1;
+							dbg_rs2val_valid <= 1;
+unsat
+				dbg_rs2val_valid <= 1;
+				dbg_rs2val_valid <= 1;
+unsat
+				mem_wordsize <= 0;
+				mem_wordsize <= 0;
+unsat
+							instr_sb: mem_wordsize <= 2;
+							instr_sb: mem_wordsize <= 2;
+unsat
+							instr_sh: mem_wordsize <= 1;
+							instr_sh: mem_wordsize <= 1;
+unsat
+							instr_sw: mem_wordsize <= 0;
+							instr_sw: mem_wordsize <= 0;
+unsat
+							instr_lw: mem_wordsize <= 0;
+							instr_lw: mem_wordsize <= 0;
+unsat
+			instr_add   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0000000;
+			instr_add   <= is_alu_reg_reg && mem_rdata_q[14:12] == 3'b000 && mem_rdata_q[31:25] == 7'b0000000;
+unsat
+			instr_add   <= 0;
+			instr_add   <= 0;
+unsat
+			dbg_rs1val_valid <= 0;
+			dbg_rs1val_valid <= 0;
+unsat
+							dbg_rs1val_valid <= 1;
+							dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+						dbg_rs1val_valid <= 1;
+						dbg_rs1val_valid <= 1;
+unsat
+		decoder_pseudo_trigger <= 0;
+		decoder_pseudo_trigger <= 0;
+unsat
+						decoder_pseudo_trigger <= 1;
+						decoder_pseudo_trigger <= 1;
+unsat
+						decoder_pseudo_trigger <= 1;
+						decoder_pseudo_trigger <= 1;
+unsat
+		dbg_next <= launch_next_insn;
+		dbg_next <= launch_next_insn;
+unsat
+							latched_is_lu: reg_out <= mem_rdata_word;
+							latched_is_lu: reg_out <= mem_rdata_word;
+unsat
+		q_ascii_instr <= dbg_ascii_instr;
+		q_ascii_instr <= dbg_ascii_instr;
+unsat

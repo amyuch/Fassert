@@ -1,0 +1,100 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "transfer.o_mem_addr_match": {
+        "accepted": true,
+        "destination_model": "btor:5e789e02cb4251d5cf05b878e7bf98516e86446fe91eb678776cddc0988494a4",
+        "destination_property": "o_mem_addr_match",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 0,
+        "mapped_free_states": 0,
+        "mapped_inputs": 3,
+        "mapped_states": 281,
+        "source_constraints": 4,
+        "source_model": "btor:1cdbbedff9b2ac371a3983a917911b00fc6b60674d3c083867097b0d83c3c616",
+        "source_property": "o_mem_addr_match"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "fatal_errors": [],
+  "node_evidence": {
+    "root": "CHECKED",
+    "source.o_mem_addr_match": "REPLAY",
+    "transfer.o_mem_addr_match": "CHECKED"
+  },
+  "obligations": [
+    {
+      "direction": "root must be a CHECKED composition on the target model",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "target.root.root",
+      "kind": "target",
+      "model": "btor:5e789e02cb4251d5cf05b878e7bf98516e86446fe91eb678776cddc0988494a4",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "node.root",
+      "kind": "evidence",
+      "model": "btor:5e789e02cb4251d5cf05b878e7bf98516e86446fe91eb678776cddc0988494a4",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "S",
+      "id": "node.source.o_mem_addr_match",
+      "kind": "evidence",
+      "model": "btor:1cdbbedff9b2ac371a3983a917911b00fc6b60674d3c083867097b0d83c3c616",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D",
+      "id": "node.transfer.o_mem_addr_match",
+      "kind": "evidence",
+      "model": "btor:5e789e02cb4251d5cf05b878e7bf98516e86446fe91eb678776cddc0988494a4",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    }
+  ],
+  "proved": true,
+  "residual": [],
+  "status": "proved",
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "transfer.o_mem_addr_match.D"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

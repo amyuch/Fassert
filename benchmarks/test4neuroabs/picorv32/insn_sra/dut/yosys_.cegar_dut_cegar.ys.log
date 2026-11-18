@@ -1,0 +1,1897 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.60+70 (git sha1 8101c87fa, g++ 12.3.0 -fPIC -O3)
+
+-- Executing script file `/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/dut/.cegar_dut_cegar.ys' --
+
+1. Executing Verilog-2005 frontend: /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v
+Parsing SystemVerilog input from `/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v' to AST representation.
+verilog frontend filename /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v
+Generating RTLIL representation for module `\rvfi_insn_sra'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv
+Parsing SystemVerilog input from `/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv' to AST representation.
+verilog frontend filename /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv
+Generating RTLIL representation for module `\rvfi_insn_check'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/wrapper.sv
+Parsing SystemVerilog input from `/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/wrapper.sv' to AST representation.
+verilog frontend filename /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/wrapper.sv
+Generating RTLIL representation for module `\rvfi_wrapper'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: iter/9.v
+Parsing SystemVerilog input from `iter/9.v' to AST representation.
+verilog frontend filename iter/9.v
+Generating RTLIL representation for module `\picorv32'.
+Generating RTLIL representation for module `\picorv32_regs'.
+Generating RTLIL representation for module `\picorv32_pcpi_mul'.
+Generating RTLIL representation for module `\picorv32_pcpi_fast_mul'.
+Generating RTLIL representation for module `\picorv32_pcpi_div'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv
+Parsing SystemVerilog input from `/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv' to AST representation.
+verilog frontend filename /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv
+Generating RTLIL representation for module `\testbench'.
+Successfully finished Verilog frontend.
+
+6. Executing PREP pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rvfi_wrapper
+Used module:         \picorv32
+Used module:     \rvfi_insn_check
+Used module:         \rvfi_insn_sra
+Parameter \BARREL_SHIFTER = 1
+Parameter \COMPRESSED_ISA = 1
+Parameter \ENABLE_FAST_MUL = 1
+Parameter \ENABLE_DIV = 1
+
+6.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\picorv32'.
+Parameter \BARREL_SHIFTER = 1
+Parameter \COMPRESSED_ISA = 1
+Parameter \ENABLE_FAST_MUL = 1
+Parameter \ENABLE_DIV = 1
+Generating RTLIL representation for module `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32'.
+
+6.1.3. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rvfi_wrapper
+Used module:         $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32
+Used module:             \picorv32_pcpi_div
+Used module:             \picorv32_pcpi_fast_mul
+Used module:     \rvfi_insn_check
+Used module:         \rvfi_insn_sra
+
+6.1.4. Analyzing design hierarchy..
+Top module:  \testbench
+Used module:     \rvfi_wrapper
+Used module:         $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32
+Used module:             \picorv32_pcpi_div
+Used module:             \picorv32_pcpi_fast_mul
+Used module:     \rvfi_insn_check
+Used module:         \rvfi_insn_sra
+Removing unused module `\picorv32_pcpi_mul'.
+Removing unused module `\picorv32_regs'.
+Removing unused module `\picorv32'.
+Removed 3 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+Module rvfi_insn_check directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:208$1599'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:208$1599'.
+Found and cleaned up 17 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+Found and cleaned up 1 empty switch in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+Cleaned up 19 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$picorv32.sv:2362$825 in module picorv32_pcpi_fast_mul.
+Marked 2 switch rules as full_case in process $proc$picorv32.sv:2332$818 in module picorv32_pcpi_fast_mul.
+Marked 5 switch rules as full_case in process $proc$picorv32.sv:2052$1578 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 5 switch rules as full_case in process $proc$picorv32.sv:1977$1554 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 38 switch rules as full_case in process $proc$picorv32.sv:1398$1379 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 1 switch rules as full_case in process $proc$picorv32.sv:1339$1354 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 2 switch rules as full_case in process $proc$picorv32.sv:1311$1342 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 2 switch rules as full_case in process $proc$picorv32.sv:1297$1337 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 8 switch rules as full_case in process $proc$picorv32.sv:1188$1302 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 3 switch rules as full_case in process $proc$picorv32.sv:860$1039 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 3 switch rules as full_case in process $proc$picorv32.sv:811$1037 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 2 switch rules as full_case in process $proc$picorv32.sv:780$1033 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 48 switch rules as full_case in process $proc$picorv32.sv:703$1032 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 4 switch rules as full_case in process $proc$picorv32.sv:567$1008 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 1 switch rules as full_case in process $proc$picorv32.sv:432$979 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Removed 2 dead cases from process $proc$picorv32.sv:403$976 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 2 switch rules as full_case in process $proc$picorv32.sv:403$976 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 1 switch rules as full_case in process $proc$picorv32.sv:392$971 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 1 switch rules as full_case in process $proc$picorv32.sv:327$897 in module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Marked 1 switch rules as full_case in process $proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:22$889 in module testbench.
+Marked 3 switch rules as full_case in process $proc$picorv32.sv:2448$855 in module picorv32_pcpi_div.
+Removed a total of 2 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 86 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~228 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+     1/4: $0\active[3:0] [3:1]
+     2/4: $0\active[3:0] [0]
+     3/4: $0\rs2[32:0]
+     4/4: $0\rs1[32:0]
+Creating decoders for process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+     1/4: $0\rd_q[63:0]
+     2/4: $0\rs2_q[32:0]
+     3/4: $0\rs1_q[32:0]
+     4/4: $0\rd[63:0]
+Creating decoders for process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+     1/8: $2\instr_mul[0:0]
+     2/8: $2\instr_mulhu[0:0]
+     3/8: $2\instr_mulhsu[0:0]
+     4/8: $2\instr_mulh[0:0]
+     5/8: $1\instr_mulhu[0:0]
+     6/8: $1\instr_mulhsu[0:0]
+     7/8: $1\instr_mulh[0:0]
+     8/8: $1\instr_mul[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+     1/12: $3\rvfi_csr_minstret_rdata[63:0]
+     2/12: $3\rvfi_csr_minstret_rmask[63:0]
+     3/12: $2\rvfi_csr_minstret_rdata[63:0]
+     4/12: $2\rvfi_csr_minstret_rmask[63:0]
+     5/12: $3\rvfi_csr_mcycle_rdata[63:0]
+     6/12: $3\rvfi_csr_mcycle_rmask[63:0]
+     7/12: $2\rvfi_csr_mcycle_rdata[63:0]
+     8/12: $2\rvfi_csr_mcycle_rmask[63:0]
+     9/12: $1\rvfi_csr_minstret_rdata[63:0]
+    10/12: $1\rvfi_csr_minstret_rmask[63:0]
+    11/12: $1\rvfi_csr_mcycle_rdata[63:0]
+    12/12: $1\rvfi_csr_mcycle_rmask[63:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+     1/12: $0\rvfi_rs1_rdata[31:0]
+     2/12: $0\rvfi_rs1_addr[4:0]
+     3/12: $0\dbg_irq_ret[31:0]
+     4/12: $0\dbg_irq_enter[0:0]
+     5/12: $0\dbg_irq_call[0:0]
+     6/12: $0\rvfi_mem_wdata[31:0]
+     7/12: $0\rvfi_mem_wmask[3:0]
+     8/12: $0\rvfi_mem_rmask[3:0]
+     9/12: $0\rvfi_mem_addr[31:0]
+    10/12: $0\rvfi_rd_wdata[31:0]
+    11/12: $0\rvfi_rd_addr[4:0]
+    12/12: $0\rvfi_mem_rdata[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+     1/82: $20\next_irq_pending[2:2]
+     2/82: $19\next_irq_pending[2:2]
+     3/82: $18\next_irq_pending[2:2]
+     4/82: $17\next_irq_pending[2:2]
+     5/82: $16\next_irq_pending[2:2]
+     6/82: $15\next_irq_pending[2:2]
+     7/82: $14\next_irq_pending[2:2]
+     8/82: $2\next_irq_pending[31:0] [31:2]
+     9/82: $3\set_mem_do_rdata[0:0]
+    10/82: $2\next_irq_pending[31:0] [1]
+    11/82: $3\set_mem_do_wdata[0:0]
+    12/82: $2\next_irq_pending[31:0] [0]
+    13/82: $4\set_mem_do_rinst[0:0]
+    14/82: $3\set_mem_do_rinst[0:0]
+    15/82: $4\set_mem_do_wdata[0:0]
+    16/82: $12\next_irq_pending[1:1]
+    17/82: $11\next_irq_pending[1:1]
+    18/82: $10\next_irq_pending[1:1]
+    19/82: $4\set_mem_do_rdata[0:0]
+    20/82: $8\next_irq_pending[1:1]
+    21/82: $7\next_irq_pending[1:1]
+    22/82: $6\next_irq_pending[1:1]
+    23/82: $5\next_irq_pending[1:1]
+    24/82: $4\next_irq_pending[1:1]
+    25/82: $13\next_irq_pending[1:1]
+    26/82: $5\set_mem_do_rinst[0:0]
+    27/82: $9\next_irq_pending[1:1]
+    28/82: $3\next_irq_pending[31:0]
+    29/82: $3\current_pc[31:0]
+    30/82: $2\current_pc[31:0]
+    31/82: $2\set_mem_do_wdata[0:0]
+    32/82: $2\set_mem_do_rdata[0:0]
+    33/82: $2\set_mem_do_rinst[0:0]
+    34/82: $1\next_irq_pending[31:0]
+    35/82: $1\current_pc[31:0]
+    36/82: $1\set_mem_do_wdata[0:0]
+    37/82: $1\set_mem_do_rdata[0:0]
+    38/82: $1\set_mem_do_rinst[0:0]
+    39/82: $0\trace_data[35:0]
+    40/82: $0\count_cycle[63:0]
+    41/82: $0\pcpi_timeout[0:0]
+    42/82: $0\trace_valid[0:0]
+    43/82: $0\do_waitirq[0:0]
+    44/82: $0\decoder_pseudo_trigger[0:0]
+    45/82: $0\decoder_trigger[0:0]
+    46/82: $0\alu_wait_2[0:0]
+    47/82: $0\alu_wait[0:0]
+    48/82: $0\reg_out[31:0]
+    49/82: $0\reg_sh[4:0]
+    50/82: $0\trap[0:0]
+    51/82: $0\pcpi_timeout_counter[3:0]
+    52/82: $0\latched_rd[4:0]
+    53/82: $0\latched_is_lb[0:0]
+    54/82: $0\latched_is_lh[0:0]
+    55/82: $0\latched_is_lu[0:0]
+    56/82: $0\latched_trace[0:0]
+    57/82: $0\latched_compr[0:0]
+    58/82: $0\latched_branch[0:0]
+    59/82: $0\latched_stalu[0:0]
+    60/82: $0\latched_store[0:0]
+    61/82: $0\irq_state[1:0]
+    62/82: $0\cpu_state[7:0]
+    63/82: $0\dbg_rs2val_valid[0:0]
+    64/82: $0\dbg_rs1val_valid[0:0]
+    65/82: $0\dbg_rs2val[31:0]
+    66/82: $0\dbg_rs1val[31:0]
+    67/82: $0\mem_do_wdata[0:0]
+    68/82: $0\mem_do_rdata[0:0]
+    69/82: $0\mem_do_rinst[0:0]
+    70/82: $0\mem_do_prefetch[0:0]
+    71/82: $0\mem_wordsize[1:0]
+    72/82: $0\timer[31:0]
+    73/82: $0\irq_mask[31:0]
+    74/82: $0\irq_active[0:0]
+    75/82: $0\irq_delay[0:0]
+    76/82: $0\reg_op2[31:0]
+    77/82: $0\reg_op1[31:0]
+    78/82: $0\reg_next_pc[31:0]
+    79/82: $0\reg_pc[31:0]
+    80/82: $0\count_instr[63:0]
+    81/82: $0\eoi[31:0]
+    82/82: $0\pcpi_valid[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+     1/3: $1$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1362
+     2/3: $1$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1361
+     3/3: $1$memwr$\cpuregs$picorv32.sv:1341$896_ADDR[4:0]$1360
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1311$1342'.
+     1/4: $2\cpuregs_write[0:0]
+     2/4: $2\cpuregs_wrdata[31:0]
+     3/4: $1\cpuregs_wrdata[31:0]
+     4/4: $1\cpuregs_write[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1297$1337'.
+     1/2: $2\clear_prefetched_high_word[0:0]
+     2/2: $1\clear_prefetched_high_word[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1295$1336'.
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1251$1314'.
+     1/2: $1\alu_out[31:0]
+     2/2: $1\alu_out_0[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1188$1302'.
+     1/8: $8\dbg_ascii_state[127:0]
+     2/8: $7\dbg_ascii_state[127:0]
+     3/8: $6\dbg_ascii_state[127:0]
+     4/8: $5\dbg_ascii_state[127:0]
+     5/8: $4\dbg_ascii_state[127:0]
+     6/8: $3\dbg_ascii_state[127:0]
+     7/8: $2\dbg_ascii_state[127:0]
+     8/8: $1\dbg_ascii_state[127:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+     1/77: $0\decoded_rs1[4:0] [4]
+     2/77: $0\decoded_imm_j[31:0] [10]
+     3/77: $0\decoded_imm_j[31:0] [7]
+     4/77: $0\decoded_imm_j[31:0] [6]
+     5/77: $0\decoded_imm_j[31:0] [3:1]
+     6/77: $0\decoded_imm_j[31:0] [5]
+     7/77: $0\decoded_imm_j[31:0] [9:8]
+     8/77: $0\decoded_imm_j[31:0] [31:20]
+     9/77: $0\decoded_imm_j[31:0] [4]
+    10/77: $0\decoded_imm_j[31:0] [11]
+    11/77: $0\decoded_imm_j[31:0] [0]
+    12/77: $0\decoded_rs1[4:0] [3:0]
+    13/77: $0\is_lui_auipc_jal_jalr_addi_add_sub[0:0]
+    14/77: $0\is_alu_reg_reg[0:0]
+    15/77: $0\is_alu_reg_imm[0:0]
+    16/77: $0\is_beq_bne_blt_bge_bltu_bgeu[0:0]
+    17/77: $0\is_sll_srl_sra[0:0]
+    18/77: $0\is_sb_sh_sw[0:0]
+    19/77: $0\is_jalr_addi_slti_sltiu_xori_ori_andi[0:0]
+    20/77: $0\is_slli_srli_srai[0:0]
+    21/77: $0\is_lb_lh_lw_lbu_lhu[0:0]
+    22/77: $0\compressed_instr[0:0]
+    23/77: $0\is_compare[0:0]
+    24/77: $0\decoded_imm[31:0]
+    25/77: $0\decoded_rs2[4:0]
+    26/77: $0\decoded_imm_j[31:0] [19:12]
+    27/77: $0\decoded_rd[4:0]
+    28/77: $0\instr_timer[0:0]
+    29/77: $0\instr_waitirq[0:0]
+    30/77: $0\instr_maskirq[0:0]
+    31/77: $0\instr_retirq[0:0]
+    32/77: $0\instr_setq[0:0]
+    33/77: $0\instr_getq[0:0]
+    34/77: $0\instr_fence[0:0]
+    35/77: $0\instr_ecall_ebreak[0:0]
+    36/77: $0\instr_rdinstrh[0:0]
+    37/77: $0\instr_rdinstr[0:0]
+    38/77: $0\instr_rdcycleh[0:0]
+    39/77: $0\instr_rdcycle[0:0]
+    40/77: $0\instr_and[0:0]
+    41/77: $0\instr_or[0:0]
+    42/77: $0\instr_sra[0:0]
+    43/77: $0\instr_srl[0:0]
+    44/77: $0\instr_xor[0:0]
+    45/77: $0\instr_sltu[0:0]
+    46/77: $0\instr_slt[0:0]
+    47/77: $0\instr_sll[0:0]
+    48/77: $0\instr_sub[0:0]
+    49/77: $0\instr_add[0:0]
+    50/77: $0\instr_srai[0:0]
+    51/77: $0\instr_srli[0:0]
+    52/77: $0\instr_slli[0:0]
+    53/77: $0\instr_andi[0:0]
+    54/77: $0\instr_ori[0:0]
+    55/77: $0\instr_xori[0:0]
+    56/77: $0\instr_sltiu[0:0]
+    57/77: $0\instr_slti[0:0]
+    58/77: $0\instr_addi[0:0]
+    59/77: $0\instr_sw[0:0]
+    60/77: $0\instr_sh[0:0]
+    61/77: $0\instr_sb[0:0]
+    62/77: $0\instr_lhu[0:0]
+    63/77: $0\instr_lbu[0:0]
+    64/77: $0\instr_lw[0:0]
+    65/77: $0\instr_lh[0:0]
+    66/77: $0\instr_lb[0:0]
+    67/77: $0\instr_bgeu[0:0]
+    68/77: $0\instr_bltu[0:0]
+    69/77: $0\instr_bge[0:0]
+    70/77: $0\instr_blt[0:0]
+    71/77: $0\instr_bne[0:0]
+    72/77: $0\instr_beq[0:0]
+    73/77: $0\instr_jalr[0:0]
+    74/77: $0\instr_jal[0:0]
+    75/77: $0\instr_auipc[0:0]
+    76/77: $0\instr_lui[0:0]
+    77/77: $0\pcpi_insn[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+     1/13: $3\dbg_insn_opcode[31:0]
+     2/13: $2\dbg_insn_rd[4:0]
+     3/13: $2\dbg_insn_rs2[4:0]
+     4/13: $2\dbg_insn_rs1[4:0]
+     5/13: $2\dbg_insn_opcode[31:0]
+     6/13: $2\dbg_insn_imm[31:0]
+     7/13: $2\dbg_ascii_instr[63:0]
+     8/13: $1\dbg_insn_rd[4:0]
+     9/13: $1\dbg_insn_rs2[4:0]
+    10/13: $1\dbg_insn_rs1[4:0]
+    11/13: $1\dbg_insn_imm[31:0]
+    12/13: $1\dbg_ascii_instr[63:0]
+    13/13: $1\dbg_insn_opcode[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+     1/8: $0\cached_insn_rd[4:0]
+     2/8: $0\cached_insn_rs2[4:0]
+     3/8: $0\cached_insn_rs1[4:0]
+     4/8: $0\cached_insn_opcode[31:0]
+     5/8: $0\cached_insn_imm[31:0]
+     6/8: $0\cached_ascii_instr[63:0]
+     7/8: $0\dbg_valid_insn[0:0]
+     8/8: $0\dbg_insn_addr[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:703$1032'.
+     1/48: $48\new_ascii_instr[63:0]
+     2/48: $47\new_ascii_instr[63:0]
+     3/48: $46\new_ascii_instr[63:0]
+     4/48: $45\new_ascii_instr[63:0]
+     5/48: $44\new_ascii_instr[63:0]
+     6/48: $43\new_ascii_instr[63:0]
+     7/48: $42\new_ascii_instr[63:0]
+     8/48: $41\new_ascii_instr[63:0]
+     9/48: $40\new_ascii_instr[63:0]
+    10/48: $39\new_ascii_instr[63:0]
+    11/48: $38\new_ascii_instr[63:0]
+    12/48: $37\new_ascii_instr[63:0]
+    13/48: $36\new_ascii_instr[63:0]
+    14/48: $35\new_ascii_instr[63:0]
+    15/48: $34\new_ascii_instr[63:0]
+    16/48: $33\new_ascii_instr[63:0]
+    17/48: $32\new_ascii_instr[63:0]
+    18/48: $31\new_ascii_instr[63:0]
+    19/48: $30\new_ascii_instr[63:0]
+    20/48: $29\new_ascii_instr[63:0]
+    21/48: $28\new_ascii_instr[63:0]
+    22/48: $27\new_ascii_instr[63:0]
+    23/48: $26\new_ascii_instr[63:0]
+    24/48: $25\new_ascii_instr[63:0]
+    25/48: $24\new_ascii_instr[63:0]
+    26/48: $23\new_ascii_instr[63:0]
+    27/48: $22\new_ascii_instr[63:0]
+    28/48: $21\new_ascii_instr[63:0]
+    29/48: $20\new_ascii_instr[63:0]
+    30/48: $19\new_ascii_instr[63:0]
+    31/48: $18\new_ascii_instr[63:0]
+    32/48: $17\new_ascii_instr[63:0]
+    33/48: $16\new_ascii_instr[63:0]
+    34/48: $15\new_ascii_instr[63:0]
+    35/48: $14\new_ascii_instr[63:0]
+    36/48: $13\new_ascii_instr[63:0]
+    37/48: $12\new_ascii_instr[63:0]
+    38/48: $11\new_ascii_instr[63:0]
+    39/48: $10\new_ascii_instr[63:0]
+    40/48: $9\new_ascii_instr[63:0]
+    41/48: $8\new_ascii_instr[63:0]
+    42/48: $7\new_ascii_instr[63:0]
+    43/48: $6\new_ascii_instr[63:0]
+    44/48: $5\new_ascii_instr[63:0]
+    45/48: $4\new_ascii_instr[63:0]
+    46/48: $3\new_ascii_instr[63:0]
+    47/48: $2\new_ascii_instr[63:0]
+    48/48: $1\new_ascii_instr[63:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+     1/9: $0\mem_16bit_buffer[15:0]
+     2/9: $0\prefetched_high_word[0:0]
+     3/9: $0\mem_la_secondword[0:0]
+     4/9: $0\mem_state[1:0]
+     5/9: $0\mem_wstrb[3:0]
+     6/9: $0\mem_wdata[31:0]
+     7/9: $0\mem_addr[31:0]
+     8/9: $0\mem_instr[0:0]
+     9/9: $0\mem_valid[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:432$979'.
+     1/9: $0\mem_rdata_q[31:0] [31]
+     2/9: $0\mem_rdata_q[31:0] [7]
+     3/9: $0\mem_rdata_q[31:0] [24:20]
+     4/9: $0\mem_rdata_q[31:0] [19:15]
+     5/9: $0\mem_rdata_q[31:0] [6:0]
+     6/9: $0\mem_rdata_q[31:0] [14:12]
+     7/9: $0\mem_rdata_q[31:0] [11:8]
+     8/9: $0\mem_rdata_q[31:0] [30:25]
+     9/9: $0\next_insn_opcode[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+     1/5: $3\mem_rdata_word[31:0]
+     2/5: $2\mem_rdata_word[31:0]
+     3/5: $1\mem_rdata_word[31:0]
+     4/5: $1\mem_la_wstrb[3:0]
+     5/5: $1\mem_la_wdata[31:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:392$971'.
+     1/2: $0\last_mem_valid[0:0]
+     2/2: $0\mem_la_firstword_reg[0:0]
+Creating decoders for process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+     1/2: $1\pcpi_int_rd[31:0]
+     2/2: $1\pcpi_int_wr[0:0]
+Creating decoders for process `\testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:29$892'.
+Creating decoders for process `\testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:22$889'.
+     1/1: $0\rvfi_order_loopback[0:0]
+Creating decoders for process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+     1/9: $0\pcpi_rd[31:0]
+     2/9: $0\pcpi_wr[0:0]
+     3/9: $0\pcpi_ready[0:0]
+     4/9: $0\outsign[0:0]
+     5/9: $0\running[0:0]
+     6/9: $0\quotient_msk[31:0]
+     7/9: $0\quotient[31:0]
+     8/9: $0\divisor[62:0]
+     9/9: $0\dividend[31:0]
+Creating decoders for process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+     1/4: $0\instr_remu[0:0]
+     2/4: $0\instr_rem[0:0]
+     3/4: $0\instr_divu[0:0]
+     4/4: $0\instr_div[0:0]
+Creating decoders for process `\rvfi_insn_check.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv:63$24'.
+     1/2: \o_pc_wdata_match_EN
+     2/2: \o_rd_wdata_match_EN
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\picorv32_pcpi_fast_mul.\instr_mul' from process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+No latch inferred for signal `\picorv32_pcpi_fast_mul.\instr_mulh' from process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+No latch inferred for signal `\picorv32_pcpi_fast_mul.\instr_mulhsu' from process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+No latch inferred for signal `\picorv32_pcpi_fast_mul.\instr_mulhu' from process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_add_sub' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_shl' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_shr' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_eq' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_ltu' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_lts' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_pc_wdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_mcycle_rmask' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_mcycle_wmask' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_mcycle_rdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_mcycle_wdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_minstret_rmask' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_minstret_wmask' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_minstret_rdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_csr_minstret_wdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cpuregs_rs1' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cpuregs_rs2' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_rs' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cpuregs_write' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1311$1342'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cpuregs_wrdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1311$1342'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\clear_prefetched_high_word' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1297$1337'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_out' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1251$1314'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_out_0' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1251$1314'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_ascii_state' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1188$1302'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_opcode' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_ascii_instr' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_imm' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_rs1' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_rs2' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_rd' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\new_ascii_instr' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:703$1032'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_la_wdata' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_la_wstrb' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_rdata_word' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_int_wr' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_int_rd' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_int_wait' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+No latch inferred for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_int_ready' from process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\picorv32_pcpi_fast_mul.\rs1' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+  created $dff cell `$procdff$4792' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\rs2' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+  created $dff cell `$procdff$4793' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\shift_out' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+  created $dff cell `$procdff$4794' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\active' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+  created $dff cell `$procdff$4795' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\rd' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+  created $dff cell `$procdff$4796' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\rs1_q' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+  created $dff cell `$procdff$4797' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\rs2_q' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+  created $dff cell `$procdff$4798' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\rd_q' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+  created $dff cell `$procdff$4799' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_fast_mul.\pcpi_insn_valid_q' using process `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+  created $dff cell `$procdff$4800' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4801' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_insn' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4802' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_pc_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4803' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rs1_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4804' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rs2_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4805' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mem_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4806' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_order' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4807' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_trap' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4808' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_halt' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4809' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_intr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4810' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mode' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4811' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_ixl' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4812' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rs1_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4813' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rs2_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4814' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rd_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4815' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_rd_wdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4816' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mem_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4817' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mem_rmask' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4818' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mem_wmask' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4819' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\rvfi_mem_wdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4820' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_irq_call' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4821' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_irq_enter' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4822' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_irq_ret' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+  created $dff cell `$procdff$4823' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\trap' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4824' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4825' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\eoi' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4826' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\trace_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4827' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\trace_data' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4828' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\count_cycle' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4829' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\count_instr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4830' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_pc' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4831' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_next_pc' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4832' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_op1' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4833' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_op2' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4834' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_out' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4835' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\reg_sh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4836' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\irq_delay' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4837' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\irq_active' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4838' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\irq_mask' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4839' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\irq_pending' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4840' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\timer' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4841' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_wordsize' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4842' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_do_prefetch' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4843' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_do_rinst' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4844' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_do_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4845' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_do_wdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4846' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoder_trigger' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4847' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoder_trigger_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4848' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoder_pseudo_trigger' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4849' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoder_pseudo_trigger_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4850' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_rs1val' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4851' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_rs2val' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4852' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_rs1val_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4853' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_rs2val_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4854' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cpu_state' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4855' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\irq_state' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4856' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\set_mem_do_rinst' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4857' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\set_mem_do_rdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4858' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\set_mem_do_wdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4859' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_store' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4860' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_stalu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4861' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_branch' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4862' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_compr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4863' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_trace' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4864' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_is_lu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4865' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_is_lh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4866' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_is_lb' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4867' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\latched_rd' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4868' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\current_pc' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4869' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_timeout_counter' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4870' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_timeout' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4871' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\next_irq_pending' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4872' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\do_waitirq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4873' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_out_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4874' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_out_0_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4875' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_wait' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4876' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\alu_wait_2' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+  created $dff cell `$procdff$4877' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$memwr$\cpuregs$picorv32.sv:1341$896_ADDR' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+  created $dff cell `$procdff$4878' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$memwr$\cpuregs$picorv32.sv:1341$896_DATA' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+  created $dff cell `$procdff$4879' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$memwr$\cpuregs$picorv32.sv:1341$896_EN' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+  created $dff cell `$procdff$4880' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\clear_prefetched_high_word_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1295$1336'.
+  created $dff cell `$procdff$4881' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\pcpi_insn' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4882' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lui' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4883' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_auipc' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4884' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_jal' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4885' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_jalr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4886' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_beq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4887' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_bne' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4888' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_blt' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4889' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_bge' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4890' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_bltu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4891' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_bgeu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4892' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lb' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4893' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4894' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lw' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4895' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lbu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4896' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_lhu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4897' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sb' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4898' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4899' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sw' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4900' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_addi' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4901' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_slti' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4902' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sltiu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4903' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_xori' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4904' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_ori' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4905' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_andi' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4906' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_slli' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4907' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_srli' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4908' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_srai' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4909' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_add' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4910' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sub' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4911' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sll' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4912' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_slt' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4913' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sltu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4914' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_xor' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4915' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_srl' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4916' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_sra' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4917' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_or' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4918' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_and' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4919' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_rdcycle' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4920' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_rdcycleh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4921' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_rdinstr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4922' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_rdinstrh' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4923' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_ecall_ebreak' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4924' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_fence' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4925' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_getq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4926' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_setq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4927' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_retirq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4928' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_maskirq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4929' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_waitirq' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4930' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\instr_timer' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4931' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_rd' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4932' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_rs1' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4933' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_rs2' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4934' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_imm' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4935' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\decoded_imm_j' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4936' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\compressed_instr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4937' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_lui_auipc_jal' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4938' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_lb_lh_lw_lbu_lhu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4939' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_slli_srli_srai' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4940' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_jalr_addi_slti_sltiu_xori_ori_andi' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4941' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_sb_sh_sw' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4942' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_sll_srl_sra' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4943' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_lui_auipc_jal_jalr_addi_add_sub' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4944' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_slti_blt_slt' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4945' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_sltiu_bltu_sltu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4946' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_beq_bne_blt_bge_bltu_bgeu' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4947' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_lbu_lhu_lw' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4948' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_alu_reg_imm' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4949' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_alu_reg_reg' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4950' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\is_compare' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+  created $dff cell `$procdff$4951' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_insn_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4952' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_ascii_instr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4953' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_insn_imm' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4954' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_insn_opcode' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4955' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_insn_rs1' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4956' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_insn_rs2' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4957' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\q_insn_rd' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4958' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_next' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4959' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\dbg_valid_insn' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4960' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_ascii_instr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4961' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_insn_imm' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4962' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_insn_opcode' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4963' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_insn_rs1' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4964' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_insn_rs2' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4965' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\cached_insn_rd' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+  created $dff cell `$procdff$4966' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4967' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_instr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4968' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_addr' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4969' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_wdata' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4970' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_wstrb' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4971' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_state' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4972' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_la_secondword' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4973' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\prefetched_high_word' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4974' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_16bit_buffer' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+  created $dff cell `$procdff$4975' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\next_insn_opcode' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:432$979'.
+  created $dff cell `$procdff$4976' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_rdata_q' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:432$979'.
+  created $dff cell `$procdff$4977' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\mem_la_firstword_reg' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:392$971'.
+  created $dff cell `$procdff$4978' with positive edge clock.
+Creating register for signal `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.\last_mem_valid' using process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:392$971'.
+  created $dff cell `$procdff$4979' with positive edge clock.
+Creating register for signal `\testbench.\rvfi_order_loopback' using process `\testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:22$889'.
+  created $dff cell `$procdff$4980' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\pcpi_wr' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4981' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\pcpi_rd' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4982' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\pcpi_ready' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4983' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\dividend' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4984' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\divisor' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4985' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\quotient' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4986' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\quotient_msk' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4987' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\running' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4988' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\outsign' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+  created $dff cell `$procdff$4989' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\pcpi_wait' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4990' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\pcpi_wait_q' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4991' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\instr_div' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4992' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\instr_divu' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4993' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\instr_rem' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4994' with positive edge clock.
+Creating register for signal `\picorv32_pcpi_div.\instr_remu' using process `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+  created $dff cell `$procdff$4995' with positive edge clock.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+Removing empty process `picorv32_pcpi_fast_mul.$proc$picorv32.sv:2362$825'.
+Found and cleaned up 3 empty switches in `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+Removing empty process `picorv32_pcpi_fast_mul.$proc$picorv32.sv:2348$820'.
+Found and cleaned up 2 empty switches in `\picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+Removing empty process `picorv32_pcpi_fast_mul.$proc$picorv32.sv:2332$818'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1241$1588'.
+Found and cleaned up 5 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:2052$1578'.
+Found and cleaned up 10 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1977$1554'.
+Found and cleaned up 58 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1398$1379'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1344$1363'.
+Found and cleaned up 1 empty switch in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1339$1354'.
+Found and cleaned up 2 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1311$1342'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1311$1342'.
+Found and cleaned up 2 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1297$1337'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1297$1337'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1295$1336'.
+Found and cleaned up 2 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1251$1314'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1251$1314'.
+Found and cleaned up 8 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1188$1302'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:1188$1302'.
+Found and cleaned up 22 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:860$1039'.
+Found and cleaned up 3 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:811$1037'.
+Found and cleaned up 5 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:780$1033'.
+Found and cleaned up 48 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:703$1032'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:703$1032'.
+Found and cleaned up 16 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:567$1008'.
+Found and cleaned up 19 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:432$979'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:432$979'.
+Found and cleaned up 3 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:403$976'.
+Found and cleaned up 2 empty switches in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:392$971'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:392$971'.
+Found and cleaned up 1 empty switch in `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+Removing empty process `$paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.$proc$picorv32.sv:327$897'.
+Removing empty process `testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:29$892'.
+Found and cleaned up 2 empty switches in `\testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:22$889'.
+Removing empty process `testbench.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:22$889'.
+Found and cleaned up 5 empty switches in `\picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+Removing empty process `picorv32_pcpi_div.$proc$picorv32.sv:2448$855'.
+Found and cleaned up 2 empty switches in `\picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+Removing empty process `picorv32_pcpi_div.$proc$picorv32.sv:2422$845'.
+Found and cleaned up 3 empty switches in `\rvfi_insn_check.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv:63$24'.
+Removing empty process `rvfi_insn_check.$proc$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/rvfi_insn_check.sv:63$24'.
+Cleaned up 228 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picorv32_pcpi_fast_mul.
+<suppressed ~16 debug messages>
+Optimizing module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+<suppressed ~770 debug messages>
+Optimizing module testbench.
+Optimizing module picorv32_pcpi_div.
+<suppressed ~20 debug messages>
+Optimizing module rvfi_wrapper.
+Optimizing module rvfi_insn_check.
+<suppressed ~11 debug messages>
+Optimizing module rvfi_insn_sra.
+<suppressed ~5 debug messages>
+
+6.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module picorv32_pcpi_fast_mul.
+Deleting now unused module $paramod$bb8b7f8791dcdc7f781292540a675f5b60213c57\picorv32.
+Deleting now unused module picorv32_pcpi_div.
+Deleting now unused module rvfi_wrapper.
+Deleting now unused module rvfi_insn_check.
+Deleting now unused module rvfi_insn_sra.
+<suppressed ~6 debug messages>
+
+6.4. Executing FUTURE pass.
+
+6.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+<suppressed ~119 debug messages>
+
+6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 227 unused cells and 2171 unused wires.
+<suppressed ~493 debug messages>
+
+6.7. Executing CHECK pass (checking for obvious problems).
+Checking module testbench...
+Found and reported 0 problems.
+
+6.8. Executing OPT pass (performing simple optimizations).
+
+6.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+
+6.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+<suppressed ~1221 debug messages>
+Removed a total of 407 cells.
+
+6.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\wrapper.\uut.$procmux$4660: { \wrapper.uut.genblk1.pcpi_mul.active [1] \wrapper.uut.genblk2.pcpi_div.pcpi_wr } -> { 1'1 \wrapper.uut.genblk2.pcpi_div.pcpi_wr }
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1673.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1679.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1685.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1691.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1697.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1703.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1709.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1715.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1818.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1828.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1830.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1836.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1843.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1845.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1851.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1872.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1875.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1887.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1894.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1897.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1921.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1924.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1933.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1936.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1944.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$1946.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$1949.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$2010.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$2012.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$2015.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$2178.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$2183.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$2186.
+    dead port 1/3 on $pmux $flatten\wrapper.\uut.$procmux$2245.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$2277.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$2290.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$2303.
+    dead port 1/8 on $pmux $flatten\wrapper.\uut.$procmux$2534.
+    dead port 2/8 on $pmux $flatten\wrapper.\uut.$procmux$2534.
+    dead port 3/8 on $pmux $flatten\wrapper.\uut.$procmux$2534.
+    dead port 4/8 on $pmux $flatten\wrapper.\uut.$procmux$2534.
+    dead port 5/8 on $pmux $flatten\wrapper.\uut.$procmux$2534.
+    dead port 2/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 4/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 5/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 6/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 7/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 8/11 on $pmux $flatten\wrapper.\uut.$procmux$2578.
+    dead port 1/8 on $pmux $flatten\wrapper.\uut.$procmux$2785.
+    dead port 2/8 on $pmux $flatten\wrapper.\uut.$procmux$2785.
+    dead port 3/8 on $pmux $flatten\wrapper.\uut.$procmux$2785.
+    dead port 4/8 on $pmux $flatten\wrapper.\uut.$procmux$2785.
+    dead port 5/8 on $pmux $flatten\wrapper.\uut.$procmux$2785.
+    dead port 1/4 on $pmux $flatten\wrapper.\uut.$procmux$2853.
+    dead port 1/3 on $pmux $flatten\wrapper.\uut.$procmux$2868.
+    dead port 2/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 4/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 5/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 6/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 7/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 8/12 on $pmux $flatten\wrapper.\uut.$procmux$2872.
+    dead port 2/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 4/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 5/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 6/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 7/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 8/11 on $pmux $flatten\wrapper.\uut.$procmux$2942.
+    dead port 2/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 4/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 5/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 6/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 7/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 8/11 on $pmux $flatten\wrapper.\uut.$procmux$2992.
+    dead port 1/4 on $pmux $flatten\wrapper.\uut.$procmux$3056.
+    dead port 1/3 on $pmux $flatten\wrapper.\uut.$procmux$3068.
+    dead port 2/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 4/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 5/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 6/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 7/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 8/12 on $pmux $flatten\wrapper.\uut.$procmux$3072.
+    dead port 2/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 4/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 5/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 6/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 7/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 8/11 on $pmux $flatten\wrapper.\uut.$procmux$3258.
+    dead port 1/8 on $pmux $flatten\wrapper.\uut.$procmux$3310.
+    dead port 2/8 on $pmux $flatten\wrapper.\uut.$procmux$3310.
+    dead port 3/8 on $pmux $flatten\wrapper.\uut.$procmux$3310.
+    dead port 4/8 on $pmux $flatten\wrapper.\uut.$procmux$3310.
+    dead port 5/8 on $pmux $flatten\wrapper.\uut.$procmux$3310.
+    dead port 1/5 on $pmux $flatten\wrapper.\uut.$procmux$3455.
+    dead port 2/5 on $pmux $flatten\wrapper.\uut.$procmux$3455.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$3460.
+    dead port 1/5 on $pmux $flatten\wrapper.\uut.$procmux$3464.
+    dead port 2/5 on $pmux $flatten\wrapper.\uut.$procmux$3464.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$3469.
+    dead port 1/2 on $mux $flatten\wrapper.\uut.$procmux$4047.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4049.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4055.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4061.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4067.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4073.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4079.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4085.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4622.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.$procmux$4629.
+    dead port 3/4 on $pmux $flatten\wrapper.\uut.$procmux$4655.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1634.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1640.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1647.
+    dead port 2/2 on $mux $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1655.
+Removed 113 multiplexer ports.
+<suppressed ~1314 debug messages>
+
+6.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \testbench.
+    New input vector for $reduce_or cell $flatten\wrapper.\uut.$reduce_or$picorv32.sv:331$905: { \wrapper.uut.genblk2.pcpi_div.pcpi_ready \wrapper.uut.genblk1.pcpi_mul.active [1] }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$1729: $auto$opt_reduce.cc:137:opt_pmux$5020
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$1732: $auto$opt_reduce.cc:137:opt_pmux$5022
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2267: { $flatten\wrapper.\uut.$eq$picorv32.sv:1196$1309_Y $auto$opt_reduce.cc:137:opt_pmux$5024 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2280: { $auto$opt_reduce.cc:137:opt_pmux$5026 $flatten\wrapper.\uut.$eq$picorv32.sv:1197$1310_Y }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2293: { $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y $auto$opt_reduce.cc:137:opt_pmux$5028 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2514: { $flatten\wrapper.\uut.$eq$picorv32.sv:1192$1305_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1193$1306_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1195$1308_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1197$1310_Y }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2578: $auto$opt_reduce.cc:137:opt_pmux$5030
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2622: { $flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2719: { $flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2762: { $flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1192$1305_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1193$1306_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y $auto$opt_reduce.cc:137:opt_pmux$5032 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2872: { \wrapper.uut.instr_trap \wrapper.uut.is_rdcycle_rdcycleh_rdinstr_rdinstrh $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y $auto$opt_reduce.cc:137:opt_pmux$5034 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2942: $auto$opt_reduce.cc:137:opt_pmux$5036
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2974: $auto$opt_reduce.cc:137:opt_pmux$5038
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2992: $auto$opt_reduce.cc:137:opt_pmux$5040
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3024: $auto$opt_reduce.cc:137:opt_pmux$5042
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3046: { $flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1192$1305_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1193$1306_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1195$1308_Y }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3072: { \wrapper.uut.instr_trap \wrapper.uut.is_rdcycle_rdcycleh_rdinstr_rdinstrh $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y $auto$opt_reduce.cc:137:opt_pmux$5044 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3258: { \wrapper.uut.is_lui_auipc_jal $auto$opt_reduce.cc:137:opt_pmux$5046 $flatten\wrapper.\uut.$procmux$2579_CTRL }
+    Consolidated identical input bits for $mux cell $flatten\wrapper.\uut.$procmux$3445:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357
+      New ports: A=1'0, B=1'1, Y=$flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0]
+      New connections: $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [31:1] = { $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_EN[31:0]$1357 [0] }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3455: $auto$opt_reduce.cc:137:opt_pmux$5048
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3545: { $flatten\wrapper.\uut.$procmux$3542_CMP $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5050 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3563: $auto$opt_reduce.cc:137:opt_pmux$5052
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3631: { $flatten\wrapper.\uut.$procmux$3542_CMP $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5054 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3649: { $flatten\wrapper.\uut.$procmux$3542_CMP $auto$opt_reduce.cc:137:opt_pmux$5056 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3697: { $auto$opt_reduce.cc:137:opt_pmux$5058 $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3718: $auto$opt_reduce.cc:137:opt_pmux$5060
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3839: { $flatten\wrapper.\uut.$procmux$3847_CMP $auto$opt_reduce.cc:137:opt_pmux$5062 $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3851: $auto$opt_reduce.cc:137:opt_pmux$5064
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4011: $auto$opt_reduce.cc:137:opt_pmux$5066
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4401: { $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5068 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4416: { $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5070 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4434: $auto$opt_reduce.cc:137:opt_pmux$5072
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4447: $auto$opt_reduce.cc:137:opt_pmux$5074
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4472: { $auto$opt_reduce.cc:137:opt_pmux$5076 $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4507: { $flatten\wrapper.\uut.$procmux$3542_CMP $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5078 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4522: { $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5080 $flatten\wrapper.\uut.$procmux$3546_CMP }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4549: { $flatten\wrapper.\uut.$procmux$3542_CMP $auto$opt_reduce.cc:137:opt_pmux$5082 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4562: $auto$opt_reduce.cc:137:opt_pmux$5084
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4588: { $auto$opt_reduce.cc:137:opt_pmux$5088 $flatten\wrapper.\uut.$procmux$3560_CMP $flatten\wrapper.\uut.$procmux$3538_CMP $auto$opt_reduce.cc:137:opt_pmux$5086 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4607: { $flatten\wrapper.\uut.$procmux$3542_CMP $auto$opt_reduce.cc:137:opt_pmux$5090 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5029: { $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi \wrapper.uut.is_slli_srli_srai \wrapper.uut.is_lui_auipc_jal \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5033: { \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi \wrapper.uut.is_slli_srli_srai \wrapper.uut.is_lui_auipc_jal }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5035: { $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi \wrapper.uut.is_slli_srli_srai \wrapper.uut.is_lui_auipc_jal \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5037: { \wrapper.uut.is_lui_auipc_jal \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5039: { $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi \wrapper.uut.is_slli_srli_srai \wrapper.uut.is_lui_auipc_jal \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5041: { \wrapper.uut.is_lui_auipc_jal \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5043: { \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi \wrapper.uut.is_slli_srli_srai \wrapper.uut.is_lui_auipc_jal }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$5045: { $flatten\wrapper.\uut.$logic_and$picorv32.sv:1692$1464_Y \wrapper.uut.instr_rdinstrh \wrapper.uut.instr_rdinstr \wrapper.uut.instr_rdcycleh \wrapper.uut.instr_rdcycle }
+  Optimizing cells in module \testbench.
+Performed a total of 54 changes.
+
+6.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+<suppressed ~141 debug messages>
+Removed a total of 47 cells.
+
+6.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 12 unused cells and 522 unused wires.
+<suppressed ~16 debug messages>
+
+6.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+
+6.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1205 debug messages>
+
+6.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \testbench.
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2384: $auto$opt_reduce.cc:137:opt_pmux$5092
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2401: { $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y $auto$opt_reduce.cc:137:opt_pmux$5094 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$2831: { $flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1192$1305_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1193$1306_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307_Y $flatten\wrapper.\uut.$eq$picorv32.sv:1195$1308_Y $auto$opt_reduce.cc:137:opt_pmux$5096 }
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3419: $auto$opt_reduce.cc:137:opt_pmux$5098
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$3733: $auto$opt_reduce.cc:137:opt_pmux$5100
+    New ctrl vector for $pmux cell $flatten\wrapper.\uut.$procmux$4445: { $flatten\wrapper.\uut.$procmux$3562_CMP $auto$opt_reduce.cc:137:opt_pmux$5102 }
+  Optimizing cells in module \testbench.
+Performed a total of 6 changes.
+
+6.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+6.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+6.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+
+6.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \testbench..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1189 debug messages>
+
+6.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \testbench.
+Performed a total of 0 changes.
+
+6.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+6.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+
+6.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+
+6.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+6.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 29 bits (of 32) from port B of cell testbench.$flatten\checker_inst.\insn_spec.$add$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v:54$14 ($add).
+Removed top 1 bits (of 6) from port B of cell testbench.$flatten\checker_inst.\insn_spec.$sshr$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v:48$3 ($sshr).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\checker_inst.\insn_spec.$eq$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v:49$6 ($eq).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\checker_inst.\insn_spec.$eq$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/insn_sra.v:49$10 ($eq).
+Removed top 3 bits (of 4) from port A of cell testbench.$flatten\wrapper.\uut.$shl$picorv32.sv:421$978 ($shl).
+Removed top 3 bits (of 5) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:467$983 ($eq).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:480$985 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:488$987 ($eq).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:490$989 ($eq).
+Removed top 1 bits (of 7) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:493$993 ($mux).
+Removed top 30 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:619$1028 ($mux).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:869$1047 ($eq).
+Removed top 2 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:870$1048 ($eq).
+Removed top 5 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:877$1062 ($eq).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:878$1063 ($eq).
+Removed top 2 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:879$1064 ($eq).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:880$1065 ($eq).
+Removed top 28 bits (of 32) from port A of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:910$1078 ($add).
+Removed top 27 bits (of 32) from port Y of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:910$1078 ($add).
+Removed top 28 bits (of 32) from port A of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:914$1079 ($add).
+Removed top 27 bits (of 32) from port Y of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:914$1079 ($add).
+Removed top 2 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1043$1121 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1051$1135 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1061$1151 ($eq).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1068$1169 ($eq).
+Removed top 3 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1090$1245 ($eq).
+Removed top 1 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1191$1304 ($eq).
+Removed top 2 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1192$1305 ($eq).
+Removed top 3 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1193$1306 ($eq).
+Removed top 4 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1194$1307 ($eq).
+Removed top 5 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1195$1308 ($eq).
+Removed top 6 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1196$1309 ($eq).
+Removed top 7 bits (of 8) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1197$1310 ($eq).
+Removed top 29 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1319$1344 ($mux).
+Removed top 29 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:1319$1345 ($add).
+Removed top 31 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1422$1384 ($sub).
+Removed top 28 bits (of 32) from port Y of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1422$1384 ($sub).
+Removed top 31 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:1429$1386 ($add).
+Removed top 29 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1556$1437 ($mux).
+Removed top 29 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:1556$1438 ($add).
+Removed top 31 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$add$picorv32.sv:1560$1439 ($add).
+Removed top 29 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$ge$picorv32.sv:1831$1493 ($ge).
+Removed top 29 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1838$1501 ($sub).
+Removed top 27 bits (of 32) from port Y of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1838$1501 ($sub).
+Removed top 31 bits (of 32) from port B of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1846$1508 ($sub).
+Removed top 27 bits (of 32) from port Y of cell testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1846$1508 ($sub).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:1926$1533 ($eq).
+Removed top 27 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1982$1562 ($mux).
+Removed top 27 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1983$1564 ($mux).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$eq$picorv32.sv:2001$1568 ($eq).
+Removed top 28 bits (of 32) from mux cell testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:2044$1577 ($mux).
+Removed top 1 bits (of 33) from port Y of cell testbench.$flatten\wrapper.\uut.$sshr$picorv32.sv:1247$1598 ($sshr).
+Removed top 32 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$1683 ($mux).
+Removed top 32 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$1689 ($mux).
+Removed top 32 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$1707 ($mux).
+Removed top 32 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$1713 ($mux).
+Removed top 5 bits (of 24) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$1730_CMP0 ($eq).
+Removed top 13 bits (of 17) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$1731_CMP0 ($eq).
+Removed top 6 bits (of 17) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$1795_CMP0 ($eq).
+Removed top 2 bits (of 6) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4601 ($mux).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$4620_CMP0 ($eq).
+Removed top 4 bits (of 8) from mux cell testbench.$flatten\wrapper.\uut.$procmux$2868 ($mux).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$4286_CMP0 ($eq).
+Removed top 41 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4269 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4266 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4263 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4260 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4257 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4254 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4251 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4248 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4245 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4242 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4239 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4236 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4233 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4230 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4227 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4224 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4221 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4218 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4215 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4212 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4209 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4206 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4203 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4200 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4197 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4194 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4191 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4188 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4185 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4182 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4179 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4176 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4173 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4170 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4167 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4164 ($mux).
+Removed top 25 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4161 ($mux).
+Removed top 9 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4158 ($mux).
+Removed top 97 bits (of 128) from mux cell testbench.$flatten\wrapper.\uut.$procmux$3522 ($mux).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$3560_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$3562_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$3565_CMP0 ($eq).
+Removed top 2 bits (of 4) from mux cell testbench.$flatten\wrapper.\uut.$procmux$3623 ($mux).
+Removed top 2 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.$procmux$3847_CMP0 ($eq).
+Removed top 1 bits (of 64) from mux cell testbench.$flatten\wrapper.\uut.$procmux$4155 ($mux).
+Removed top 2 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1654_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1646_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1639_CMP0 ($eq).
+Removed top 1 bits (of 4) from FF cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procdff$4795 ($dff).
+Removed top 1 bits (of 3) from mux cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1600 ($mux).
+Removed top 6 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$eq$picorv32.sv:2329$816 ($eq).
+Removed top 1 bits (of 7) from port B of cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$eq$picorv32.sv:2329$814 ($eq).
+Removed top 1 bits (of 3) from FF cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procdff$4795 ($dff).
+Removed top 1 bits (of 2) from mux cell testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1600 ($mux).
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$10\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$11\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$12\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$13\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$14\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$15\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$16\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$17\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$18\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$19\new_ascii_instr[63:0].
+Removed top 97 bits (of 128) from wire testbench.$flatten\wrapper.\uut.$1\dbg_ascii_state[127:0].
+Removed top 41 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$1\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$20\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$21\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$22\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$23\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$24\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$25\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$26\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$27\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$28\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$29\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$2\new_ascii_instr[63:0].
+Removed top 32 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$2\rvfi_csr_mcycle_rdata[63:0].
+Removed top 36 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$2\rvfi_csr_mcycle_rmask[63:0].
+Removed top 32 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$2\rvfi_csr_minstret_rdata[63:0].
+Removed top 38 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$2\rvfi_csr_minstret_rmask[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$30\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$31\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$32\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$33\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$34\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$35\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$36\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$37\new_ascii_instr[63:0].
+Removed top 9 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$38\new_ascii_instr[63:0].
+Removed top 1 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$39\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$3\new_ascii_instr[63:0].
+Removed top 5 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$3\rvfi_csr_mcycle_rdata[63:0].
+Removed top 21 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$3\rvfi_csr_mcycle_rmask[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$4\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$5\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$6\new_ascii_instr[63:0].
+Removed top 25 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$7\new_ascii_instr[63:0].
+Removed top 37 bits (of 64) from wire testbench.$flatten\wrapper.\uut.$8\new_ascii_instr[63:0].
+Removed top 27 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$add$picorv32.sv:910$1078_Y.
+Removed top 27 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$add$picorv32.sv:914$1079_Y.
+Removed top 4 bits (of 8) from wire testbench.$flatten\wrapper.\uut.$procmux$2868_Y.
+Removed top 2 bits (of 4) from wire testbench.$flatten\wrapper.\uut.$procmux$3623_Y.
+Removed top 28 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1422$1384_Y.
+Removed top 27 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1838$1501_Y.
+Removed top 27 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$sub$picorv32.sv:1846$1508_Y.
+Removed top 29 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1319$1344_Y.
+Removed top 29 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1556$1437_Y.
+Removed top 27 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:1982$1562_Y.
+Removed top 30 bits (of 32) from wire testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:2044$1577_Y.
+Removed top 1 bits (of 7) from wire testbench.$flatten\wrapper.\uut.$ternary$picorv32.sv:493$993_Y.
+Removed top 2 bits (of 4) from wire testbench.$flatten\wrapper.\uut.\genblk1.pcpi_mul.$0\active[3:0].
+
+6.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 60 unused wires.
+<suppressed ~1 debug messages>
+
+6.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.12. Executing OPT pass (performing simple optimizations).
+
+6.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+
+6.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+6.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+
+6.12.4. Finished fast OPT passes.
+
+6.13. Printing statistics.
+
+=== testbench ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1433 wires
+    17588 wire bits
+      416 public wires
+     6849 public wire bits
+        3 ports
+        3 port bits
+     1280 cells
+       13   $add
+        2   $and
+        2   $anyseq
+        3   $check
+      171   $dff
+       84   $eq
+        1   $ge
+      130   $logic_and
+       45   $logic_not
+       34   $logic_or
+        2   $lt
+        1   $mem_v2
+      634   $mux
+        1   $ne
+       10   $not
+        1   $or
+       80   $pmux
+        4   $reduce_and
+       11   $reduce_bool
+       36   $reduce_or
+        6   $scopeinfo
+        2   $shl
+        2   $sshr
+        4   $sub
+        1   $xor
+
+6.14. Executing CHECK pass (checking for obvious problems).
+Checking module testbench...
+Found and reported 0 problems.
+
+7. Executing MEMORY pass.
+
+7.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing testbench.wrapper.uut.cpuregs write port 0.
+
+7.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\wrapper.uut.cpuregs'[0] in module `\testbench': no output FF found.
+Checking read port `\wrapper.uut.cpuregs'[1] in module `\testbench': no output FF found.
+Checking read port address `\wrapper.uut.cpuregs'[0] in module `\testbench': merged address FF to cell.
+Checking read port address `\wrapper.uut.cpuregs'[1] in module `\testbench': merged address FF to cell.
+
+7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+
+7.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory testbench.wrapper.uut.cpuregs by address:
+
+7.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+
+7.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \wrapper.uut.cpuregs in module \testbench:
+  created 32 $dff cells and 0 static cells of width 32.
+Extracted addr FF from read port 0 of testbench.wrapper.uut.cpuregs: $\wrapper.uut.cpuregs$rdreg[0]
+Extracted addr FF from read port 1 of testbench.wrapper.uut.cpuregs: $\wrapper.uut.cpuregs$rdreg[1]
+  read interface: 2 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+8. Executing ASYNC2SYNC pass.
+
+9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 6 unused cells and 102 unused wires.
+<suppressed ~7 debug messages>
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+<suppressed ~10 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$4980 ($dff) from module testbench (D = $procmux$4663_Y, Q = \rvfi_order_loopback, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5770 ($sdff) from module testbench (D = 1'1, Q = \rvfi_order_loopback).
+Adding EN signal on $memory\wrapper.uut.cpuregs[9]$5183 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[9]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[8]$5181 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[8]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[7]$5179 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[7]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[6]$5177 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[6]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[5]$5175 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[5]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[4]$5173 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[4]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[3]$5171 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[3]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[31]$5227 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[31]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[30]$5225 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[30]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[2]$5169 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[2]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[29]$5223 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[29]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[28]$5221 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[28]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[27]$5219 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[27]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[26]$5217 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[26]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[25]$5215 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[25]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[24]$5213 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[24]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[23]$5211 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[23]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[22]$5209 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[22]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[21]$5207 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[21]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[20]$5205 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[20]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[1]$5167 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[1]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[19]$5203 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[19]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[18]$5201 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[18]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[17]$5199 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[17]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[16]$5197 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[16]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[15]$5195 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[15]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[14]$5193 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[14]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[13]$5191 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[13]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[12]$5189 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[12]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[11]$5187 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[11]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[10]$5185 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[10]).
+Adding EN signal on $memory\wrapper.uut.cpuregs[0]$5165 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0$memwr$\cpuregs$picorv32.sv:1341$896_DATA[31:0]$1356, Q = \wrapper.uut.cpuregs[0]).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4995 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4758_Y, Q = \wrapper.uut.genblk2.pcpi_div.instr_remu, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4994 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4763_Y, Q = \wrapper.uut.genblk2.pcpi_div.instr_rem, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4993 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4769_Y, Q = \wrapper.uut.genblk2.pcpi_div.instr_divu, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4992 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4776_Y, Q = \wrapper.uut.genblk2.pcpi_div.instr_div, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4988 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4713_Y, Q = \wrapper.uut.genblk2.pcpi_div.running, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5808 ($sdff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4713_Y, Q = \wrapper.uut.genblk2.pcpi_div.running).
+Adding EN signal on $flatten\wrapper.\uut.\genblk2.pcpi_div.$procdff$4987 ($dff) from module testbench (D = $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4722_Y, Q = \wrapper.uut.genblk2.pcpi_div.quotient_msk).
+Adding SRST signal on $auto$ff.cc:337:slice$5812 ($dffe) from module testbench (D = 4'x, Q = \wrapper.uut.genblk2.pcpi_div.quotient_msk [30:27], rval = 4'0000).
+Adding SRST signal on $auto$ff.cc:337:slice$5812 ($dffe) from module testbench (D = { $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4719_Y [31] $flatten\wrapper.\uut.\genblk2.pcpi_div.$procmux$4719_Y [26:0] }, Q = { \wrapper.uut.genblk2.pcpi_div.quotient_msk [31] \wrapper.uut.genblk2.pcpi_div.quotient_msk [26:0] }, rval = 28'1000000000000000000000000000).
+Adding SRST signal on $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procdff$4795 ($dff) from module testbench (D = { \wrapper.uut.genblk1.pcpi_mul.active [0] $flatten\wrapper.\uut.\genblk1.pcpi_mul.$procmux$1603_Y }, Q = \wrapper.uut.genblk1.pcpi_mul.active [1:0], rval = 2'00).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4979 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:399$975_Y, Q = \wrapper.uut.last_mem_valid, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4978 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4649_Y, Q = \wrapper.uut.mem_la_firstword_reg, rval = 1'0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4977 ($dff) from module testbench (D = \wrapper.uut.mem_rdata_latched [6:0], Q = \wrapper.uut.mem_rdata_q [6:0]).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4976 ($dff) from module testbench (D = \wrapper.uut.mem_rdata_latched, Q = \wrapper.uut.next_insn_opcode).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4975 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4281_Y, Q = \wrapper.uut.mem_16bit_buffer).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4974 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4302_Y, Q = \wrapper.uut.prefetched_high_word, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5842 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4293_Y, Q = \wrapper.uut.prefetched_high_word).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4973 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4316_Y, Q = \wrapper.uut.mem_la_secondword, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5852 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4312_Y, Q = \wrapper.uut.mem_la_secondword).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4972 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0\mem_state[1:0], Q = \wrapper.uut.mem_state).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4971 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4351_Y, Q = \wrapper.uut.mem_wstrb).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4970 ($dff) from module testbench (D = \wrapper.uut.mem_la_wdata, Q = \wrapper.uut.mem_wdata).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4969 ($dff) from module testbench (D = \wrapper.uut.mem_la_addr, Q = \wrapper.uut.mem_addr).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4968 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4371_Y, Q = \wrapper.uut.mem_instr).
+Adding SRST signal on $auto$ff.cc:337:slice$5884 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$4369_Y, Q = \wrapper.uut.mem_instr, rval = 1'0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4967 ($dff) from module testbench (D = $flatten\wrapper.\uut.$0\mem_valid[0:0], Q = \wrapper.uut.mem_valid).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4966 ($dff) from module testbench (D = \wrapper.uut.decoded_rd, Q = \wrapper.uut.cached_insn_rd).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4965 ($dff) from module testbench (D = \wrapper.uut.decoded_rs2, Q = \wrapper.uut.cached_insn_rs2).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4964 ($dff) from module testbench (D = \wrapper.uut.decoded_rs1, Q = \wrapper.uut.cached_insn_rs1).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4963 ($dff) from module testbench (D = $flatten\wrapper.\uut.$3\dbg_insn_opcode[31:0], Q = \wrapper.uut.cached_insn_opcode).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4962 ($dff) from module testbench (D = \wrapper.uut.decoded_imm, Q = \wrapper.uut.cached_insn_imm).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4961 ($dff) from module testbench (D = \wrapper.uut.new_ascii_instr, Q = \wrapper.uut.cached_ascii_instr).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4960 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4120_Y, Q = \wrapper.uut.dbg_valid_insn, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5911 ($sdff) from module testbench (D = 1'1, Q = \wrapper.uut.dbg_valid_insn).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4958 ($dff) from module testbench (D = $flatten\wrapper.\uut.$2\dbg_insn_rd[4:0], Q = \wrapper.uut.q_insn_rd).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4954 ($dff) from module testbench (D = $flatten\wrapper.\uut.$2\dbg_insn_imm[31:0], Q = \wrapper.uut.q_insn_imm).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4953 ($dff) from module testbench (D = $flatten\wrapper.\uut.$2\dbg_ascii_instr[63:0], Q = \wrapper.uut.q_ascii_instr).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4952 ($dff) from module testbench (D = \wrapper.uut.next_pc, Q = \wrapper.uut.dbg_insn_addr).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4951 ($dff) from module testbench (D = $flatten\wrapper.\uut.$reduce_or$picorv32.sv:866$1045_Y, Q = \wrapper.uut.is_compare, rval = 1'0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4950 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3677_Y, Q = \wrapper.uut.is_alu_reg_reg).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4949 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3713_Y, Q = \wrapper.uut.is_alu_reg_imm).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4947 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3725_Y, Q = \wrapper.uut.is_beq_bne_blt_bge_bltu_bgeu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5922 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3723_Y, Q = \wrapper.uut.is_beq_bne_blt_bge_bltu_bgeu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4944 ($dff) from module testbench (D = $flatten\wrapper.\uut.$reduce_or$picorv32.sv:862$1041_Y, Q = \wrapper.uut.is_lui_auipc_jal_jalr_addi_add_sub, rval = 1'0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4942 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3738_Y, Q = \wrapper.uut.is_sb_sh_sw).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4941 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_or$picorv32.sv:1103$1286_Y, Q = \wrapper.uut.is_jalr_addi_slti_sltiu_xori_ori_andi).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4940 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1097$1277_Y, Q = \wrapper.uut.is_slli_srli_srai).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4939 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3758_Y, Q = \wrapper.uut.is_lb_lh_lw_lbu_lhu).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4937 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3762_Y, Q = \wrapper.uut.compressed_instr).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4936 ($dff) from module testbench (D = { $flatten\wrapper.\uut.$procmux$3595_Y $flatten\wrapper.\uut.$procmux$3808_Y $flatten\wrapper.\uut.$procmux$3603_Y $flatten\wrapper.\uut.$procmux$3571_Y $flatten\wrapper.\uut.$procmux$3591_Y $flatten\wrapper.\uut.$procmux$3575_Y $flatten\wrapper.\uut.$procmux$3579_Y $flatten\wrapper.\uut.$procmux$3587_Y $flatten\wrapper.\uut.$procmux$3599_Y $flatten\wrapper.\uut.$procmux$3583_Y 1'0 }, Q = \wrapper.uut.decoded_imm_j).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4935 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3771_Y, Q = \wrapper.uut.decoded_imm).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4932 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3855_Y, Q = \wrapper.uut.decoded_rd).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4931 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_timer).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4930 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_waitirq).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4929 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_maskirq).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4928 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_retirq).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4927 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_setq).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4926 ($dff) from module testbench (D = 1'0, Q = \wrapper.uut.instr_getq).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4925 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3871_Y, Q = \wrapper.uut.instr_fence, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5939 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1090$1247_Y, Q = \wrapper.uut.instr_fence).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4924 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_or$picorv32.sv:1088$1244_Y, Q = \wrapper.uut.instr_ecall_ebreak).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4923 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1086$1234_Y, Q = \wrapper.uut.instr_rdinstrh).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4922 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1085$1230_Y, Q = \wrapper.uut.instr_rdinstr).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4921 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1083$1226_Y, Q = \wrapper.uut.instr_rdcycleh).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4920 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1081$1218_Y, Q = \wrapper.uut.instr_rdcycle).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4919 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3885_Y, Q = \wrapper.uut.instr_and, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5946 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1079$1210_Y, Q = \wrapper.uut.instr_and).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4918 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3889_Y, Q = \wrapper.uut.instr_or, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5948 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1078$1206_Y, Q = \wrapper.uut.instr_or).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4917 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3893_Y, Q = \wrapper.uut.instr_sra, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5950 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1077$1202_Y, Q = \wrapper.uut.instr_sra).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4916 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3897_Y, Q = \wrapper.uut.instr_srl, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5952 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1076$1198_Y, Q = \wrapper.uut.instr_srl).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4915 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3901_Y, Q = \wrapper.uut.instr_xor, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5954 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1075$1194_Y, Q = \wrapper.uut.instr_xor).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4914 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3905_Y, Q = \wrapper.uut.instr_sltu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5956 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1074$1190_Y, Q = \wrapper.uut.instr_sltu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4913 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3909_Y, Q = \wrapper.uut.instr_slt, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5958 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1073$1186_Y, Q = \wrapper.uut.instr_slt).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4912 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3913_Y, Q = \wrapper.uut.instr_sll, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5960 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1072$1182_Y, Q = \wrapper.uut.instr_sll).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4911 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3917_Y, Q = \wrapper.uut.instr_sub, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5962 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1071$1178_Y, Q = \wrapper.uut.instr_sub).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4910 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3921_Y, Q = \wrapper.uut.instr_add, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5964 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1070$1174_Y, Q = \wrapper.uut.instr_add).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4909 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1068$1170_Y, Q = \wrapper.uut.instr_srai).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4908 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1067$1166_Y, Q = \wrapper.uut.instr_srli).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4907 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1066$1162_Y, Q = \wrapper.uut.instr_slli).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4906 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3931_Y, Q = \wrapper.uut.instr_andi, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5969 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1064$1158_Y, Q = \wrapper.uut.instr_andi).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4905 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3935_Y, Q = \wrapper.uut.instr_ori, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5971 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1063$1156_Y, Q = \wrapper.uut.instr_ori).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4904 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3939_Y, Q = \wrapper.uut.instr_xori, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5973 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1062$1154_Y, Q = \wrapper.uut.instr_xori).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4903 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3943_Y, Q = \wrapper.uut.instr_sltiu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5975 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1061$1152_Y, Q = \wrapper.uut.instr_sltiu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4902 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3947_Y, Q = \wrapper.uut.instr_slti, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5977 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1060$1150_Y, Q = \wrapper.uut.instr_slti).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4901 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3951_Y, Q = \wrapper.uut.instr_addi, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5979 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1059$1148_Y, Q = \wrapper.uut.instr_addi).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4900 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1057$1146_Y, Q = \wrapper.uut.instr_sw).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4899 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1056$1144_Y, Q = \wrapper.uut.instr_sh).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4898 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1055$1142_Y, Q = \wrapper.uut.instr_sb).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4897 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1053$1140_Y, Q = \wrapper.uut.instr_lhu).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4896 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1052$1138_Y, Q = \wrapper.uut.instr_lbu).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4895 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1051$1136_Y, Q = \wrapper.uut.instr_lw).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4894 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1050$1134_Y, Q = \wrapper.uut.instr_lh).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4893 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1049$1132_Y, Q = \wrapper.uut.instr_lb).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4892 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3971_Y, Q = \wrapper.uut.instr_bgeu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5989 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1047$1130_Y, Q = \wrapper.uut.instr_bgeu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4891 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3975_Y, Q = \wrapper.uut.instr_bltu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5991 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1046$1128_Y, Q = \wrapper.uut.instr_bltu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4890 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3979_Y, Q = \wrapper.uut.instr_bge, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5993 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1045$1126_Y, Q = \wrapper.uut.instr_bge).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4889 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3983_Y, Q = \wrapper.uut.instr_blt, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5995 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1044$1124_Y, Q = \wrapper.uut.instr_blt).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4888 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3987_Y, Q = \wrapper.uut.instr_bne, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5997 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1043$1122_Y, Q = \wrapper.uut.instr_bne).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4887 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3991_Y, Q = \wrapper.uut.instr_beq, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$5999 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1042$1120_Y, Q = \wrapper.uut.instr_beq).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4886 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4004_Y, Q = \wrapper.uut.instr_jalr).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4885 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4016_Y, Q = \wrapper.uut.instr_jal).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4884 ($dff) from module testbench (D = $flatten\wrapper.\uut.$eq$picorv32.sv:870$1048_Y, Q = \wrapper.uut.instr_auipc).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4883 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$4036_Y, Q = \wrapper.uut.instr_lui).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4882 ($dff) from module testbench (D = \wrapper.uut.mem_rdata_q, Q = \wrapper.uut.pcpi_insn).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4871 ($dff) from module testbench (D = $flatten\wrapper.\uut.$logic_not$picorv32.sv:1425$1385_Y, Q = \wrapper.uut.pcpi_timeout, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4870 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2607_Y, Q = \wrapper.uut.pcpi_timeout_counter, rval = 4'1111).
+Adding EN signal on $auto$ff.cc:337:slice$6007 ($sdff) from module testbench (D = $auto$wreduce.cc:514:run$5152 [3:0], Q = \wrapper.uut.pcpi_timeout_counter).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4868 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2622_Y, Q = \wrapper.uut.latched_rd).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4867 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2648_Y, Q = \wrapper.uut.latched_is_lb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6018 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2648_Y, Q = \wrapper.uut.latched_is_lb).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4866 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2661_Y, Q = \wrapper.uut.latched_is_lh, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6028 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2661_Y, Q = \wrapper.uut.latched_is_lh).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4865 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2674_Y, Q = \wrapper.uut.latched_is_lu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6038 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2674_Y, Q = \wrapper.uut.latched_is_lu).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4863 ($dff) from module testbench (D = \wrapper.uut.compressed_instr, Q = \wrapper.uut.latched_compr).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4862 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2719_Y, Q = \wrapper.uut.latched_branch, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6053 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2719_Y, Q = \wrapper.uut.latched_branch).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4861 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2755_Y, Q = \wrapper.uut.latched_stalu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6057 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2755_Y, Q = \wrapper.uut.latched_stalu).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4860 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2762_Y, Q = \wrapper.uut.latched_store, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6065 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2762_Y, Q = \wrapper.uut.latched_store).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4856 ($dff) from module testbench (D = 2'00, Q = \wrapper.uut.irq_state).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4855 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2922_Y, Q = \wrapper.uut.cpu_state, rval = 8'10000000).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4849 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2380_Y, Q = \wrapper.uut.decoder_pseudo_trigger, rval = 1'0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4846 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3032_Y, Q = \wrapper.uut.mem_do_wdata, rval = 1'1).
+Adding EN signal on $auto$ff.cc:337:slice$6084 ($sdff) from module testbench (D = 1'0, Q = \wrapper.uut.mem_do_wdata).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4845 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3036_Y, Q = \wrapper.uut.mem_do_rdata, rval = 1'1).
+Adding EN signal on $auto$ff.cc:337:slice$6086 ($sdff) from module testbench (D = 1'0, Q = \wrapper.uut.mem_do_rdata).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4844 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3110_Y, Q = \wrapper.uut.mem_do_rinst, rval = 1'1).
+Adding EN signal on $auto$ff.cc:337:slice$6088 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3110_Y, Q = \wrapper.uut.mem_do_rinst).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4843 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3135_Y, Q = \wrapper.uut.mem_do_prefetch, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6100 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$logic_and$picorv32.sv:1569$1443_Y, Q = \wrapper.uut.mem_do_prefetch).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4842 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3151_Y, Q = \wrapper.uut.mem_wordsize).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4834 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3255_Y, Q = \wrapper.uut.reg_op2).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4833 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3280_Y [31], Q = \wrapper.uut.reg_op1 [31]).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4833 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3280_Y [30:0], Q = \wrapper.uut.reg_op1 [30:0]).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4832 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3343_Y, Q = \wrapper.uut.reg_next_pc, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$6174 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3332_Y, Q = \wrapper.uut.reg_next_pc).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4831 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3355_Y, Q = \wrapper.uut.reg_pc, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$6176 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$3\current_pc[31:0], Q = \wrapper.uut.reg_pc).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4830 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3375_Y, Q = \wrapper.uut.count_instr, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$6178 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$add$picorv32.sv:1560$1439_Y, Q = \wrapper.uut.count_instr).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4829 ($dff) from module testbench (D = $flatten\wrapper.\uut.$add$picorv32.sv:1429$1386_Y, Q = \wrapper.uut.count_cycle, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4825 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3419_Y, Q = \wrapper.uut.pcpi_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6183 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$3415_Y, Q = \wrapper.uut.pcpi_valid).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4824 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$2601_Y, Q = \wrapper.uut.trap, rval = 1'0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4823 ($dff) from module testbench (D = \wrapper.uut.next_pc, Q = \wrapper.uut.dbg_irq_ret).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4822 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1744_Y, Q = \wrapper.uut.dbg_irq_enter, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6195 ($sdff) from module testbench (D = \wrapper.uut.dbg_irq_call, Q = \wrapper.uut.dbg_irq_enter).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4821 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1749_Y, Q = \wrapper.uut.dbg_irq_call, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$6197 ($sdff) from module testbench (D = 1'1, Q = \wrapper.uut.dbg_irq_call).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4820 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1760_Y, Q = \wrapper.uut.rvfi_mem_wdata).
+Adding SRST signal on $auto$ff.cc:337:slice$6201 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$1757_Y, Q = \wrapper.uut.rvfi_mem_wdata, rval = 0).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4819 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1767_Y, Q = \wrapper.uut.rvfi_mem_wmask).
+Adding SRST signal on $auto$ff.cc:337:slice$6209 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$1764_Y, Q = \wrapper.uut.rvfi_mem_wmask, rval = 4'0000).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4818 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1774_Y, Q = \wrapper.uut.rvfi_mem_rmask).
+Adding SRST signal on $auto$ff.cc:337:slice$6217 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$1771_Y, Q = \wrapper.uut.rvfi_mem_rmask, rval = 4'0000).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4817 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1781_Y, Q = \wrapper.uut.rvfi_mem_addr).
+Adding SRST signal on $auto$ff.cc:337:slice$6225 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$1778_Y, Q = \wrapper.uut.rvfi_mem_addr, rval = 0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4816 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1788_Y, Q = \wrapper.uut.rvfi_rd_wdata, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$6233 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1788_Y, Q = \wrapper.uut.rvfi_rd_wdata).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4815 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1799_Y, Q = \wrapper.uut.rvfi_rd_addr, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:337:slice$6239 ($sdff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1799_Y, Q = \wrapper.uut.rvfi_rd_addr).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4814 ($dff) from module testbench (D = \wrapper.uut.dbg_insn_rs2, Q = \wrapper.uut.rvfi_rs2_addr, rval = 5'00000).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4813 ($dff) from module testbench (D = \wrapper.uut.dbg_insn_rs1, Q = \wrapper.uut.rvfi_rs1_addr, rval = 5'00000).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4807 ($dff) from module testbench (D = $flatten\wrapper.\uut.$add$picorv32.sv:1979$1558_Y, Q = \wrapper.uut.rvfi_order, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $flatten\wrapper.\uut.$procdff$4806 ($dff) from module testbench (D = $flatten\wrapper.\uut.$procmux$1810_Y, Q = \wrapper.uut.rvfi_mem_rdata).
+Adding SRST signal on $auto$ff.cc:337:slice$6252 ($dffe) from module testbench (D = $flatten\wrapper.\uut.$procmux$1807_Y, Q = \wrapper.uut.rvfi_mem_rdata, rval = 0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4805 ($dff) from module testbench (D = \wrapper.uut.dbg_rs2val, Q = \wrapper.uut.rvfi_rs2_rdata, rval = 0).
+Adding SRST signal on $flatten\wrapper.\uut.$procdff$4804 ($dff) from module testbench (D = \wrapper.uut.dbg_rs1val, Q = \wrapper.uut.rvfi_rs1_rdata, rval = 0).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 250 unused cells and 240 unused wires.
+<suppressed ~252 debug messages>
+
+11.5. Rerunning OPT passes. (Removed registers in this run.)
+
+11.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module testbench.
+<suppressed ~24 debug messages>
+
+11.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\testbench'.
+<suppressed ~156 debug messages>
+Removed a total of 52 cells.
+
+11.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \testbench..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+11.10. Finished fast OPT passes.
+
+12. Executing CHECK pass (checking for obvious problems).
+Checking module testbench...
+Found and reported 0 problems.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `testbench'. Setting top module to testbench.
+
+13.1. Analyzing design hierarchy..
+Top module:  \testbench
+
+13.2. Analyzing design hierarchy..
+Top module:  \testbench
+Removed 0 unused modules.
+Module testbench directly or indirectly contains formal properties -> setting "keep" attribute.
+
+14. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+15. Executing ASYNC2SYNC pass.
+
+16. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Assumption testbench.$assume$/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:29$893 (/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_sra/tb.sv:29.14-29.54) failed.
+Simulating cycle 2.
+
+17. Executing BTOR backend.
+
+17.1. Executing BMUXMAP pass.
+
+17.2. Executing DEMUXMAP pass.
+
+17.3. Executing BWMUXMAP pass.
+Warning: No driver for signal \wrapper.uut.genblk1.pcpi_mul.active [3:2].
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: f7615e57d9, CPU: user 1.02s system 0.03s, MEM: 43.85 MB peak
+Yosys 0.60+70 (git sha1 8101c87fa, g++ 12.3.0 -fPIC -O3)
+Time spent: 29% 11x opt_clean (0 sec), 11% 10x read_verilog (0 sec), ...

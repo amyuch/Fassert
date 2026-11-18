@@ -1,0 +1,8 @@
+/tmp/opencode/serv_reg_cegar.ys
+The total iteration is: 3
+The total time is: 10.718077
+The average time of cegar: 3.572692
+/tmp/opencode/serv_reg_cegar.ys
+The total iteration is: 3
+The total time is: 6.146554
+The average time of cegar: 2.048851

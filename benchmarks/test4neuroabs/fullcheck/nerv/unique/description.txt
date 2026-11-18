@@ -1,0 +1,4 @@
+Benchmark: nerv / unique.
+Property focus: unique instruction order.
+Checker: riscv-formal rvfi_unique_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

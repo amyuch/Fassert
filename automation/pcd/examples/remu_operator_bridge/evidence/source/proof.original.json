@@ -1,0 +1,1207 @@
+{
+  "acceptance": "complete",
+  "case": "remu_complete",
+  "helpers": [
+    {
+      "asserts": [
+        {
+          "name": "h_remu_wb",
+          "node": "helper.h_remu_wb"
+        },
+        {
+          "name": "h_remu_step_q",
+          "node": "helper.h_remu_step_q"
+        },
+        {
+          "name": "h_remu_step_msk",
+          "node": "helper.h_remu_step_msk"
+        },
+        {
+          "name": "h_remu_step_d",
+          "node": "helper.h_remu_step_d"
+        },
+        {
+          "name": "h_remu_start_sign",
+          "node": "helper.h_remu_start_sign"
+        },
+        {
+          "name": "h_remu_start_q",
+          "node": "helper.h_remu_start_q"
+        },
+        {
+          "name": "h_remu_start_msk",
+          "node": "helper.h_remu_start_msk"
+        },
+        {
+          "name": "h_remu_start_divisor",
+          "node": "helper.h_remu_start_divisor"
+        },
+        {
+          "name": "h_remu_start_d",
+          "node": "helper.h_remu_start_d"
+        },
+        {
+          "name": "h_remu_rvfi_wdata",
+          "node": "helper.h_remu_rvfi_wdata"
+        },
+        {
+          "name": "h_remu_rvfi_rd",
+          "node": "helper.h_remu_rvfi_rd"
+        },
+        {
+          "name": "h_remu_mux",
+          "node": "helper.h_remu_mux"
+        },
+        {
+          "name": "h_remu_msk_k",
+          "node": "helper.h_remu_msk_k"
+        },
+        {
+          "name": "h_remu_finish",
+          "node": "helper.h_remu_finish"
+        },
+        {
+          "name": "h_remu_div_k",
+          "node": "helper.h_remu_div_k"
+        },
+        {
+          "name": "h_remu_capture",
+          "node": "helper.h_remu_capture"
+        },
+        {
+          "name": "h_commit_rd",
+          "node": "helper.h_commit_rd"
+        }
+      ],
+      "path": "evidence/rd/input/rtl/helpers_remu.sv",
+      "sha256": "4be8108a752855cae415ba16b4e5712f12163a38ff09c7c80f16dc5390653f78"
+    }
+  ],
+  "metadata": {
+    "completeness": "complete",
+    "planner": "manual",
+    "run_id": "remu_complete",
+    "run_mode": "blind",
+    "target_scope": "all official RVFI properties"
+  },
+  "models": {
+    "primary": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471"
+  },
+  "nodes": [
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_wb"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "wb_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_wb",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not retire) || (wrdata = regout)",
+          "name": "wb_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_wb on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_step_q"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "step_q_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_step_q",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not loop) || (q_next = ite(D <= d, q + msk, q))",
+          "name": "step_q_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_step_q on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_step_msk"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "step_msk_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_step_msk",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not loop) || (msk_next = msk / 2)",
+          "name": "step_msk_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_step_msk on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_step_d"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "step_d_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_step_d",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not loop) || (d_next = ite(D <= d, d - D, d))",
+          "name": "step_d_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_step_d on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_start_sign"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "start_sign_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_start_sign",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not start) || (not out_sign)",
+          "name": "start_sign_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_start_sign on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_start_q"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "start_q_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_start_q",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not start) || (q = 0)",
+          "name": "start_q_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_start_q on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_start_msk"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "start_msk_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_start_msk",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not start) || (msk = 2^31)",
+          "name": "start_msk_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_start_msk on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_start_divisor"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "start_divisor_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_start_divisor",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not start) || (D = n * msk)",
+          "name": "start_divisor_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_start_divisor on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_start_d"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "start_d_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_start_d",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not start) || (d = m)",
+          "name": "start_d_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_start_d on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_rvfi_wdata"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "rvfi_wdata_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_rvfi_wdata",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not retire) || (rvfi = ite(rd = 0, 0, wrdata))",
+          "name": "rvfi_wdata_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_rvfi_wdata on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_rvfi_rd"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "rvfi_rd_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_rvfi_rd",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not retire) || (rd = insn_rd)",
+          "name": "rvfi_rd_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_rvfi_rd on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_mux"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "mux_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_mux",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not finish) || (intrd = divrd)",
+          "name": "mux_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_mux on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_msk_k"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "msk_k_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_msk_k",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not loop) || (msk = 2^k)",
+          "name": "msk_k_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_msk_k on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_finish"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "finish_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_finish",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not finish) || (divrd = d)",
+          "name": "finish_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_finish on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_div_k"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "div_k_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_div_k",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not loop) || (D = n * msk)",
+          "name": "div_k_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_div_k on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_remu_capture"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "capture_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_remu_capture",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not retire) || (regout = intrd)",
+          "name": "capture_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_remu_capture on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/helpers_remu.sv",
+          "name": "h_commit_rd"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "commit_rd_fact",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "helper.h_commit_rd",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(not retire) || (rd = insn_rd)",
+          "name": "commit_rd_fact",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves helper assertion h_commit_rd on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "evidence/rd/input/rtl/rvfi_insn_check.sv",
+          "name": "o_pc_wdata_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G_official_o_pc_wdata_match",
+        "run": {
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "evidence/rd",
+          "id": "ric3-cill-remu",
+          "log": "evidence/rd/check.log",
+          "log_sha256": "2bb042a1476a8f4f96f69b6b2bfcf535d61c9f2ce4940eaedf5022a8e54a082d",
+          "model_sha256": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+          "seconds": 194.631,
+          "tool": "ric3-cill",
+          "version": "ric3"
+        },
+        "verdict": "proved"
+      },
+      "id": "official.o_pc_wdata_match",
+      "kind": "replay",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "P_o_pc_wdata_match",
+          "name": "G_official_o_pc_wdata_match",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "cill proves official property o_pc_wdata_match on the REMU helper model"
+    },
+    {
+      "certificate": {
+        "evidence": "TCB",
+        "format": "tcb",
+        "kind": "isa_model",
+        "tcb": "official RISC-V REMU unsigned remainder semantics, formalized here",
+        "verdict": "assumed"
+      },
+      "id": "isa_remu",
+      "kind": "tcb",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "spec = ite(rd = 0, 0, ite(n = 0, m, m % n))",
+          "name": "spec_def",
+          "sort": "Bool"
+        },
+        {
+          "expr": "(m = rs1) && (n = rs2) && (m >= 0) && (m < 2^32) && (n >= 0) && (n < 2^32)",
+          "name": "ops_def",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "tcb",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "official RISC-V REMU result model: unsigned operands, remainder by zero = dividend"
+    },
+    {
+      "certificate": {
+        "checker": "z3/5.1.0",
+        "evidence": "CHECKED",
+        "format": "smt-induction",
+        "goal": "G_official_o_rd_wdata_match",
+        "payload": {
+          "exit": [
+            "finish",
+            "retire",
+            "msk = 0"
+          ],
+          "goal": "rvfi = spec",
+          "init": [
+            "start",
+            "d = m",
+            "q = 0",
+            "msk = 2^31",
+            "D = n * msk"
+          ],
+          "inv": [
+            "d + n*q = m",
+            "d >= 0",
+            "q >= 0",
+            "q <= 2^32 - 1",
+            "m >= 0",
+            "m < 2^32",
+            "n >= 0",
+            "n < 2^32",
+            "msk >= 0",
+            "msk <= 2^31",
+            "(msk = 0 || msk = 2^0 || msk = 2^1 || msk = 2^2 || msk = 2^3 || msk = 2^4 || msk = 2^5 || msk = 2^6 || msk = 2^7 || msk = 2^8 || msk = 2^9 || msk = 2^10 || msk = 2^11 || msk = 2^12 || msk = 2^13 || msk = 2^14 || msk = 2^15 || msk = 2^16 || msk = 2^17 || msk = 2^18 || msk = 2^19 || msk = 2^20 || msk = 2^21 || msk = 2^22 || msk = 2^23 || msk = 2^24 || msk = 2^25 || msk = 2^26 || msk = 2^27 || msk = 2^28 || msk = 2^29 || msk = 2^30 || msk = 2^31)",
+            "(n = 0) || (msk > 0 && d < 2*n*msk) || (msk = 0 && d < n)",
+            "(n > 0) || (msk > 0 && q + 2*msk - 1 = 2^32 - 1) || (msk = 0 && q = 2^32 - 1)",
+            "(msk > 0) || (n = 0) || (q = m / n)"
+          ],
+          "step": [
+            "loop",
+            "D = n * msk",
+            "d_next = ite(D <= d, d - D, d)",
+            "q_next = ite(D <= d, q + msk, q)",
+            "msk_next = msk / 2",
+            "m_next = m",
+            "n_next = n"
+          ],
+          "timeout_ms": 60000,
+          "vars": [
+            {
+              "name": "m",
+              "sort": "Int"
+            },
+            {
+              "name": "n",
+              "sort": "Int"
+            },
+            {
+              "name": "d",
+              "sort": "Int"
+            },
+            {
+              "name": "q",
+              "sort": "Int"
+            },
+            {
+              "name": "msk",
+              "sort": "Int"
+            },
+            {
+              "name": "D",
+              "sort": "Int"
+            },
+            {
+              "name": "d_next",
+              "sort": "Int"
+            },
+            {
+              "name": "q_next",
+              "sort": "Int"
+            },
+            {
+              "name": "msk_next",
+              "sort": "Int"
+            },
+            {
+              "name": "m_next",
+              "sort": "Int"
+            },
+            {
+              "name": "n_next",
+              "sort": "Int"
+            },
+            {
+              "name": "rs1",
+              "sort": "Int"
+            },
+            {
+              "name": "rs2",
+              "sort": "Int"
+            },
+            {
+              "name": "rd",
+              "sort": "Int"
+            },
+            {
+              "name": "rvfi",
+              "sort": "Int"
+            },
+            {
+              "name": "spec",
+              "sort": "Int"
+            },
+            {
+              "name": "divrd",
+              "sort": "Int"
+            },
+            {
+              "name": "intrd",
+              "sort": "Int"
+            },
+            {
+              "name": "regout",
+              "sort": "Int"
+            },
+            {
+              "name": "wrdata",
+              "sort": "Int"
+            },
+            {
+              "name": "insn_rd",
+              "sort": "Int"
+            },
+            {
+              "name": "start",
+              "sort": "Bool"
+            },
+            {
+              "name": "loop",
+              "sort": "Bool"
+            },
+            {
+              "name": "finish",
+              "sort": "Bool"
+            },
+            {
+              "name": "retire",
+              "sort": "Bool"
+            },
+            {
+              "name": "out_sign",
+              "sort": "Bool"
+            }
+          ]
+        },
+        "verdict": "proved"
+      },
+      "id": "official.o_rd_wdata_match",
+      "kind": "inductive",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "loop",
+      "provides": [
+        {
+          "expr": "rvfi = spec",
+          "name": "G_official_o_rd_wdata_match",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "wb_fact",
+          "node": "helper.h_remu_wb"
+        },
+        {
+          "guarantee": "step_q_fact",
+          "node": "helper.h_remu_step_q"
+        },
+        {
+          "guarantee": "step_msk_fact",
+          "node": "helper.h_remu_step_msk"
+        },
+        {
+          "guarantee": "step_d_fact",
+          "node": "helper.h_remu_step_d"
+        },
+        {
+          "guarantee": "start_sign_fact",
+          "node": "helper.h_remu_start_sign"
+        },
+        {
+          "guarantee": "start_q_fact",
+          "node": "helper.h_remu_start_q"
+        },
+        {
+          "guarantee": "start_msk_fact",
+          "node": "helper.h_remu_start_msk"
+        },
+        {
+          "guarantee": "start_divisor_fact",
+          "node": "helper.h_remu_start_divisor"
+        },
+        {
+          "guarantee": "start_d_fact",
+          "node": "helper.h_remu_start_d"
+        },
+        {
+          "guarantee": "rvfi_wdata_fact",
+          "node": "helper.h_remu_rvfi_wdata"
+        },
+        {
+          "guarantee": "rvfi_rd_fact",
+          "node": "helper.h_remu_rvfi_rd"
+        },
+        {
+          "guarantee": "mux_fact",
+          "node": "helper.h_remu_mux"
+        },
+        {
+          "guarantee": "finish_fact",
+          "node": "helper.h_remu_finish"
+        },
+        {
+          "guarantee": "div_k_fact",
+          "node": "helper.h_remu_div_k"
+        },
+        {
+          "guarantee": "capture_fact",
+          "node": "helper.h_remu_capture"
+        },
+        {
+          "guarantee": "commit_rd_fact",
+          "node": "helper.h_commit_rd"
+        },
+        {
+          "guarantee": "spec_def",
+          "node": "isa_remu"
+        },
+        {
+          "guarantee": "ops_def",
+          "node": "isa_remu"
+        }
+      ],
+      "role": "invariant",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "restoring-remainder invariant and terminal remainder imply the RVFI destination write data"
+    },
+    {
+      "certificate": {
+        "artifact": {
+          "path": "artifacts/root_compose.smt2",
+          "sha256": "ce549e93a87e3553966c7930fc003d05f42b8fa77622b2ddd8b26d46c8c2e991"
+        },
+        "checker": "z3/5.1",
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "goal": "GOAL",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const P_o_pc_wdata_match Bool)\n(declare-const rvfi Int)\n(declare-const spec Int)\n(assert P_o_pc_wdata_match)\n(assert (= rvfi spec))\n(assert (not (and P_o_pc_wdata_match (= rvfi spec))))\n(check-sat)\n",
+          "timeout_ms": 30000
+        },
+        "verdict": "proved"
+      },
+      "id": "root",
+      "kind": "linear",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(and P_o_pc_wdata_match rvfi = spec)",
+          "name": "GOAL",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "G_official_o_pc_wdata_match",
+          "node": "official.o_pc_wdata_match"
+        },
+        {
+          "guarantee": "G_official_o_rd_wdata_match",
+          "node": "official.o_rd_wdata_match"
+        }
+      ],
+      "role": "compose",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "REMU retires with the RVFI PC and destination-register write data matching the ISA model"
+    }
+  ],
+  "primary_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+  "schema_version": "pcd-proof/0.1",
+  "targets": [
+    {
+      "composition": {
+        "artifact": {
+          "path": "artifacts/root_compose.smt2",
+          "sha256": "ce549e93a87e3553966c7930fc003d05f42b8fa77622b2ddd8b26d46c8c2e991"
+        },
+        "checker": "z3-implication",
+        "mode": "CHECKED",
+        "notes": "full official property surface; RD uses the checked restoring-remainder induction",
+        "payload": {
+          "goal": "GOAL",
+          "premises": [
+            {
+              "guarantee": "G_official_o_pc_wdata_match",
+              "node": "official.o_pc_wdata_match"
+            },
+            {
+              "guarantee": "G_official_o_rd_wdata_match",
+              "node": "official.o_rd_wdata_match"
+            }
+          ],
+          "smt2": "(set-logic ALL)\n(declare-const P_o_pc_wdata_match Bool)\n(declare-const rvfi Int)\n(declare-const spec Int)\n(assert P_o_pc_wdata_match)\n(assert (= rvfi spec))\n(assert (not (and P_o_pc_wdata_match (= rvfi spec))))\n(check-sat)\n",
+          "timeout_ms": 30000
+        }
+      },
+      "goal": "GOAL",
+      "id": "root",
+      "model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+      "requires": [
+        {
+          "guarantee": "G_official_o_pc_wdata_match",
+          "node": "official.o_pc_wdata_match"
+        },
+        {
+          "guarantee": "G_official_o_rd_wdata_match",
+          "node": "official.o_rd_wdata_match"
+        }
+      ],
+      "statement": "REMU retires with the RVFI PC and destination-register write data matching the ISA model",
+      "tcb": []
+    }
+  ]
+}

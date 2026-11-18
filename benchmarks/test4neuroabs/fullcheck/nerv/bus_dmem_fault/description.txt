@@ -1,0 +1,4 @@
+Benchmark: nerv / bus_dmem_fault.
+Property focus: data-memory bus fault reporting.
+Checker: riscv-formal rvfi_bus_dmem_fault_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

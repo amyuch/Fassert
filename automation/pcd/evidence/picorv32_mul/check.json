@@ -1,0 +1,886 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "cp": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "873673e6db76888fa1c33b7504ec6ebc651e365d6c22f6d614b13b49d200c80c",
+            "result": "unsat",
+            "seconds": 8.6e-05,
+            "solver": "z3"
+          },
+          "step": {
+            "query_sha256": "f2040052f8f38ae0e4cc8580f475ed734ef384ee3ad6795b4e1cc889ebc65d67",
+            "result": "unsat",
+            "seconds": 0.000194,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560"
+      },
+      "prod": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "e99c281c3ad8e2186f8e090d7e86933c1e56ce05fe162405a7b6f6f90c473fe3",
+            "result": "unsat",
+            "seconds": 9.7e-05,
+            "solver": "z3"
+          },
+          "step": {
+            "backend_query_sha256": "2e032ba26d4900717e4cf9f5686b5216a1a747144438229176c1baf61fcb5a3c",
+            "query_sha256": "67afac495cf6111ab207ac5f7ad574c0a205f25f8f5043dd2226885f97f77bc7",
+            "result": "unsat",
+            "seconds": 0.017292,
+            "solver": "bitwuzla-0.9.1"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      },
+      "rd": {
+        "accepted": true,
+        "checks": {
+          "implication": {
+            "query_sha256": "2de5525bb014a0a31460e58cfdb6f84334bb19e6752a775b83f897e88d2da788",
+            "result": "unsat",
+            "seconds": 9.4e-05,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "combinational",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      },
+      "st_capture": {
+        "accepted": true,
+        "checks": {
+          "step": {
+            "query_sha256": "a4896a4501315b80295189f6aae6fad205c6f9951c0bd4c795f894710035d6bf",
+            "result": "unsat",
+            "seconds": 0.00022,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "step",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      },
+      "to_all.ops": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_ret_ops_zero_a",
+        "discharged_constraints": {
+          "3933": {
+            "query_sha256": "4678354f25f7248a9f0041c27ac130afd5bd17f4cc6b017a6a7fb1eb2a9d9380",
+            "result": "unsat",
+            "seconds": 8.8e-05,
+            "solver": "z3"
+          },
+          "3936": {
+            "query_sha256": "0146bf74ad8cd4c164e0800f8a9ce566ff56b9dc95a300f84f291d8334b1fedd",
+            "result": "unsat",
+            "seconds": 8.2e-05,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 1053,
+        "mapped_free_states": 73,
+        "mapped_inputs": 3,
+        "mapped_states": 292,
+        "source_constraints": 6,
+        "source_model": "btor:cc826509ecd4908f595869ae2069d3a677a965771741c66750733e5856e98ac1",
+        "source_property": "p_mul_ret_ops_zero_a"
+      },
+      "to_all.p_mul_capture_shift_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_capture_shift_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 271,
+        "source_constraints": 4,
+        "source_model": "btor:5c7cb50f0dc7e04188fed28d6620ea277af3cf91f4df3ce0a5cd946e8b5bc70f",
+        "source_property": "p_mul_capture_shift_a"
+      },
+      "to_all.p_mul_capture_zero_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_capture_zero_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 271,
+        "source_constraints": 4,
+        "source_model": "btor:5c7cb50f0dc7e04188fed28d6620ea277af3cf91f4df3ce0a5cd946e8b5bc70f",
+        "source_property": "p_mul_capture_zero_a"
+      },
+      "to_all.p_mul_rvfi_rd_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_rvfi_rd_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 279,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_rvfi_rd_a"
+      },
+      "to_all.p_mul_wb_data_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_data_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 271,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_data_a"
+      },
+      "to_all.p_mul_wb_from_ready_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_from_ready_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 278,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_from_ready_a"
+      },
+      "to_all.p_mul_wb_lo_ok_fact_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_lo_ok_fact_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 280,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_lo_ok_fact_a"
+      },
+      "to_all.p_mul_wb_lo_ok_inv_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_lo_ok_inv_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 281,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_lo_ok_inv_a"
+      },
+      "to_all.p_mul_wb_mux_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_mux_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 278,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_mux_a"
+      },
+      "to_all.p_mul_wb_rd_fact_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_rd_fact_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 280,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_rd_fact_a"
+      },
+      "to_all.p_mul_wb_seen_fact_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_seen_fact_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 279,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_seen_fact_a"
+      },
+      "to_all.p_mul_wb_word_fact_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_mul_wb_word_fact_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 281,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_mul_wb_word_fact_a"
+      },
+      "to_all.p_trigger_eq_a": {
+        "accepted": true,
+        "destination_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "destination_property": "p_trigger_eq_a",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 278,
+        "source_constraints": 4,
+        "source_model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+        "source_property": "p_trigger_eq_a"
+      },
+      "to_dest.pc": {
+        "accepted": true,
+        "destination_model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+        "destination_property": "o_pc_wdata_match",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 989,
+        "mapped_free_states": 71,
+        "mapped_inputs": 3,
+        "mapped_states": 282,
+        "source_constraints": 4,
+        "source_model": "btor:5ce77b5314c0fb4cba94bf0ad3b50d81ed8b17b626785cc6f826989e393ba406",
+        "source_property": "o_pc_wdata_match"
+      },
+      "to_dest.rd": {
+        "accepted": true,
+        "destination_model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+        "destination_property": "o_rd_wdata_match",
+        "discharged_constraints": {
+          "3941": {
+            "query_sha256": "5775ca361529db236ab3a42274788024a009fc10fc801b875f583a95f85960b9",
+            "result": "unsat",
+            "seconds": 9.5e-05,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 1053,
+        "mapped_free_states": 73,
+        "mapped_inputs": 4,
+        "mapped_states": 287,
+        "source_constraints": 5,
+        "source_model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+        "source_property": "o_rd_wdata_match"
+      },
+      "w_seen_ret": {
+        "accepted": true,
+        "checks": {
+          "implication": {
+            "query_sha256": "5fbcc35cc61f55c44b5240ff9533a08529086b57fcbe5946a7acd986a8f6b3a8",
+            "result": "unsat",
+            "seconds": 0.000121,
+            "solver": "z3"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "combinational",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      },
+      "wb_prod": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "05778ba9782cebceab8952d3d231157309605c810669c5501fcae03298425770",
+            "result": "unsat",
+            "seconds": 8.7e-05,
+            "solver": "z3"
+          },
+          "step": {
+            "backend_query_sha256": "8a57e88dd07dcbc673f79bc0ac4c98e4f2771c1b0674a95640e069e229511ef2",
+            "query_sha256": "4c6bffa659665b0857a39b88c6fb05eeba08639acdb30b3d10ad956817715c28",
+            "result": "unsat",
+            "seconds": 0.017478,
+            "solver": "bitwuzla-0.9.1"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      },
+      "wb_st": {
+        "accepted": true,
+        "checks": {
+          "step": {
+            "backend_query_sha256": "663fca24d69fc0333d44c7c55c3eac1ea70fb897c581d6ff645ba91a7e98e2e9",
+            "query_sha256": "552b5360a42baefc6cf6cd6d884ea731c0602b19c405402b9d5efe46491d0ca1",
+            "result": "unsat",
+            "seconds": 0.008279,
+            "solver": "bitwuzla-0.9.1"
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "step",
+        "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "fatal_errors": [],
+  "node_evidence": {
+    "control.p_mul_rvfi_rd_a": "REPLAY",
+    "control.p_mul_wb_data_a": "REPLAY",
+    "control.p_mul_wb_from_ready_a": "REPLAY",
+    "control.p_mul_wb_lo_ok_fact_a": "REPLAY",
+    "control.p_mul_wb_lo_ok_inv_a": "REPLAY",
+    "control.p_mul_wb_mux_a": "REPLAY",
+    "control.p_mul_wb_rd_fact_a": "REPLAY",
+    "control.p_mul_wb_seen_fact_a": "REPLAY",
+    "control.p_mul_wb_word_fact_a": "REPLAY",
+    "control.p_trigger_eq_a": "REPLAY",
+    "cp": "CHECKED",
+    "ops.fact": "REPLAY",
+    "pc.fact": "REPLAY",
+    "prod": "CHECKED",
+    "rd": "CHECKED",
+    "root": "CHECKED",
+    "shift.p_mul_capture_shift_a": "REPLAY",
+    "shift.p_mul_capture_zero_a": "REPLAY",
+    "st_capture": "CHECKED",
+    "to_all.ops": "CHECKED",
+    "to_all.p_mul_capture_shift_a": "CHECKED",
+    "to_all.p_mul_capture_zero_a": "CHECKED",
+    "to_all.p_mul_rvfi_rd_a": "CHECKED",
+    "to_all.p_mul_wb_data_a": "CHECKED",
+    "to_all.p_mul_wb_from_ready_a": "CHECKED",
+    "to_all.p_mul_wb_lo_ok_fact_a": "CHECKED",
+    "to_all.p_mul_wb_lo_ok_inv_a": "CHECKED",
+    "to_all.p_mul_wb_mux_a": "CHECKED",
+    "to_all.p_mul_wb_rd_fact_a": "CHECKED",
+    "to_all.p_mul_wb_seen_fact_a": "CHECKED",
+    "to_all.p_mul_wb_word_fact_a": "CHECKED",
+    "to_all.p_trigger_eq_a": "CHECKED",
+    "to_dest.pc": "CHECKED",
+    "to_dest.rd": "CHECKED",
+    "w_seen_ret": "CHECKED",
+    "wb_prod": "CHECKED",
+    "wb_st": "CHECKED"
+  },
+  "obligations": [
+    {
+      "direction": "root must be a CHECKED composition on the target model",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "target.root.root",
+      "kind": "target",
+      "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_rvfi_rd_a",
+      "id": "node.control.p_mul_rvfi_rd_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_from_ready_a",
+      "id": "node.control.p_mul_wb_from_ready_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_lo_ok_fact_a",
+      "id": "node.control.p_mul_wb_lo_ok_fact_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_lo_ok_inv_a",
+      "id": "node.control.p_mul_wb_lo_ok_inv_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_rd_fact_a",
+      "id": "node.control.p_mul_wb_rd_fact_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_seen_fact_a",
+      "id": "node.control.p_mul_wb_seen_fact_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_mul_wb_word_fact_a",
+      "id": "node.control.p_mul_wb_word_fact_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "C_p_trigger_eq_a",
+      "id": "node.control.p_trigger_eq_a",
+      "kind": "evidence",
+      "model": "btor:7366c4eeaa920f9968cc9c8dd6842503a0b6b07c74e294d9b2e38e3421317c34",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "CP",
+      "id": "node.cp",
+      "kind": "evidence",
+      "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "O_FACT",
+      "id": "node.ops.fact",
+      "kind": "evidence",
+      "model": "btor:cc826509ecd4908f595869ae2069d3a677a965771741c66750733e5856e98ac1",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "PC_FACT",
+      "id": "node.pc.fact",
+      "kind": "evidence",
+      "model": "btor:5ce77b5314c0fb4cba94bf0ad3b50d81ed8b17b626785cc6f826989e393ba406",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "PROD",
+      "id": "node.prod",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "RD",
+      "id": "node.rd",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "node.root",
+      "kind": "evidence",
+      "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "S_p_mul_capture_shift_a",
+      "id": "node.shift.p_mul_capture_shift_a",
+      "kind": "evidence",
+      "model": "btor:5c7cb50f0dc7e04188fed28d6620ea277af3cf91f4df3ce0a5cd946e8b5bc70f",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "ST_CAPTURE",
+      "id": "node.st_capture",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "OPS",
+      "id": "node.to_all.ops",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_capture_shift_a",
+      "id": "node.to_all.p_mul_capture_shift_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_rvfi_rd_a",
+      "id": "node.to_all.p_mul_rvfi_rd_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_from_ready_a",
+      "id": "node.to_all.p_mul_wb_from_ready_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_lo_ok_fact_a",
+      "id": "node.to_all.p_mul_wb_lo_ok_fact_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_lo_ok_inv_a",
+      "id": "node.to_all.p_mul_wb_lo_ok_inv_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_rd_fact_a",
+      "id": "node.to_all.p_mul_wb_rd_fact_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_seen_fact_a",
+      "id": "node.to_all.p_mul_wb_seen_fact_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_mul_wb_word_fact_a",
+      "id": "node.to_all.p_mul_wb_word_fact_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "A_p_trigger_eq_a",
+      "id": "node.to_all.p_trigger_eq_a",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_PC",
+      "id": "node.to_dest.pc",
+      "kind": "evidence",
+      "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_RD",
+      "id": "node.to_dest.rd",
+      "kind": "evidence",
+      "model": "btor:2ecd4cf6f1f975eba81316deec8f4e392277d8ca2963851695d28ab099405560",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "W_SEEN_RET",
+      "id": "node.w_seen_ret",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "WB_PROD",
+      "id": "node.wb_prod",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "WB_ST",
+      "id": "node.wb_st",
+      "kind": "evidence",
+      "model": "btor:e0d7c3adfbe102e012d8619a3d3a20faec49b482f3aea5cadf189b608897257c",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    }
+  ],
+  "proved": true,
+  "residual": [],
+  "status": "proved",
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "to_dest.pc.D_PC",
+        "to_dest.rd.D_RD"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": [
+    {
+      "message": "control.p_mul_wb_data_a: non-primary model node is outside every target derivation",
+      "node": "control.p_mul_wb_data_a",
+      "rule": "K7"
+    },
+    {
+      "message": "control.p_mul_wb_mux_a: non-primary model node is outside every target derivation",
+      "node": "control.p_mul_wb_mux_a",
+      "rule": "K7"
+    },
+    {
+      "message": "shift.p_mul_capture_zero_a: non-primary model node is outside every target derivation",
+      "node": "shift.p_mul_capture_zero_a",
+      "rule": "K7"
+    },
+    {
+      "message": "to_all.p_mul_wb_data_a: non-primary model node is outside every target derivation",
+      "node": "to_all.p_mul_wb_data_a",
+      "rule": "K7"
+    },
+    {
+      "message": "to_all.p_mul_wb_mux_a: non-primary model node is outside every target derivation",
+      "node": "to_all.p_mul_wb_mux_a",
+      "rule": "K7"
+    },
+    {
+      "message": "to_all.p_mul_capture_zero_a: non-primary model node is outside every target derivation",
+      "node": "to_all.p_mul_capture_zero_a",
+      "rule": "K7"
+    }
+  ]
+}

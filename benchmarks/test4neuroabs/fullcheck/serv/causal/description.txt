@@ -1,0 +1,4 @@
+Benchmark: serv / causal.
+Property focus: causality of register reads.
+Checker: riscv-formal rvfi_causal_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

@@ -1,0 +1,4 @@
+Benchmark: nerv / bus_imem_fault.
+Property focus: instruction-memory bus fault reporting.
+Checker: riscv-formal rvfi_bus_imem_fault_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

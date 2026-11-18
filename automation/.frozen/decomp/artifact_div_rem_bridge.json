@@ -1,0 +1,37 @@
+{
+  "artifact": "div_rem_bridge",
+  "cases": [
+    "div",
+    "rem"
+  ],
+  "models": {
+    "div_min": "btor:d3d475a4f4522aba1d225e5e27701d7eb8828eca99686c616f989d3db63d236b",
+    "rem_min": "btor:98dfa44ba1cd91347f5cc165d4a6c430073215c28a5988f80853743a32402247"
+  },
+  "evidence": {
+    "B0-1": "E2 manifold (h_div_shift/h_msk_shift), E3/E4 step (h_dividend_update/h_quotient_update)",
+    "B0-2": "E1 entry (h_*_start_dividend/h_*_start_quotient)",
+    "B0-3": "E5 terminal (h_term)",
+    "B1-rem": "E1 entry (h_*_start_outsign), E6 finish (h_finish_value_rem), B0-3",
+    "B1-div": "E1 entry (h_*_start_outsign), E6 finish (h_finish_value_div), B0-3"
+  },
+  "part_b0_step_bridge": {
+    "B0_1_alignment": true,
+    "B0_1_control": true,
+    "B0_2_entry": true,
+    "B0_3_terminal": true,
+    "B0_4_div0_accumulator": true
+  },
+  "part_b1_value": {
+    "B1_rem_signed": true,
+    "B1_rem_div0": true,
+    "B1_remu": true,
+    "B1_remu_div0": true,
+    "B1_div_signed": true,
+    "B1_div_div0": true,
+    "B1_divu": true,
+    "B1_divu_div0": true
+  },
+  "status": "PROVED_TRUSTED",
+  "note": "the RTL side contributes only per-step bit-level facts (CTI/CIll on the isolated divider model); the multiplier and the division theorem stay in the abstract domain, so no 32x32 product is ever inside an RTL inductive invariant"
+}

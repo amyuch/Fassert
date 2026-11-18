@@ -1,0 +1,4 @@
+Benchmark: nerv / csrc_const_custom_ro.
+Property focus: read of the read-only custom CSR is constant.
+Checker: riscv-formal rvfi_csrc_const_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

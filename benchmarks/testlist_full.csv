@@ -1,0 +1,6 @@
+tier,family,case,category,semantics,checker,path,note
+full,official,picorv32_insn_addi,alu,full,rvfi_insn_check,automation/pcd/cases/official/picorv32_insn_addi,official PCD/riscv-formal fullcheck import
+full,official,picorv32_insn_beq,branch,full,rvfi_insn_check,automation/pcd/cases/official/picorv32_insn_beq,official PCD/riscv-formal fullcheck import
+full,official,picorv32_insn_c_j,compressed,full,rvfi_insn_check,automation/pcd/cases/official/picorv32_insn_c_j,official PCD/riscv-formal fullcheck import
+full,official,picorv32_insn_jal,jump,full,rvfi_insn_check,automation/pcd/cases/official/picorv32_insn_jal,official PCD/riscv-formal fullcheck import
+full,official,picorv32_insn_mulh,mul,full,rvfi_insn_check,automation/pcd/cases/official/picorv32_insn_mulh,official PCD/riscv-formal fullcheck import

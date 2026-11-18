@@ -1,0 +1,9 @@
+0 wrapper.uut.dbg_irq_ret@0 0 0 #b00000000000000000000000000000000
+0 wrapper.uut.rvfi_pc_rdata@0 0 0 #b11111111111111111111111111111101
+0 wrapper.uut.dbg_irq_call@0 0 0 #b1
+0 reset@0 0 0 #b0
+0 wrapper.uut.rvfi_insn@0 31 25 #b00000000000100000000000010110011
+0 wrapper.uut.rvfi_insn@0 6 0 #b00000000000100000000000010110011
+0 wrapper.uut.rvfi_insn@0 14 12 #b00000000000100000000000010110011
+0 wrapper.uut.rvfi_valid@0 0 0 #b1
+0 check@0 0 0 #b1

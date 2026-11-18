@@ -1,0 +1,19 @@
+{
+  "case_id": "D4",
+  "target_obligation": "D4a DIV terminal ordering dividend<N; D4b SERV bit-serial result == a+b",
+  "initial_engine": "D4a CIll IC3 (real divider); D4b z3 (SERV model)",
+  "bad_config": "D4a assert dividend<N globally while running; D4b one-step partial==a+b",
+  "failure_artifact": "D4/div_terminal_bad.log, D4/div_terminal_cex.vcd, D4/serv_macro.log",
+  "diagnosis_hypothesis": {
+    "failure_type": "temporal",
+    "evidence_tests": ["D4a: global terminal fact yields a CEX; terminal fact at the finish boundary is inductive", "D4b: one-step result assertion is SAT; macro-step base/step/exit are UNSAT"],
+    "competing": ["genuine arithmetic bug", "wrong sampling edge"]
+  },
+  "selected_strategy": "S5 (temporal summary) / terminal fact",
+  "repair_hypothesis": "D4a: prove the invariant + last premise and assert dividend<N at the finish boundary; D4b: macro-step Inv(k) + completion at done",
+  "new_obligations": ["D4a loop invariant + last premise + terminal boundary", "D4b macro-step summary"],
+  "proof_outcome": "D4a: bad CEX h_term_global; good 10 props inductive (140 s). D4b: one-step sat; macro-step base/step/exit unsat.",
+  "kernel_outcome": "ACCEPT (DIV reference graph)",
+  "budget": "<=600 s",
+  "provenance": "PLAN S13/S30 (DIV), S5 (SERV)"
+}

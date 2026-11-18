@@ -1,0 +1,21 @@
+{
+  "command": [
+    "ric3",
+    "check",
+    "models/ric3.btor",
+    "kind",
+    "--prop",
+    "0",
+    "--time-limit",
+    "15"
+  ],
+  "cwd": ".",
+  "log": "evidence/engine.log",
+  "log_sha256": "caf899b7835ce79981738301b8051701d8c0b019a5bffe2ee3be38eaa71ff0ed",
+  "model": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a",
+  "returncode": 0,
+  "sandboxed": false,
+  "seconds": 1.067,
+  "timed_out": false,
+  "version": "rIC3 1.5.2"
+}

@@ -1,0 +1,74 @@
+case,active,group,semantics,location,note
+insn_add,yes,alu,normal,benchmarks/picorv32/insn_add,proof-relevant ALU; add/addi pair
+insn_addi,yes,alu,normal,benchmarks/picorv32/insn_addi,add/addi pair
+insn_and,yes,alu,normal,benchmarks/picorv32/insn_and,AND register/immediate pair
+insn_andi,yes,alu,normal,benchmarks/picorv32/insn_andi,AND register/immediate pair
+insn_auipc,yes,upper,normal,benchmarks/picorv32/insn_auipc,upper-immediate coverage
+insn_beq,yes,branch,normal,benchmarks/picorv32/insn_beq,branch coverage
+insn_bge,yes,branch,normal,benchmarks/picorv32/insn_bge,branch coverage
+insn_bgeu,yes,branch,normal,benchmarks/picorv32/insn_bgeu,branch coverage
+insn_blt,yes,branch,normal,benchmarks/picorv32/insn_blt,branch coverage
+insn_bltu,yes,branch,normal,benchmarks/picorv32/insn_bltu,branch coverage
+insn_bne,yes,branch,normal,benchmarks/picorv32/insn_bne,branch coverage
+insn_c_add,yes,compressed,normal,benchmarks/picorv32/insn_c_add,compressed ALU
+insn_c_addi,no,compressed,normal,benchmarks/picorv32_full/insn_c_addi,preserved full-corpus case
+insn_c_addi16sp,no,compressed,normal,benchmarks/picorv32_full/insn_c_addi16sp,preserved full-corpus case
+insn_c_addi4spn,no,compressed,normal,benchmarks/picorv32_full/insn_c_addi4spn,preserved full-corpus case
+insn_c_and,no,compressed,normal,benchmarks/picorv32_full/insn_c_and,preserved full-corpus case
+insn_c_andi,no,compressed,normal,benchmarks/picorv32_full/insn_c_andi,preserved full-corpus case
+insn_c_beqz,no,compressed,normal,benchmarks/picorv32_full/insn_c_beqz,preserved full-corpus case
+insn_c_bnez,no,compressed,normal,benchmarks/picorv32_full/insn_c_bnez,preserved full-corpus case
+insn_c_j,yes,compressed,normal,benchmarks/picorv32/insn_c_j,compressed jump
+insn_c_jal,no,compressed,normal,benchmarks/picorv32_full/insn_c_jal,preserved full-corpus case
+insn_c_jalr,no,compressed,normal,benchmarks/picorv32_full/insn_c_jalr,preserved full-corpus case
+insn_c_jr,no,compressed,normal,benchmarks/picorv32_full/insn_c_jr,preserved full-corpus case
+insn_c_li,no,compressed,normal,benchmarks/picorv32_full/insn_c_li,preserved full-corpus case
+insn_c_lui,no,compressed,normal,benchmarks/picorv32_full/insn_c_lui,preserved full-corpus case
+insn_c_lw,yes,compressed,normal,benchmarks/picorv32/insn_c_lw,compressed load
+insn_c_lwsp,no,compressed,normal,benchmarks/picorv32_full/insn_c_lwsp,preserved full-corpus case
+insn_c_mv,no,compressed,normal,benchmarks/picorv32_full/insn_c_mv,preserved full-corpus case
+insn_c_or,no,compressed,normal,benchmarks/picorv32_full/insn_c_or,preserved full-corpus case
+insn_c_slli,no,compressed,normal,benchmarks/picorv32_full/insn_c_slli,preserved full-corpus case
+insn_c_srai,no,compressed,normal,benchmarks/picorv32_full/insn_c_srai,preserved full-corpus case
+insn_c_srli,no,compressed,normal,benchmarks/picorv32_full/insn_c_srli,preserved full-corpus case
+insn_c_sub,yes,compressed,normal,benchmarks/picorv32/insn_c_sub,compressed subtraction
+insn_c_sw,yes,compressed,normal,benchmarks/picorv32/insn_c_sw,compressed store
+insn_c_swsp,no,compressed,normal,benchmarks/picorv32_full/insn_c_swsp,preserved full-corpus case
+insn_c_xor,no,compressed,normal,benchmarks/picorv32_full/insn_c_xor,preserved full-corpus case
+insn_div,yes,divrem,nonaltops,benchmarks/picorv32/insn_div,DIV/REM family; real non-ALTOPS arithmetic
+insn_div_altops,yes,divrem,altops,benchmarks/picorv32/insn_div_altops,ALTOPS representative
+insn_divu,yes,divrem,nonaltops,benchmarks/picorv32/insn_divu,DIV/REM family; real non-ALTOPS arithmetic
+insn_jal,yes,jump,normal,benchmarks/picorv32/insn_jal,jump coverage
+insn_jalr,yes,jump,normal,benchmarks/picorv32/insn_jalr,jump coverage
+insn_lb,yes,load,normal,benchmarks/picorv32/insn_lb,load coverage
+insn_lbu,no,load,normal,benchmarks/picorv32_full/insn_lbu,preserved full-corpus case
+insn_lh,no,load,normal,benchmarks/picorv32_full/insn_lh,preserved full-corpus case
+insn_lhu,no,load,normal,benchmarks/picorv32_full/insn_lhu,preserved full-corpus case
+insn_lui,yes,upper,normal,benchmarks/picorv32/insn_lui,upper-immediate coverage
+insn_lw,yes,load,normal,benchmarks/picorv32/insn_lw,load coverage
+insn_mul,yes,mul,nonaltops,benchmarks/picorv32/insn_mul,MUL family; real non-ALTOPS arithmetic
+insn_mul_altops,yes,mul,altops,benchmarks/picorv32/insn_mul_altops,ALTOPS representative (serial multiplier)
+insn_mulh,yes,mul,nonaltops,benchmarks/picorv32/insn_mulh,MUL family; real non-ALTOPS arithmetic
+insn_mulhsu,yes,mul,nonaltops,benchmarks/picorv32/insn_mulhsu,MUL family; real non-ALTOPS arithmetic
+insn_mulhu,yes,mul,nonaltops,benchmarks/picorv32/insn_mulhu,MUL family; real non-ALTOPS arithmetic
+insn_or,no,alu,normal,benchmarks/picorv32_full/insn_or,preserved full-corpus case
+insn_ori,no,alu,normal,benchmarks/picorv32_full/insn_ori,preserved full-corpus case
+insn_rem,yes,divrem,nonaltops,benchmarks/picorv32/insn_rem,proof-relevant DIV/REM; real non-ALTOPS arithmetic
+insn_rem_altops,yes,divrem,altops,benchmarks/picorv32/insn_rem_altops,ALTOPS representative
+insn_remu,yes,divrem,nonaltops,benchmarks/picorv32/insn_remu,DIV/REM family; real non-ALTOPS arithmetic
+insn_sb,yes,store,normal,benchmarks/picorv32/insn_sb,store coverage
+insn_sh,no,store,normal,benchmarks/picorv32_full/insn_sh,preserved full-corpus case
+insn_sll,yes,alu,normal,benchmarks/picorv32/insn_sll,shift register/immediate pair
+insn_slli,yes,alu,normal,benchmarks/picorv32/insn_slli,shift register/immediate pair
+insn_slt,yes,alu,normal,benchmarks/picorv32/insn_slt,signed-compare pair
+insn_slti,yes,alu,normal,benchmarks/picorv32/insn_slti,signed-compare pair
+insn_sltiu,yes,alu,normal,benchmarks/picorv32/insn_sltiu,unsigned-compare pair
+insn_sltu,yes,alu,normal,benchmarks/picorv32/insn_sltu,proof-relevant compare; unsigned-compare pair
+insn_sra,yes,alu,normal,benchmarks/picorv32/insn_sra,active shift case; promoted from preserved full corpus
+insn_srai,no,alu,normal,benchmarks/picorv32_full/insn_srai,preserved full-corpus case
+insn_srl,no,alu,normal,benchmarks/picorv32_full/insn_srl,preserved full-corpus case
+insn_srli,no,alu,normal,benchmarks/picorv32_full/insn_srli,preserved full-corpus case
+insn_sub,yes,alu,normal,benchmarks/picorv32/insn_sub,subtraction coverage
+insn_sw,yes,store,normal,benchmarks/picorv32/insn_sw,store coverage
+insn_xor,yes,alu,normal,benchmarks/picorv32/insn_xor,active logic case; promoted from preserved full corpus
+insn_xori,no,alu,normal,benchmarks/picorv32_full/insn_xori,preserved full-corpus case

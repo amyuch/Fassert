@@ -1,0 +1,49 @@
+[09:37:27 INFO] the model to be checked: /tmp/opencode/nerv_exact_ext.btor
+[09:37:27 INFO] origin ts has 58323 vars, 218 inputs, 4777 latches, 204435 clauses, 4 constraints
+[09:37:28 INFO] trivial simplified ts: 18078 vars, 143 inputs, 4547 latches, 94659 clauses, 4 constraints
+[09:37:29 INFO] scorr: eliminates 0 latchs out of 4547 in 1.31s
+[09:37:30 INFO] scorr: simplified ts: 17965 vars, 142 inputs, 4547 latches, 94143 clauses, 4 constraints
+[09:37:31 INFO] frts: eliminates 2650 out of 17965 vars in 0.90s
+[09:37:32 INFO] frts: simplified ts: 15238 vars, 142 inputs, 4547 latches, 79614 clauses, 4 constraints
+[09:37:32 INFO] preprocessed ts has 15238 vars, 142 inputs, 4547 latches, 79614 clauses, 4 constraints
+[09:37:32 INFO] IC3 found no counterexample up to depth 0
+[09:37:32 INFO] IC3 found no counterexample up to depth 1
+[09:37:32 INFO] IC3 found no counterexample up to depth 2
+[09:37:32 INFO] IC3 found no counterexample up to depth 3
+[09:37:50 INFO] frames [6]: 36 1 97 33 4082 1 
+[09:37:50 INFO] IC3 found no counterexample up to depth 4
+[09:40:05 INFO] frames [7]: 36 1 97 115 54 19890 2067 
+[09:40:05 INFO] IC3 found no counterexample up to depth 5
+[09:40:17 INFO] IC3 proved the property
+[09:40:17 INFO] obligations: [0, 0, 0, 0, 0, 0, 0, 19918]
+[09:40:17 INFO] frames [8]: 36 1 97 115 41 0 19936 2097 
+[09:40:17 INFO] SolverStatistic {
+    num_solve: 560934,
+    avg_solve_time: 209.459µs,
+    avg_decide_var: 0.143829,
+    num_simplify_subsume: 1,
+    num_simplify_self_subsume: 0,
+}
+[09:40:17 INFO] Statistic {
+    time: 169.94s,
+    num_mic: 36255,
+    avg_mic_cube_len: 9.972197,
+    avg_po_cube_len: 150.433647,
+    mic_drop: success: 541, fail: 360995, success rate: 0.15%,
+    num_down: 361536,
+    num_down_sat: 353985,
+    ctp: success: 0, fail: 21952, success rate: 0.00%,
+    block: Block {
+        overall_time: 153.290304597s,
+        get_bad_time: 2054 times in 273.990715ms,
+        blocked_time: 55887 times in 9.648913s,
+        get_pred_time: 33.994126213s,
+        mic_time: 126.692251223s,
+        push_time: 723.072944ms,
+    },
+    overall_propagate_time: 3.598603036s,
+    xor_gen: success: 0, fail: 0, success rate: NaN%,
+    num_auxiliary_var: 0,
+    test: success: 0, fail: 0, success rate: NaN%,
+}
+UNSAT

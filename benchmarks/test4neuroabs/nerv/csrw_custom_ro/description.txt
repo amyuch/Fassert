@@ -1,0 +1,4 @@
+Benchmark: nerv / csrw_custom_ro.
+Property focus: write to the read-only custom CSR is ignored.
+Checker: riscv-formal rvfi_csrw_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

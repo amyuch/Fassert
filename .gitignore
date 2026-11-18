@@ -1,0 +1,54 @@
+# Development-only material at the artifact root.
+/STATUS.md
+/docs/
+
+# Ad-hoc automation campaigns and temporary working directories.
+# automation/pcd itself is kept as the organised workbench.
+/automation/.tmp_serv/
+/automation/picorv32-smoke-blind.*
+/automation/smoke-proof-*
+/automation/mul-proof-audit-*
+/automation/mul-from-zero-*
+/automation/h_reg_A2.*
+/automation/ric3_mon_portfolio.log
+
+# Benchmark families outside the published artifact snapshot.
+/benchmarks/flute/
+/benchmarks/piccolo/
+/benchmarks/test4neuroabs/flute/
+/benchmarks/test4neuroabs/piccolo/
+/benchmarks/test4neuroabs/_legacy/
+/benchmarks-orig/
+
+# Generated benchmark artifacts.
+/benchmarks/test4neuroabs/**/*_extract.txt
+/benchmarks/test4neuroabs/**/iter/
+/benchmarks/test4neuroabs/**/llm_prompts.jsonl
+**/.pcd-build/
+**/ric3proj/
+**/__pycache__/
+**/*.pyc
+**/*.vcd
+**/*.aag
+**/*.smt2
+**/.pytest_cache/
+**/.mypy_cache/
+
+# Baseline outputs, logs, and build trees.
+/baselines/**/res/
+/baselines/**/target/
+/baselines/**/results*/
+/baselines/**/results*.csv
+/baselines/**/RESULTS*.md
+/baselines/**/*.log
+/baselines/**/*.btor
+/baselines/**/*.btor2
+/baselines/**/*.aig
+/baselines/**/*.aag
+/baselines/cill/deps/*/build/
+/baselines/neuroabs/parser.out
+/baselines/neuroabs/parsetab.py
+/baselines/neuroabs/test_out.txt
+
+# Prebuilt external tool binaries.
+/tools/

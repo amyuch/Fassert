@@ -1,0 +1,4 @@
+Benchmark: nerv / ill.
+Property focus: illegal-instruction trap.
+Checker: riscv-formal rvfi_ill_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

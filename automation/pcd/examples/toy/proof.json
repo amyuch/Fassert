@@ -1,0 +1,430 @@
+{
+  "schema_version": "pcd-proof/0.1",
+  "case": "toy",
+  "models": {
+    "primary": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "alt": "btor:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "primary_model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "helpers": [
+    {
+      "path": "helper_good.sv",
+      "asserts": [
+        {
+          "node": "manifold",
+          "name": "h_manifold"
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "O0",
+      "role": "rtl_link",
+      "kind": "tcb",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "front-end trust boundary",
+      "requires": [],
+      "provides": [
+        {
+          "name": "G0",
+          "expr": "tcb_ok",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "TCB",
+        "format": "tcb",
+        "verdict": "assumed",
+        "tcb": "toy front-end; model hash is identity, not equivalence"
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "manifold",
+      "role": "invariant",
+      "kind": "inductive",
+      "phase": "loop",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "reachable manifold",
+      "requires": [],
+      "provides": [
+        {
+          "name": "G1",
+          "expr": "m",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "REPLAY",
+        "format": "replay",
+        "verdict": "proved",
+        "goal": "G1",
+        "run": {
+          "id": "run-manifold",
+          "command": [
+            "toy-engine",
+            "check",
+            "toy.btor"
+          ],
+          "tool": "toy-engine",
+          "version": "0.1",
+          "model_sha256": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "log": "logs/manifold.log",
+          "log_sha256": "f0e214e7c25682f612358942b6825ae062322d05e3a219da92c72e64904b9346"
+        },
+        "assertion": {
+          "name": "h_manifold",
+          "file": "helper_good.sv"
+        }
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "poly",
+      "role": "algebra",
+      "kind": "poly",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "poly identity",
+      "requires": [],
+      "provides": [
+        {
+          "name": "G2",
+          "expr": "(x + 1)^2 = x^2 + 2*x + 1",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "CHECKED",
+        "format": "poly",
+        "checker": "pcd-poly/0.1",
+        "verdict": "proved",
+        "goal": "G2",
+        "payload": {
+          "W": 32,
+          "subst": {
+            "a": [
+              [
+                1,
+                [
+                  "x"
+                ]
+              ],
+              [
+                1,
+                []
+              ]
+            ]
+          },
+          "lhs": [
+            [
+              1,
+              [
+                "a",
+                "a"
+              ]
+            ]
+          ],
+          "rhs": [
+            [
+              1,
+              [
+                "x",
+                "x"
+              ]
+            ],
+            [
+              2,
+              [
+                "x"
+              ]
+            ],
+            [
+              1,
+              []
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "bridge",
+      "role": "interface",
+      "kind": "linear",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "bridge the recurrence to the observation",
+      "requires": [
+        {
+          "node": "manifold",
+          "guarantee": "G1"
+        },
+        {
+          "node": "poly",
+          "guarantee": "G2"
+        }
+      ],
+      "provides": [
+        {
+          "name": "G3",
+          "expr": "(x + 1)^2 = x^2 + 2*x + 1",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "checker": "z3/5.1",
+        "verdict": "proved",
+        "goal": "G3",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const m Bool)\n(declare-const x Int)\n(assert m)\n(assert (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)))\n(assert (not (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1))))\n(check-sat)\n"
+        }
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "coverage",
+      "role": "coverage",
+      "kind": "guarded",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "the guard partition is exhaustive",
+      "requires": [],
+      "provides": [
+        {
+          "name": "G4",
+          "expr": "(or q (not q))",
+          "sort": "Bool"
+        }
+      ],
+      "coverage": {
+        "guards": [
+          {
+            "name": "taken",
+            "expr": "p"
+          },
+          {
+            "name": "not_taken",
+            "expr": "!p"
+          }
+        ],
+        "exhaustive": true,
+        "checked_by": "coverage.certificate"
+      },
+      "certificate": {
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "checker": "z3/5.1",
+        "verdict": "proved",
+        "goal": "G4",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const q Bool)\n(assert (not (or q (not q))))\n(check-sat)\n"
+        }
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "alt_inv",
+      "role": "invariant",
+      "kind": "inductive",
+      "phase": "loop",
+      "model": "btor:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "statement": "source-model invariant reused through a transfer",
+      "requires": [],
+      "provides": [
+        {
+          "name": "G5",
+          "expr": "q",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "REPLAY",
+        "format": "replay",
+        "verdict": "proved",
+        "goal": "G5",
+        "run": {
+          "id": "run-alt",
+          "command": [
+            "toy-engine",
+            "check",
+            "alt.btor"
+          ],
+          "tool": "toy-engine",
+          "version": "0.1",
+          "model_sha256": "btor:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "log": "logs/alt.log",
+          "log_sha256": "4cab979dacbd5dbe40b93211e3e6dd558a06216071164fac986964dc9c14a022"
+        }
+      },
+      "reuse": {
+        "source_model": "btor:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "assumption_match": [
+          "model",
+          "width",
+          "guards",
+          "phase",
+          "transition"
+        ],
+        "transfer_node": "xfer",
+        "note": "toy transfer"
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "xfer",
+      "role": "transfer",
+      "kind": "equivalence",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "transfer the source invariant to the primary model",
+      "requires": [
+        {
+          "node": "alt_inv",
+          "guarantee": "G5"
+        }
+      ],
+      "provides": [
+        {
+          "name": "G6",
+          "expr": "q",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "checker": "z3/5.1",
+        "verdict": "proved",
+        "goal": "G6",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const q Bool)\n(assert q)\n(assert (not q))\n(check-sat)\n"
+        }
+      }
+    },
+    {
+      "schema_version": "pcd-obligation/0.1",
+      "id": "root",
+      "role": "compose",
+      "kind": "linear",
+      "phase": "any",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "statement": "root composition",
+      "requires": [
+        {
+          "node": "manifold",
+          "guarantee": "G1"
+        },
+        {
+          "node": "poly",
+          "guarantee": "G2"
+        },
+        {
+          "node": "bridge",
+          "guarantee": "G3"
+        },
+        {
+          "node": "coverage",
+          "guarantee": "G4"
+        },
+        {
+          "node": "xfer",
+          "guarantee": "G6"
+        }
+      ],
+      "provides": [
+        {
+          "name": "P",
+          "expr": "(and m (x + 1)^2 = x^2 + 2*x + 1 (x + 1)^2 = x^2 + 2*x + 1 (or q (not q)) q)",
+          "sort": "Bool"
+        }
+      ],
+      "certificate": {
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "checker": "z3/5.1",
+        "verdict": "proved",
+        "goal": "P",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const m Bool)\n(declare-const q Bool)\n(declare-const x Int)\n(assert m)\n(assert (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)))\n(assert (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)))\n(assert (or q (not q)))\n(assert q)\n(assert (not (and m (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)) (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)) (or q (not q)) q)))\n(check-sat)\n"
+        }
+      }
+    }
+  ],
+  "targets": [
+    {
+      "id": "root",
+      "statement": "the toy result equals the spec",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "goal": "P",
+      "requires": [
+        {
+          "node": "manifold",
+          "guarantee": "G1"
+        },
+        {
+          "node": "poly",
+          "guarantee": "G2"
+        },
+        {
+          "node": "bridge",
+          "guarantee": "G3"
+        },
+        {
+          "node": "coverage",
+          "guarantee": "G4"
+        },
+        {
+          "node": "xfer",
+          "guarantee": "G6"
+        }
+      ],
+      "tcb": [
+        "O0"
+      ],
+      "composition": {
+        "mode": "CHECKED",
+        "checker": "z3-implication",
+        "payload": {
+          "premises": [
+            {
+              "node": "manifold",
+              "guarantee": "G1"
+            },
+            {
+              "node": "poly",
+              "guarantee": "G2"
+            },
+            {
+              "node": "bridge",
+              "guarantee": "G3"
+            },
+            {
+              "node": "coverage",
+              "guarantee": "G4"
+            },
+            {
+              "node": "xfer",
+              "guarantee": "G6"
+            }
+          ],
+          "goal": "P",
+          "smt2": "(set-logic ALL)\n(declare-const m Bool)\n(declare-const q Bool)\n(declare-const x Int)\n(assert m)\n(assert (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)))\n(assert (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)))\n(assert (or q (not q)))\n(assert q)\n(assert (not (and m (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)) (= (* (+ x 1) (+ x 1)) (+ (+ (* x x) (* 2 x)) 1)) (or q (not q)) q)))\n(check-sat)\n"
+        },
+        "artifact": {
+          "path": "artifacts/compose.smt2",
+          "sha256": "8c25c5109b76f7d52cc7b291b458c9d8e8a2163a71a0cfabd1b78ea2923d03da"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "run_mode": "dev",
+    "planner": "manual"
+  }
+}

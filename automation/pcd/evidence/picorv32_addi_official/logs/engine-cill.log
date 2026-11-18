@@ -1,0 +1,11 @@
+# command: ric3 cill check
+# cwd: /home/AM2/sec/cur_work/fassert/automation/pcd/runs/picorv32_insn_addi/20261106T025456Z-picorv32_insn_addi-087fc3/case/.pcd-build
+# timeout_s: 1230
+# sandbox: bwrap
+# ---
+[02:54:58 INFO] BMC: Checking correctness of all properties.
+[02:55:15 INFO] BMC found no CEX in limited steps.
+[02:55:15 INFO] Checking inductiveness of all properties.
+[03:00:01 INFO] IC3 proved [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35] prop.
+CIll Statistic: Total time: 337s, Correctness check: 17s, Inductiveness check: 320s
+[38;5;10mAll properties are inductive. Proof succeeded.[39m

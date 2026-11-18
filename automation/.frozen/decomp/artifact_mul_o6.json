@@ -1,0 +1,35 @@
+{
+  "artifact": "mul_o6",
+  "btor_sha256_note": "see artifact_mul_manifold.json",
+  "obligation": "O6 observable link (writeback -> retire)",
+  "links": {
+    "h_ready_capture": {
+      "status": "proved",
+      "seconds": 0.75,
+      "raw": "UNSAT"
+    },
+    "h_cpuregs_wrdata_mul": {
+      "status": "proved",
+      "seconds": 0.62,
+      "raw": "UNSAT"
+    },
+    "h_rvfi_link_mul": {
+      "status": "proved",
+      "seconds": 0.79,
+      "raw": "UNSAT"
+    },
+    "h_rd_matches_insn": {
+      "status": "unknown",
+      "seconds": 121.23,
+      "raw": "note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace"
+    }
+  },
+  "composition": {
+    "status": "checked",
+    "assumes": [
+      "L1-L3 proved",
+      "L4 address-match"
+    ]
+  },
+  "verdict": "O6 data correspondence proved from RTL transition; rd-address OPEN"
+}

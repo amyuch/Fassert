@@ -1,0 +1,16 @@
+{
+  "cases": [
+    "picorv32_addi_official",
+    "picorv32_jal_official",
+    "picorv32_divu_official"
+  ],
+  "description": "Official riscv-formal cases with bundled offline evidence. Each package retains the official spec, checker, and RTL sources and is checked offline by the kernel.",
+  "planner": "template",
+  "proof_packages": {
+    "picorv32_addi_official": "evidence/picorv32_addi_official",
+    "picorv32_divu_official": "evidence/picorv32_divu_official",
+    "picorv32_jal_official": "evidence/picorv32_jal_official"
+  },
+  "provenance": "official",
+  "schema_version": "pcd-suite/0.1"
+}

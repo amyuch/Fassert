@@ -1,0 +1,28 @@
+{
+  "artifact": "mul_rvfi_integration",
+  "guards": {
+    "outer": "!reset && check && spec_valid",
+    "inner": "rvformal_addr_valid(rvfi_pc_rdata) && !mem_access_fault && !spec_trap",
+    "o_rd_wdata_match": "spec_rd_wdata == rvfi_rd_wdata",
+    "o_pc_wdata_match": "rvformal_addr_eq(spec_pc_wdata, rvfi_pc_wdata)",
+    "spec_rd_wdata": "spec_rd_addr ? (rvfi_rs1_rdata * rvfi_rs2_rdata) : 0",
+    "spec_pc_wdata": "rvfi_pc_rdata + 4",
+    "spec_valid": "rvfi_valid && !insn_padding && funct7==0000001 && funct3==000 && opcode==0110011",
+    "spec_trap": "!misa_ok  (misa_ok=1 when RISCV_FORMAL_CSR_MISA absent)"
+  },
+  "data": {
+    "o6_l1_l3": true,
+    "o6_l4": true,
+    "m2_links": "bmc-clean-unproved",
+    "composition": "unsat"
+  },
+  "pc": {
+    "h_pc_corr": "bmc-clean-unproved",
+    "composition": "unsat"
+  },
+  "outcomes": {
+    "o_rd_wdata_match": "closed",
+    "o_pc_wdata_match": "closed"
+  },
+  "tcb": "Yosys/Slang front-end (O0); z3/ric3 soundness"
+}

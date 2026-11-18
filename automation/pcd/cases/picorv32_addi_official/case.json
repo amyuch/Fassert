@@ -1,0 +1,97 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 1200
+    },
+    "max_iterations": 4,
+    "total_seconds": 1800
+  },
+  "build": {
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": ".pcd-build/ric3proj/dut/dut.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ],
+      "cwd": ".",
+      "timeout_s": 300
+    }
+  },
+  "case": "picorv32_addi_official",
+  "claim_scope": "safety",
+  "description": "official riscv-formal benchmark insn_addi",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/insn_addi.v",
+        "role": "spec",
+        "sha256": "375a26ab6bd23c62533d9c7a1f092355b87fa358e1f7691f764e7c95fec8ccd7"
+      },
+      {
+        "path": "input/rtl/rvfi_insn_check.sv",
+        "role": "checker",
+        "sha256": "c66f6f01dacdc680e0d1afefc0a81427c59aba626581d4c6c10298082b3bebcb"
+      },
+      {
+        "path": "input/rtl/picorv32.sv",
+        "role": "rtl",
+        "sha256": "d5b1cf69e0f780509ef3e7ecced5c1c36a28b4aaa0eabef28276bbdcdc623d96"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "d15530b786933029e87c56f223a87fe9e0485a76bc458e4626c1b47d5b77351e"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "b74be47cf0972bebbba83aebffda029507975f85acc297057d147761e5a661cc"
+      },
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "96de57169a40510c2536cba497b9ece9ec214364341bfd6d9e33e7142616e4b8"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "blind",
+    "notes": "imported official benchmark; no prior proof, run, oracle, or ric3proj is staged",
+    "oracle_paths": [],
+    "planner": "template",
+    "pre_registered": true,
+    "template_backend": "cill"
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "guard": "!reset && check",
+      "id": "root",
+      "model_ref": "primary",
+      "observation": "rvfi retire",
+      "statement": "all official RVFI checks for insn_addi"
+    }
+  ]
+}

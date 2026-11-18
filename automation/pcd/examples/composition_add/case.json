@@ -1,0 +1,99 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 1200
+    },
+    "max_iterations": 4,
+    "total_seconds": 1800
+  },
+  "build": {
+    "expected_model": {
+      "kind": "btor",
+      "sha256": "12b2267f7519d2c9a781fa0dabccaa6a5219ee4ace15062f6bf12940686886e3"
+    },
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": "models/observed.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "python3",
+        "build/build.py"
+      ]
+    }
+  },
+  "case": "composition_add",
+  "claim_scope": "safety",
+  "description": "Frozen ADD proof with checked structural observer projection",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/insn_add.v",
+        "role": "spec",
+        "sha256": "55608f0b868bb4b7952c7f6d67ad17ec5e930e507f3ef26b430ce2644f437904"
+      },
+      {
+        "path": "input/rtl/rvfi_insn_check.sv",
+        "role": "checker",
+        "sha256": "2a15000e492e58d207ff3801c9b9b378cc835942d8bf800575b490b75b3de8ed"
+      },
+      {
+        "path": "input/rtl/picorv32.sv",
+        "role": "rtl",
+        "sha256": "d5b1cf69e0f780509ef3e7ecced5c1c36a28b4aaa0eabef28276bbdcdc623d96"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "d15530b786933029e87c56f223a87fe9e0485a76bc458e4626c1b47d5b77351e"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "ab63ecba2c2383e628ba80e00a4d17fd2f1b53a9736e77d13eaaebb55feaf24a"
+      },
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "b1d94e04a3f434d20888a19f5053be2d14e7b96e83181e48a1ea797d00a248f8"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "dev",
+    "oracle_paths": [],
+    "planner": "manual",
+    "pre_registered": false
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "id": "root",
+      "model_ref": "primary",
+      "required_properties": [
+        "o_pc_wdata_match",
+        "o_rd_wdata_match"
+      ],
+      "statement": "ADD PC and destination data satisfy the original checker on the observer extension"
+    }
+  ]
+}

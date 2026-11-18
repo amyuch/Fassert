@@ -1,0 +1,4 @@
+Benchmark: serv / reg.
+Property focus: register-file write / commit behavior.
+Checker: riscv-formal rvfi_reg_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

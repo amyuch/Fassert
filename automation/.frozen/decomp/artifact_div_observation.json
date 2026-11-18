@@ -1,0 +1,23 @@
+{
+  "artifact": "div_observation",
+  "links": {
+    "h_div_mux": {
+      "status": "proved",
+      "seconds": 1.41
+    },
+    "h_div_ready_capture": {
+      "status": "proved",
+      "seconds": 1.55
+    },
+    "h_div_wb_mux": {
+      "status": "proved",
+      "seconds": 2.04
+    },
+    "h_div_rvfi_link": {
+      "status": "proved",
+      "seconds": 2.19
+    }
+  },
+  "composition": "unsat",
+  "l4": "proved"
+}

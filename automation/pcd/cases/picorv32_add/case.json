@@ -1,0 +1,102 @@
+{
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 900
+    },
+    "max_iterations": 4,
+    "total_seconds": 1800
+  },
+  "build": {
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": ".pcd-build/ric3proj/dut/dut.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ],
+      "cwd": ".",
+      "timeout_s": 180
+    }
+  },
+  "case": "picorv32_add",
+  "claim_scope": "safety",
+  "description": "picorv32 ADD instruction against the riscv-formal RVFI ISA model",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "b1d94e04a3f434d20888a19f5053be2d14e7b96e83181e48a1ea797d00a248f8"
+      },
+      {
+        "path": "input/rtl/insn_add.v",
+        "role": "spec",
+        "sha256": "55608f0b868bb4b7952c7f6d67ad17ec5e930e507f3ef26b430ce2644f437904"
+      },
+      {
+        "path": "input/rtl/picorv32.sv",
+        "role": "rtl",
+        "sha256": "d5b1cf69e0f780509ef3e7ecced5c1c36a28b4aaa0eabef28276bbdcdc623d96"
+      },
+      {
+        "path": "input/rtl/rvfi_insn_check.sv",
+        "role": "checker",
+        "sha256": "2a15000e492e58d207ff3801c9b9b378cc835942d8bf800575b490b75b3de8ed"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "7198988937701c5ea1e98d6eb4625032b0473e1620408a51ba650310c98274a0"
+      },
+      {
+        "path": "input/rtl/helpers_add.sv",
+        "role": "helper",
+        "sha256": "d79409559d72deed6f2aa5f7a1a2a9896327891656b305e60ebcdd86a67060ed"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "d15530b786933029e87c56f223a87fe9e0485a76bc458e4626c1b47d5b77351e"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "blind",
+    "notes": "inputs are the benchmark RTL/spec only; the manual candidate is untrusted and no prior decomposition is staged",
+    "oracle_paths": [
+      "oracle/"
+    ],
+    "planner": "manual",
+    "pre_registered": true
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "guard": "!reset && check",
+      "id": "root",
+      "model_ref": "primary",
+      "observation": "rvfi retire",
+      "statement": "ADD retires with the RVFI PC and destination-register write data matching the ISA model"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 1200
+    },
+    "max_iterations": 4,
+    "total_seconds": 1800
+  },
+  "build": {
+    "expected_model": {
+      "kind": "btor",
+      "sha256": "948b4261f0ebb9f5a3dbfcac1685129bfb1cc94f0a8d8184bc509a7d6929f8f8"
+    },
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": ".pcd-build/ric3proj/dut/dut.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ],
+      "cwd": ".",
+      "timeout_s": 300
+    }
+  },
+  "case": "nerv_bus_dmem",
+  "claim_scope": "safety",
+  "description": "official riscv-formal benchmark bus_dmem",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/rvfi_bus_dmem_check.sv",
+        "role": "checker",
+        "sha256": "9510534f8ca9ea4eb8162ccdac54159b9808bc035675b7ae71cb9c704d290784"
+      },
+      {
+        "path": "input/rtl/nerv.sv",
+        "role": "rtl",
+        "sha256": "47308a1d5feaf0033911e9f9e0ab3f76e140a97983ebac82dfad371331f2f113"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "8152ec7e6e076478b8416e15c712cad5909ea94ac16a5de62f12f06581cce138"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "b74be47cf0972bebbba83aebffda029507975f85acc297057d147761e5a661cc"
+      },
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "dcbe2f1f6399ced31bc275efff5028603beb23d13a5d3a6076030d48300891f5"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "blind",
+    "notes": "imported official benchmark; no prior proof, run, oracle, or ric3proj is staged",
+    "oracle_paths": [],
+    "planner": "template",
+    "pre_registered": true,
+    "template_backend": "cill"
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "guard": "!reset && check",
+      "id": "root",
+      "model_ref": "primary",
+      "observation": "rvfi retire",
+      "required_properties": [
+        "o_dmem_rdata"
+      ],
+      "statement": "all official RVFI checks for bus_dmem"
+    }
+  ]
+}

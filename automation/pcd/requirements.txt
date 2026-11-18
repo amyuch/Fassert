@@ -1,0 +1,4 @@
+jsonschema>=4.18
+referencing>=0.30
+z3-solver>=4.12
+PyYAML>=6.0

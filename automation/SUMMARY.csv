@@ -1,0 +1,11 @@
+case,verdict,time_s,tried,engine_s,engine_over_total,inv,engine_included,tcb
+picorv32/insn_add,ACCEPT,505.17,2,501.00,0.992,23,yes,0
+picorv32/insn_addi,ACCEPT,260.49,1,258.60,0.993,21,yes,0
+picorv32/insn_beq,ACCEPT,270.68,1,268.16,0.991,26,yes,0
+picorv32/insn_c_j,ACCEPT,206.97,2,206.01,0.995,4,yes,0
+picorv32/insn_mul,ACCEPT,795.57,16,1251.21,1.573,47,yes,1
+picorv32/insn_sra,ACCEPT,256.03,2,253.08,0.989,23,yes,0
+serv/reg,ACCEPT,452.16,6,252.59,0.559,4,yes,1
+nerv/reg,ACCEPT,242.23,2,237.61,0.981,5,yes,0
+flute/ADD,ACCEPT,374.32,2,341.94,0.913,0,yes,1
+piccolo/ADD,ACCEPT,135.27,2,129.50,0.957,0,yes,1

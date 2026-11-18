@@ -1,0 +1,4 @@
+Benchmark: nerv / csr_ill_f11.
+Property focus: illegal access to CSR 0xf11.
+Checker: riscv-formal rvfi_csr_ill_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

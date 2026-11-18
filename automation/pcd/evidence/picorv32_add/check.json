@@ -1,0 +1,144 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "transfer.o_pc_wdata_match": {
+        "accepted": true,
+        "destination_model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+        "destination_property": "o_pc_wdata_match",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 1022,
+        "mapped_free_states": 72,
+        "mapped_inputs": 3,
+        "mapped_states": 275,
+        "source_constraints": 4,
+        "source_model": "btor:8455501fb98117ec1b5711a8f2b1120f15da1b4ab6561cbf78f11ed482bd6dd5",
+        "source_property": "o_pc_wdata_match"
+      },
+      "transfer.o_rd_wdata_match": {
+        "accepted": true,
+        "destination_model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+        "destination_property": "o_rd_wdata_match",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 1086,
+        "mapped_free_states": 74,
+        "mapped_inputs": 3,
+        "mapped_states": 280,
+        "source_constraints": 4,
+        "source_model": "btor:8455501fb98117ec1b5711a8f2b1120f15da1b4ab6561cbf78f11ed482bd6dd5",
+        "source_property": "o_rd_wdata_match"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "fatal_errors": [],
+  "node_evidence": {
+    "root": "CHECKED",
+    "source.o_pc_wdata_match": "REPLAY",
+    "source.o_rd_wdata_match": "REPLAY",
+    "transfer.o_pc_wdata_match": "CHECKED",
+    "transfer.o_rd_wdata_match": "CHECKED"
+  },
+  "obligations": [
+    {
+      "direction": "root must be a CHECKED composition on the target model",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "target.root.root",
+      "kind": "target",
+      "model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "node.root",
+      "kind": "evidence",
+      "model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "S",
+      "id": "node.source.o_pc_wdata_match",
+      "kind": "evidence",
+      "model": "btor:8455501fb98117ec1b5711a8f2b1120f15da1b4ab6561cbf78f11ed482bd6dd5",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "S",
+      "id": "node.source.o_rd_wdata_match",
+      "kind": "evidence",
+      "model": "btor:8455501fb98117ec1b5711a8f2b1120f15da1b4ab6561cbf78f11ed482bd6dd5",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_pc",
+      "id": "node.transfer.o_pc_wdata_match",
+      "kind": "evidence",
+      "model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_rd",
+      "id": "node.transfer.o_rd_wdata_match",
+      "kind": "evidence",
+      "model": "btor:4708eaafdd91e3171203d9b3efc443cc0855a1a809e1a70b371c941d8ac78d94",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    }
+  ],
+  "proved": true,
+  "residual": [],
+  "status": "proved",
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "transfer.o_pc_wdata_match.D_pc",
+        "transfer.o_rd_wdata_match.D_rd"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,72 @@
+    \uut.cached_insn_opcode  <= _2579_;
+    \uut.cached_insn_opcode  <= _2579_;
+unsat
+    \uut.instr_fence  <= _2370_;
+    \uut.instr_fence  <= _2370_;
+unsat
+    \uut.instr_rdcycle  <= _2380_;
+    \uut.instr_rdcycle  <= _2380_;
+unsat
+    \uut.count_cycle  <= _3079_;
+    \uut.count_cycle  <= _3079_;
+unsat
+    \uut.next_insn_opcode  <= _2987_;
+    \uut.next_insn_opcode  <= _2987_;
+unsat
+    \uut.instr_rdcycleh  <= _2378_;
+    \uut.instr_rdcycleh  <= _2378_;
+unsat
+  assign \uut.mem_rdata_latched  = _3103_;
+  assign \uut.mem_rdata_latched  = _3103_;
+unsat
+    \uut.instr_rdinstr  <= _2376_;
+    \uut.instr_rdinstr  <= _2376_;
+unsat
+    \uut.instr_ecall_ebreak  <= _2372_;
+    \uut.instr_ecall_ebreak  <= _2372_;
+unsat
+  assign _0315_ = _2533_;
+  assign _0315_ = _2533_;
+unsat
+    \uut.count_instr  <= _1968_;
+    \uut.count_instr  <= _1968_;
+unsat
+    \uut.instr_rdinstrh  <= _2374_;
+    \uut.instr_rdinstrh  <= _2374_;
+unsat
+    \uut.instr_ecall_ebreak  <= _2372_;
+\uut.instr_ecall_ebreak <= 'bx;
+unsat
+    \uut.instr_rdcycleh  <= _2378_;
+\uut.instr_rdcycleh <= 'bx;
+unsat
+  assign _0315_ = _2533_;
+assign _0315_ = 'bx;
+unsat
+    \uut.instr_fence  <= _2370_;
+\uut.instr_fence <= 'bx;
+unsat
+    \uut.count_cycle  <= _3079_;
+\uut.count_cycle <= 'bx;
+unsat
+    \uut.instr_rdcycle  <= _2380_;
+\uut.instr_rdcycle <= 'bx;
+unsat
+    \uut.count_instr  <= _1968_;
+\uut.count_instr <= 'bx;
+unsat
+    \uut.instr_rdinstr  <= _2376_;
+\uut.instr_rdinstr <= 'bx;
+unsat
+    \uut.next_insn_opcode  <= _2987_;
+\uut.next_insn_opcode <= 'bx;
+unsat
+  assign \uut.mem_rdata_latched  = _3103_;
+assign \uut.mem_rdata_latched = 'bx;
+unsat
+    \uut.instr_rdinstrh  <= _2374_;
+\uut.instr_rdinstrh <= 'bx;
+unsat
+    \uut.cached_insn_opcode  <= _2579_;
+\uut.cached_insn_opcode <= 'bx;
+unsat

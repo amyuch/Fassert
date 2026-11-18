@@ -1,0 +1,102 @@
+tier,family,case,category,semantics,checker,path,note
+smoke,picorv32,insn_add,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_add,proof-relevant ALU; add/addi pair
+smoke,picorv32,insn_addi,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_addi,add/addi pair
+smoke,picorv32,insn_beq,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_beq,branch coverage
+smoke,picorv32,insn_c_j,compressed,normal,rvfi_insn_check,benchmarks/picorv32/insn_c_j,compressed jump
+smoke,picorv32,insn_mul,mul,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_mul,MUL family; real non-ALTOPS arithmetic
+smoke,picorv32,insn_sra,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_sra,active shift case; promoted from preserved full corpus
+smoke,serv,reg,register,normal,rvfi_reg_check,benchmarks/serv/reg,property-specific
+smoke,nerv,reg,register,normal,rvfi_reg_check,benchmarks/nerv/reg,property-specific
+smoke,flute,ADD,alu,normal,ila_normalassert,benchmarks/flute/ADD,immediate ILA assertion
+smoke,piccolo,ADD,alu,normal,ila_normalassert,benchmarks/piccolo/ADD,immediate ILA assertion
+core,picorv32,insn_auipc,upper,normal,rvfi_insn_check,benchmarks/picorv32/insn_auipc,upper-immediate coverage
+core,picorv32,insn_bge,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_bge,branch coverage
+core,picorv32,insn_bgeu,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_bgeu,branch coverage
+core,picorv32,insn_blt,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_blt,branch coverage
+core,picorv32,insn_bne,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_bne,branch coverage
+core,picorv32,insn_c_add,compressed,normal,rvfi_insn_check,benchmarks/picorv32/insn_c_add,compressed ALU
+core,picorv32,insn_div,divrem,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_div,DIV/REM family; real non-ALTOPS arithmetic
+core,picorv32,insn_jal,jump,normal,rvfi_insn_check,benchmarks/picorv32/insn_jal,jump coverage
+core,picorv32,insn_jalr,jump,normal,rvfi_insn_check,benchmarks/picorv32/insn_jalr,jump coverage
+core,picorv32,insn_lui,upper,normal,rvfi_insn_check,benchmarks/picorv32/insn_lui,upper-immediate coverage
+core,picorv32,insn_lw,load,normal,rvfi_insn_check_mem,benchmarks/picorv32/insn_lw,load coverage
+core,picorv32,insn_mulh,mul,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_mulh,MUL family; real non-ALTOPS arithmetic
+core,picorv32,insn_rem,divrem,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_rem,proof-relevant DIV/REM; real non-ALTOPS arithmetic
+core,picorv32,insn_remu,divrem,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_remu,DIV/REM family; real non-ALTOPS arithmetic
+core,picorv32,insn_sltu,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_sltu,proof-relevant compare; unsigned-compare pair
+core,picorv32,insn_sw,store,normal,rvfi_insn_check_mem,benchmarks/picorv32/insn_sw,store coverage
+core,picorv32,insn_xor,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_xor,active logic case; promoted from preserved full corpus
+core,serv,causal,causal,normal,rvfi_causal_check,benchmarks/serv/causal,property-specific
+core,serv,pc_bwd,pc,normal,rvfi_pc_bwd_check,benchmarks/serv/pc_bwd,property-specific
+core,serv,pc_fwd,pc,normal,rvfi_pc_fwd_check,benchmarks/serv/pc_fwd,property-specific
+core,nerv,bus_dmem,bus,normal,rvfi_bus_dmem_check,benchmarks/nerv/bus_dmem,property-specific
+core,nerv,csrw_mstatus,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mstatus,property-specific
+core,flute,ADDI,alu,normal,ila_normalassert,benchmarks/flute/ADDI,immediate ILA assertion
+core,flute,BNE,branch,normal,ila_normalassert,benchmarks/flute/BNE,immediate ILA assertion
+core,flute,JAL,jump,normal,ila_normalassert,benchmarks/flute/JAL,immediate ILA assertion
+core,flute,SB,store,normal,ila_normalassert,benchmarks/flute/SB,immediate ILA assertion
+core,piccolo,ANDI,logic,normal,ila_normalassert,benchmarks/piccolo/ANDI,immediate ILA assertion
+core,piccolo,BEQ,branch,normal,ila_normalassert,benchmarks/piccolo/BEQ,immediate ILA assertion
+core,piccolo,JAL,jump,normal,ila_normalassert,benchmarks/piccolo/JAL,immediate ILA assertion
+core,piccolo,LB,load,normal,ila_normalassert,benchmarks/piccolo/LB,immediate ILA assertion
+extended,picorv32,insn_and,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_and,AND register/immediate pair
+extended,picorv32,insn_andi,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_andi,AND register/immediate pair
+extended,picorv32,insn_bltu,branch,normal,rvfi_insn_check,benchmarks/picorv32/insn_bltu,branch coverage
+extended,picorv32,insn_c_lw,compressed,normal,rvfi_insn_check,benchmarks/picorv32/insn_c_lw,compressed load
+extended,picorv32,insn_c_sub,compressed,normal,rvfi_insn_check,benchmarks/picorv32/insn_c_sub,compressed subtraction
+extended,picorv32,insn_c_sw,compressed,normal,rvfi_insn_check,benchmarks/picorv32/insn_c_sw,compressed store
+extended,picorv32,insn_divu,divrem,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_divu,DIV/REM family; real non-ALTOPS arithmetic
+extended,picorv32,insn_lb,load,normal,rvfi_insn_check_mem,benchmarks/picorv32/insn_lb,load coverage
+extended,picorv32,insn_mulhsu,mul,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_mulhsu,MUL family; real non-ALTOPS arithmetic
+extended,picorv32,insn_mulhu,mul,nonaltops,rvfi_insn_check,benchmarks/picorv32/insn_mulhu,MUL family; real non-ALTOPS arithmetic
+extended,picorv32,insn_sb,store,normal,rvfi_insn_check_mem,benchmarks/picorv32/insn_sb,store coverage
+extended,picorv32,insn_sll,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_sll,shift register/immediate pair
+extended,picorv32,insn_slli,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_slli,shift register/immediate pair
+extended,picorv32,insn_slt,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_slt,signed-compare pair
+extended,picorv32,insn_slti,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_slti,signed-compare pair
+extended,picorv32,insn_sltiu,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_sltiu,unsigned-compare pair
+extended,picorv32,insn_sub,alu,normal,rvfi_insn_check,benchmarks/picorv32/insn_sub,subtraction coverage
+extended,nerv,bus_dmem_fault,bus,normal,rvfi_bus_dmem_fault_check,benchmarks/nerv/bus_dmem_fault,property-specific
+extended,nerv,bus_imem,bus,normal,rvfi_bus_imem_check,benchmarks/nerv/bus_imem,property-specific
+extended,nerv,bus_imem_fault,bus,normal,rvfi_bus_imem_fault_check,benchmarks/nerv/bus_imem_fault,property-specific
+extended,nerv,causal,causal,normal,rvfi_causal_check,benchmarks/nerv/causal,property-specific
+extended,nerv,csr_ill_f11,csr-ill,normal,rvfi_csr_ill_check,benchmarks/nerv/csr_ill_f11,property-specific
+extended,nerv,csr_ill_fff,csr-ill,normal,rvfi_csr_ill_check,benchmarks/nerv/csr_ill_fff,property-specific
+extended,nerv,csrc_const_custom_ro,csr-read,normal,rvfi_csrc_const_check,benchmarks/nerv/csrc_const_custom_ro,property-specific
+extended,nerv,csrc_inc_mhpmcounter5,csr-read,normal,rvfi_csrc_inc_check,benchmarks/nerv/csrc_inc_mhpmcounter5,property-specific
+extended,nerv,csrc_upcnt_mcycle,csr-read,normal,rvfi_csrc_upcnt_check,benchmarks/nerv/csrc_upcnt_mcycle,property-specific
+extended,nerv,csrc_upcnt_minstret,csr-read,normal,rvfi_csrc_upcnt_check,benchmarks/nerv/csrc_upcnt_minstret,property-specific
+extended,nerv,csrw_custom,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_custom,property-specific
+extended,nerv,csrw_custom_ro,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_custom_ro,property-specific
+extended,nerv,csrw_mcycle,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mcycle,property-specific
+extended,nerv,csrw_mhpmcounter5,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mhpmcounter5,property-specific
+extended,nerv,csrw_mhpmevent3,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mhpmevent3,property-specific
+extended,nerv,csrw_mhpmevent5,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mhpmevent5,property-specific
+extended,nerv,csrw_mhpmevent9,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_mhpmevent9,property-specific
+extended,nerv,csrw_minstret,csr-write,normal,rvfi_csrw_check,benchmarks/nerv/csrw_minstret,property-specific
+extended,nerv,ill,illegal,normal,rvfi_ill_check,benchmarks/nerv/ill,property-specific
+extended,nerv,pc_bwd,pc,normal,rvfi_pc_bwd_check,benchmarks/nerv/pc_bwd,property-specific
+extended,nerv,pc_fwd,pc,normal,rvfi_pc_fwd_check,benchmarks/nerv/pc_fwd,property-specific
+extended,nerv,unique,unique,normal,rvfi_unique_check,benchmarks/nerv/unique,property-specific
+extended,flute,ADD_new,alu,normal,ila_normalassert,benchmarks/flute/ADD_new,immediate ILA assertion
+extended,flute,BGE,branch,normal,ila_normalassert,benchmarks/flute/BGE,immediate ILA assertion
+extended,flute,BLTU,branch,normal,ila_normalassert,benchmarks/flute/BLTU,immediate ILA assertion
+extended,flute,BNE_new,branch,normal,ila_normalassert,benchmarks/flute/BNE_new,immediate ILA assertion
+extended,flute,OR,logic,normal,ila_normalassert,benchmarks/flute/OR,immediate ILA assertion
+extended,flute,OR_new,logic,normal,ila_normalassert,benchmarks/flute/OR_new,immediate ILA assertion
+extended,flute,SH,store,normal,ila_normalassert,benchmarks/flute/SH,immediate ILA assertion
+extended,flute,SRA,shift,normal,ila_normalassert,benchmarks/flute/SRA,immediate ILA assertion
+extended,flute,SUB,alu,normal,ila_normalassert,benchmarks/flute/SUB,immediate ILA assertion
+extended,flute,XOR,logic,normal,ila_normalassert,benchmarks/flute/XOR,immediate ILA assertion
+extended,flute,XORI,logic,normal,ila_normalassert,benchmarks/flute/XORI,immediate ILA assertion
+extended,flute,XOR_new,logic,normal,ila_normalassert,benchmarks/flute/XOR_new,immediate ILA assertion
+extended,piccolo,ADDI,alu,normal,ila_normalassert,benchmarks/piccolo/ADDI,immediate ILA assertion
+extended,piccolo,AUIPC,upper,normal,ila_normalassert,benchmarks/piccolo/AUIPC,immediate ILA assertion
+extended,piccolo,BNE,branch,normal,ila_normalassert,benchmarks/piccolo/BNE,immediate ILA assertion
+extended,piccolo,LUI,upper,normal,ila_normalassert,benchmarks/piccolo/LUI,immediate ILA assertion
+extended,piccolo,OR,logic,normal,ila_normalassert,benchmarks/piccolo/OR,immediate ILA assertion
+extended,piccolo,SB,store,normal,ila_normalassert,benchmarks/piccolo/SB,immediate ILA assertion
+extended,piccolo,SH,store,normal,ila_normalassert,benchmarks/piccolo/SH,immediate ILA assertion
+extended,piccolo,SLTI,logic,normal,ila_normalassert,benchmarks/piccolo/SLTI,immediate ILA assertion
+extended,piccolo,SUB,alu,normal,ila_normalassert,benchmarks/piccolo/SUB,immediate ILA assertion
+extended,piccolo,XOR,logic,normal,ila_normalassert,benchmarks/piccolo/XOR,immediate ILA assertion

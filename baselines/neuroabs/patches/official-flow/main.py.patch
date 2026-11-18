@@ -1,0 +1,18 @@
+--- NeuroAbs/src/main.py	2026-10-04 22:27:30.478666477 +0800
++++ /tmp/opencode/na/src/main.py	2026-10-04 22:47:00.312923428 +0800
+@@ -68,6 +68,7 @@
+ dffunmap
+ abc -fast -g AND
+ write_verilog problem_1.v
++delete t:$print
+ write_aiger -vmap map.txt -symbols -zinit -ascii {aag}
+ """,
+ }
+@@ -81,6 +82,7 @@
+     'deepseek': 'deepseek_api',
+     'llama': 'llama_api',
+     'poe': 'poe_api',
++    'authored': 'authored_api',
+ }
+ 
+ 

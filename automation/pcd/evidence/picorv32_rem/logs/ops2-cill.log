@@ -1,0 +1,7 @@
+[09:37:49 INFO] BMC: Checking correctness of all properties.
+[09:38:07 INFO] BMC found no CEX in limited steps.
+[09:38:07 INFO] Checking inductiveness of all properties.
+[09:39:47 INFO] IC3 proved [0, 1, 2, 3, 4, 5] prop.
+CIll Statistic: Total time: 120s, Correctness check: 18s, Inductiveness check: 101s
+[38;5;10mAll properties are inductive. Proof succeeded.[39m
+rc=0

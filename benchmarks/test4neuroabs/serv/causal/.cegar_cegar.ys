@@ -1,0 +1,18 @@
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal/rvfi_causal_check.sv
+read_verilog -sv /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal/wrapper_abstract_llm_new.v
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal/tb.sv
+prep -flatten -nordff -top testbench
+chformal -early
+memory
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+dffunmap
+async2sync
+sim -clock clock -reset reset -rstlen 1 -n 1 -w testbench
+write_btor /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/serv/causal/wrapper_abstract_llm_new.btor2

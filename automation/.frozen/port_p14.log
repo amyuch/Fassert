@@ -1,0 +1,20 @@
+[10:20:23 INFO] the model to be checked: /tmp/opencode/mul_ini/ric3proj/dut/dut.btor
+[10:20:23 INFO] start engine ic3_inn_noctg
+[10:20:23 INFO] start engine bmc_kissat_dyn
+[10:20:23 INFO] start engine ic3_ctg_limit
+[10:20:23 INFO] start engine ic3_inn_dynamic
+[10:20:23 INFO] start engine ic3
+[10:20:23 INFO] start engine bmc
+[10:20:23 INFO] start engine ic3_inn
+[10:20:23 INFO] start engine ic3_abs_all
+[10:20:23 INFO] start engine bmc_kissat_10
+[10:20:23 INFO] start engine ic3_abs_cst
+[10:20:23 INFO] start engine ic3_no_preproc
+[10:20:23 INFO] start engine kind
+[10:20:23 INFO] start engine ic3_inn_ctp
+[10:20:23 INFO] start engine bmc_kissat_65
+[10:20:23 INFO] start engine ic3_no_parent
+[10:20:23 INFO] start engine ic3_predprop
+[10:25:23 INFO] Terminated by timeout.
+UNKNOWN
+EXIT=0

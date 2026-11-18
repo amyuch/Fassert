@@ -1,0 +1,4 @@
+Benchmark: nerv / csrw_mhpmevent9.
+Property focus: write to mhpmevent9.
+Checker: riscv-formal rvfi_csrw_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

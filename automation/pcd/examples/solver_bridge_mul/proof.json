@@ -1,0 +1,366 @@
+{
+  "acceptance": "complete",
+  "case": "solver_bridge_mul",
+  "metadata": {
+    "completeness": "complete",
+    "notes": "Typed Z3 lemmas, independently checked imported constraints, and rIC3 target proof.",
+    "planner": "example",
+    "run_mode": "dev"
+  },
+  "model_artifacts": {
+    "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a": {
+      "path": "models/ric3.btor",
+      "sha256": "6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a"
+    },
+    "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8": {
+      "path": "models/original.btor",
+      "sha256": "e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+    }
+  },
+  "models": {
+    "primary": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+    "ric3": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a"
+  },
+  "nodes": [
+    {
+      "certificate": {
+        "checker": "pcd-btor-smt/0.1",
+        "evidence": "CHECKED",
+        "format": "btor-smt",
+        "goal": "L",
+        "payload": {
+          "method": "induction",
+          "timeout_ms": 5000
+        },
+        "verdict": "proved"
+      },
+      "id": "capture",
+      "kind": "inductive",
+      "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+      "phase": "any",
+      "provides": [
+        {
+          "binding": {
+            "expression": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "id": 20,
+                      "op": "ref"
+                    }
+                  ],
+                  "op": "truth"
+                },
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "id": 9,
+                          "op": "ref"
+                        }
+                      ],
+                      "hi": 31,
+                      "lo": 0,
+                      "op": "extract"
+                    },
+                    {
+                      "args": [
+                        {
+                          "id": 22,
+                          "op": "ref"
+                        },
+                        {
+                          "id": 23,
+                          "op": "ref"
+                        }
+                      ],
+                      "op": "bvmul"
+                    }
+                  ],
+                  "op": "eq"
+                }
+              ],
+              "op": "implies"
+            },
+            "kind": "btor-expression"
+          },
+          "expr": "capture_fact",
+          "name": "L",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "invariant",
+      "schema_version": "pcd-obligation/0.1"
+    },
+    {
+      "certificate": {
+        "checker": "pcd-btor-smt/0.1",
+        "evidence": "CHECKED",
+        "format": "btor-smt",
+        "goal": "L",
+        "payload": {
+          "method": "induction",
+          "timeout_ms": 5000
+        },
+        "verdict": "proved"
+      },
+      "id": "retirement",
+      "kind": "inductive",
+      "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+      "phase": "any",
+      "provides": [
+        {
+          "binding": {
+            "expression": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "id": 27,
+                      "op": "ref"
+                    }
+                  ],
+                  "op": "truth"
+                },
+                {
+                  "args": [
+                    {
+                      "id": 26,
+                      "op": "ref"
+                    },
+                    {
+                      "args": [
+                        {
+                          "id": 29,
+                          "op": "ref"
+                        },
+                        {
+                          "id": 30,
+                          "op": "ref"
+                        }
+                      ],
+                      "op": "bvmul"
+                    }
+                  ],
+                  "op": "eq"
+                }
+              ],
+              "op": "implies"
+            },
+            "kind": "btor-expression"
+          },
+          "expr": "retirement_fact",
+          "name": "L",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "L",
+          "node": "capture"
+        }
+      ],
+      "role": "invariant",
+      "schema_version": "pcd-obligation/0.1"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "input/rtl/mul.sv",
+          "name": "o_result"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "P",
+        "run": {
+          "command": [
+            "ric3",
+            "check",
+            "models/ric3.btor",
+            "kind",
+            "--prop",
+            "0",
+            "--time-limit",
+            "15"
+          ],
+          "id": "ric3-import",
+          "log": "evidence/engine.log",
+          "log_sha256": "caf899b7835ce79981738301b8051701d8c0b019a5bffe2ee3be38eaa71ff0ed",
+          "model_sha256": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "engine",
+      "kind": "replay",
+      "model": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a",
+      "phase": "any",
+      "provides": [
+        {
+          "binding": {
+            "kind": "btor-bad",
+            "property": "o_result"
+          },
+          "expr": "ric3_result",
+          "name": "P",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "reuse": {
+        "assumption_match": [
+          "model",
+          "width",
+          "guards",
+          "phase",
+          "transition"
+        ],
+        "source_model": "btor:6e65138a234bbf5aa4a70ccfa63b02567c9c712baa69eae277dc20e208fb491a",
+        "transfer_node": "close_imports"
+      },
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1"
+    },
+    {
+      "certificate": {
+        "checker": "pcd-compose/0.1",
+        "evidence": "CHECKED",
+        "format": "btor-projection",
+        "goal": "P",
+        "payload": {
+          "discharge": {
+            "66": {
+              "guarantee": "L",
+              "node": "capture"
+            },
+            "70": {
+              "guarantee": "L",
+              "node": "retirement"
+            }
+          },
+          "input_map": {
+            "2": "2",
+            "3": "3",
+            "5": "5",
+            "6": "6",
+            "7": "7"
+          },
+          "source": {
+            "guarantee": "P",
+            "node": "engine"
+          },
+          "state_map": {
+            "12": "12",
+            "15": "15",
+            "20": "20",
+            "22": "22",
+            "23": "23",
+            "26": "26",
+            "27": "27",
+            "29": "29",
+            "30": "30",
+            "9": "9"
+          }
+        },
+        "verdict": "proved"
+      },
+      "id": "close_imports",
+      "kind": "equivalence",
+      "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+      "phase": "any",
+      "provides": [
+        {
+          "binding": {
+            "kind": "btor-bad",
+            "property": "o_result"
+          },
+          "expr": "original_result",
+          "name": "P",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "P",
+          "node": "engine"
+        },
+        {
+          "guarantee": "L",
+          "node": "capture"
+        },
+        {
+          "guarantee": "L",
+          "node": "retirement"
+        }
+      ],
+      "role": "transfer",
+      "schema_version": "pcd-obligation/0.1"
+    },
+    {
+      "certificate": {
+        "checker": "z3",
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "goal": "GOAL",
+        "payload": {
+          "smt2": "(set-logic ALL)\n(declare-const original_result Bool)\n(assert original_result)\n(assert (not original_result))\n(check-sat)\n"
+        },
+        "verdict": "proved"
+      },
+      "id": "root",
+      "kind": "linear",
+      "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "original_result",
+          "name": "GOAL",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "P",
+          "node": "close_imports"
+        }
+      ],
+      "role": "compose",
+      "schema_version": "pcd-obligation/0.1"
+    }
+  ],
+  "primary_model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+  "schema_version": "pcd-proof/0.1",
+  "targets": [
+    {
+      "composition": {
+        "checker": "z3-implication",
+        "mode": "CHECKED",
+        "payload": {
+          "goal": "GOAL",
+          "premises": [
+            {
+              "guarantee": "P",
+              "node": "close_imports"
+            }
+          ],
+          "smt2": "(set-logic ALL)\n(declare-const original_result Bool)\n(assert original_result)\n(assert (not original_result))\n(check-sat)\n"
+        }
+      },
+      "goal": "GOAL",
+      "id": "root",
+      "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8",
+      "requires": [
+        {
+          "guarantee": "P",
+          "node": "close_imports"
+        }
+      ],
+      "statement": "The original 32-bit MUL pipeline retires the low product of the captured operands",
+      "tcb": []
+    }
+  ]
+}

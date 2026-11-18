@@ -1,0 +1,62 @@
+{
+  "schema_version": "pcd-case/0.1",
+  "case": "toy",
+  "claim_scope": "safety",
+  "inputs": {
+    "files": [
+      {
+        "path": "input/rtl/toy.sv",
+        "role": "rtl"
+      },
+      {
+        "path": "input/spec/toy.spec",
+        "role": "spec"
+      }
+    ],
+    "environment": {
+      "top": "toy",
+      "reset": "reset",
+      "frontend": "yosys-slang"
+    }
+  },
+  "build": {
+    "kind": "btor",
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ]
+    },
+    "outputs": [
+      {
+        "path": "build/toy.btor",
+        "kind": "btor"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "id": "root",
+      "statement": "the toy result equals the spec",
+      "guard": "!reset",
+      "observation": "retire",
+      "claim_level": "root",
+      "model": "btor:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "budgets": {
+    "total_seconds": 60,
+    "max_iterations": 2,
+    "engine_seconds": {
+      "z3": 30
+    }
+  },
+  "run_policy": {
+    "mode": "dev",
+    "oracle_paths": [
+      "oracle/"
+    ],
+    "pre_registered": true,
+    "planner": "manual"
+  }
+}

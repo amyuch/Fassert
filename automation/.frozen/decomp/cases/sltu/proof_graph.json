@@ -1,0 +1,153 @@
+{
+  "case": "sltu",
+  "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae",
+  "model_note": "picorv32 insn_sltu (base ALU) with a CTI-derived helper set (not copied from res/); CIll proof succeeded (152 s)",
+  "nodes": [
+    {
+      "id": "O0_frontend",
+      "role": "rtl_link",
+      "kind": "tcb",
+      "lemma": "Yosys/Slang -> BTOR faithfully represents the source RTL",
+      "assumes": [],
+      "status": "TCB_ASSUMPTION",
+      "tcb": "front-end trust; BTOR hash is identity, not semantic equivalence"
+    },
+    {
+      "id": "control_facts",
+      "role": "invariant",
+      "kind": "inductive",
+      "lemma": "dbg_next tracks launch; dbg SLTU implies instr_sltu",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_dbg_sltu_implies_instr_sltu, h_dbg_next_tracks_launch (inductive, 152 s)",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "exec_operands",
+      "role": "invariant",
+      "kind": "inductive",
+      "lemma": "at exec with instr_sltu, reg_op1/op2 == dbg_rs1val/rs2val",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_exec_operands_match_dbg",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "op_data",
+      "role": "update",
+      "kind": "linear",
+      "lemma": "on an SLTU writeback, cpuregs_wrdata == (rs1<rs2 ? 1 : 0)",
+      "assumes": ["exec_operands", "control_facts"],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_writeback_data_match (inductive with the supporting facts)",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "result_1bit",
+      "role": "invariant",
+      "kind": "inductive",
+      "lemma": "spec_valid && !trap => rvfi_rd_wdata[31:1] == 0",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_rd_wdata_is_1bit",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "wb_consistent",
+      "role": "algebra",
+      "kind": "linear",
+      "lemma": "captured wb data == (wb_rs1 < wb_rs2 ? 1 : 0)",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_wb_consistent",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "operand_id",
+      "role": "operand",
+      "kind": "inductive",
+      "lemma": "spec rvfi_rs1/rs2_rdata == captured wb operands at retire",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_wb_aligns_with_retire (operand conjuncts)",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "dest_id",
+      "role": "operand",
+      "kind": "inductive",
+      "lemma": "spec_valid => rvfi_rd_addr == rvfi_insn[11:7]",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_rd_addr_matches_insn",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "retire_align",
+      "role": "observe",
+      "kind": "linear",
+      "lemma": "spec_valid => wb_valid and rvfi_rd_wdata == (wb_rd ? wb_wdata : 0)",
+      "assumes": ["wb_consistent"],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU CIll: h_sltu_wb_aligns_with_retire",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "pc_direct",
+      "role": "invariant",
+      "kind": "inductive",
+      "lemma": "o_pc_wdata_match is already inductive at baseline (no helpers)",
+      "assumes": [],
+      "status": "PROVED_TRUSTED",
+      "engine": "cil",
+      "evidence": "SLTU baseline: o_pc_wdata_match Inductive",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "root_rd",
+      "role": "compose",
+      "kind": "linear",
+      "lemma": "o_rd_wdata_match (SLTU)",
+      "assumes": ["op_data", "result_1bit", "wb_consistent", "operand_id", "dest_id", "retire_align"],
+      "status": "PROVED_TRUSTED",
+      "engine": "kernel-linear",
+      "evidence": "SLTU CIll proof succeeded (152 s)",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    },
+    {
+      "id": "root_pc",
+      "role": "compose",
+      "kind": "linear",
+      "lemma": "o_pc_wdata_match (SLTU)",
+      "assumes": ["pc_direct"],
+      "status": "PROVED_TRUSTED",
+      "engine": "kernel-linear",
+      "evidence": "SLTU baseline o_pc inductive",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae"
+    }
+  ],
+  "targets": [
+    {
+      "id": "root_rd",
+      "statement": "o_rd_wdata_match",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae",
+      "requires": ["op_data", "result_1bit", "wb_consistent", "operand_id", "dest_id", "retire_align"],
+      "tcb": ["O0_frontend"]
+    },
+    {
+      "id": "root_pc",
+      "statement": "o_pc_wdata_match",
+      "model": "btor:c5afb5d1d46f17668d3913952264d69178e4a646c10ddf9b70f33a935949b0ae",
+      "requires": ["pc_direct"],
+      "tcb": ["O0_frontend"]
+    }
+  ]
+}

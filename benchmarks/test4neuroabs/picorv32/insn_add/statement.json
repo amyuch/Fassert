@@ -1,0 +1,14 @@
+{
+    "input1": "    \\uut.instr_ecall_ebreak  <= _2372_;",
+    "input2": "    \\uut.instr_rdcycleh  <= _2378_;",
+    "input3": "  assign _0315_ = _2533_;",
+    "input4": "    \\uut.instr_fence  <= _2370_;",
+    "input5": "    \\uut.count_cycle  <= _3079_;",
+    "input6": "    \\uut.instr_rdcycle  <= _2380_;",
+    "input7": "    \\uut.count_instr  <= _1968_;",
+    "input8": "    \\uut.instr_rdinstr  <= _2376_;",
+    "input9": "    \\uut.next_insn_opcode  <= _2987_;",
+    "input10": "  assign \\uut.mem_rdata_latched  = _3103_;",
+    "input11": "    \\uut.instr_rdinstrh  <= _2374_;",
+    "input12": "    \\uut.cached_insn_opcode  <= _2579_;"
+}

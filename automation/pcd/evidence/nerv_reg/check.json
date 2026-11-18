@@ -1,0 +1,144 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "transfer.rs1": {
+        "accepted": true,
+        "destination_model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+        "destination_property": "o_shadow_rs1r",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 0,
+        "mapped_free_states": 0,
+        "mapped_inputs": 3,
+        "mapped_states": 171,
+        "source_constraints": 4,
+        "source_model": "btor:9de5674b67e20c3c67ba13d3cbc381a6e4370ef93aadc5af0e889b265052f83d",
+        "source_property": "o_shadow_rs1r"
+      },
+      "transfer.rs2": {
+        "accepted": true,
+        "destination_model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+        "destination_property": "o_shadow_rs2r",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 0,
+        "mapped_free_states": 0,
+        "mapped_inputs": 3,
+        "mapped_states": 171,
+        "source_constraints": 4,
+        "source_model": "btor:9de5674b67e20c3c67ba13d3cbc381a6e4370ef93aadc5af0e889b265052f83d",
+        "source_property": "o_shadow_rs2r"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "fatal_errors": [],
+  "node_evidence": {
+    "root": "CHECKED",
+    "target.rs1": "REPLAY",
+    "target.rs2": "REPLAY",
+    "transfer.rs1": "CHECKED",
+    "transfer.rs2": "CHECKED"
+  },
+  "obligations": [
+    {
+      "direction": "root must be a CHECKED composition on the target model",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "target.root.root",
+      "kind": "target",
+      "model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "node.root",
+      "kind": "evidence",
+      "model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "L_rs1",
+      "id": "node.target.rs1",
+      "kind": "evidence",
+      "model": "btor:9de5674b67e20c3c67ba13d3cbc381a6e4370ef93aadc5af0e889b265052f83d",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "L_rs2",
+      "id": "node.target.rs2",
+      "kind": "evidence",
+      "model": "btor:9de5674b67e20c3c67ba13d3cbc381a6e4370ef93aadc5af0e889b265052f83d",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_rs1",
+      "id": "node.transfer.rs1",
+      "kind": "evidence",
+      "model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_rs2",
+      "id": "node.transfer.rs2",
+      "kind": "evidence",
+      "model": "btor:81571352d08cf71bf3ba81cd3fd10d3714e4de5b16f67701a80b2064aa120459",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    }
+  ],
+  "proved": true,
+  "residual": [],
+  "status": "proved",
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "transfer.rs1.D_rs1",
+        "transfer.rs2.D_rs2"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

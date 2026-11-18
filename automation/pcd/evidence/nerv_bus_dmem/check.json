@@ -1,0 +1,100 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "transfer.o_dmem_rdata": {
+        "accepted": true,
+        "destination_model": "btor:948b4261f0ebb9f5a3dbfcac1685129bfb1cc94f0a8d8184bc509a7d6929f8f8",
+        "destination_property": "o_dmem_rdata",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_free_bits": 0,
+        "mapped_free_states": 0,
+        "mapped_inputs": 3,
+        "mapped_states": 276,
+        "source_constraints": 70,
+        "source_model": "btor:5aa2ac5d74558bdd4eab067c3f8d7dca7ec812b3b90e55ca73bd484c1018d173",
+        "source_property": "o_dmem_rdata"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "fatal_errors": [],
+  "node_evidence": {
+    "root": "CHECKED",
+    "target.o_dmem_rdata": "REPLAY",
+    "transfer.o_dmem_rdata": "CHECKED"
+  },
+  "obligations": [
+    {
+      "direction": "root must be a CHECKED composition on the target model",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "target.root.root",
+      "kind": "target",
+      "model": "btor:948b4261f0ebb9f5a3dbfcac1685129bfb1cc94f0a8d8184bc509a7d6929f8f8",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "GOAL",
+      "id": "node.root",
+      "kind": "evidence",
+      "model": "btor:948b4261f0ebb9f5a3dbfcac1685129bfb1cc94f0a8d8184bc509a7d6929f8f8",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "REPLAY",
+      "fatal": false,
+      "formula": "L_dmem",
+      "id": "node.target.o_dmem_rdata",
+      "kind": "evidence",
+      "model": "btor:5aa2ac5d74558bdd4eab067c3f8d7dca7ec812b3b90e55ca73bd484c1018d173",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    },
+    {
+      "direction": "engine/checker witness for this obligation",
+      "discharged": true,
+      "evidence": "CHECKED",
+      "fatal": false,
+      "formula": "D_dmem",
+      "id": "node.transfer.o_dmem_rdata",
+      "kind": "evidence",
+      "model": "btor:948b4261f0ebb9f5a3dbfcac1685129bfb1cc94f0a8d8184bc509a7d6929f8f8",
+      "origin": "target root",
+      "reason": null,
+      "required": true
+    }
+  ],
+  "proved": true,
+  "residual": [],
+  "status": "proved",
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "transfer.o_dmem_rdata.D_dmem"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

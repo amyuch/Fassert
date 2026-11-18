@@ -1,0 +1,761 @@
+						if (!ENABLE_COUNTERS64) count_instr[63:32] <= 0;
+
+gate failed: Syntax error at '(', line 1
+
+			is_slli_srli_srai <= is_alu_reg_imm && |{
+				mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000,
+				mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000,
+				mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000
+			};
+
+gate failed: All arguments must be Z3 bit-vector expressions.
+
+		rvfi_rs1_addr <= dbg_rs1val_valid ? dbg_insn_rs1 : 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+				rvfi_rs1_addr <= 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+				rvfi_rs1_addr <= 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+			next_insn_opcode <= COMPRESSED_ISA ? mem_rdata_latched : mem_rdata;
+
+gate failed: 'mem_rdata'
+
+				rvfi_mem_wdata <= 0;
+
+gate failed: 'rvfi_mem_wdata'
+
+				rvfi_mem_wdata <= dbg_mem_wdata;
+
+gate failed: 'rvfi_mem_wdata'
+
+				reg_pc[0] <= 0;
+
+gate failed: Syntax error at '[', line 1
+
+				reg_pc[1:0] <= 0;
+
+gate failed: Syntax error at '[', line 1
+
+	wire [31:0] dbg_mem_wdata = mem_wdata;
+
+gate failed: Syntax error at 'wire', line 1
+
+				decoded_rs1[regindex_bits-1] <= 1;
+
+gate failed: Syntax error at '[', line 1
+
+				decoded_rs1 <= ENABLE_IRQ_QREGS ? irqregs_offset : 3;
+
+gate failed: b'Sorts (_ BitVec 1) and (_ BitVec 2) are incompatible'
+
+			count_cycle <= resetn ? count_cycle + 1 : 0;
+
+gate failed: 'resetn'
+
+			if (!ENABLE_COUNTERS64) count_cycle[63:32] <= 0;
+
+gate failed: Syntax error at '(', line 1
+
+			{ decoded_imm_j[31:20], decoded_imm_j[10:1], decoded_imm_j[11], decoded_imm_j[19:12], decoded_imm_j[0] } <= $signed({mem_rdata_latched[31:12], 1'b0});
+
+gate failed: Syntax error at '{', line 1
+
+				  decoded_imm_j[7], decoded_imm_j[3:1], decoded_imm_j[5], decoded_imm_j[0] } <= $signed({mem_rdata_latched[12:2], 1'b0});
+
+gate failed: Syntax error at '[', line 1
+
+			rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+			rvfi_rd_wdata <= latched_rd ? cpuregs_wrdata : 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+			rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+				rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+					decoded_imm <= $signed(mem_rdata_q[31:20]);
+
+gate failed: Syntax error at '$', line 1
+
+					decoded_imm <= $signed({mem_rdata_q[31], mem_rdata_q[7], mem_rdata_q[30:25], mem_rdata_q[11:8], 1'b0});
+
+gate failed: Syntax error at '$', line 1
+
+					decoded_imm <= $signed({mem_rdata_q[31:25], mem_rdata_q[11:7]});
+
+gate failed: Syntax error at '$', line 1
+
+	assign pcpi_rs1 = reg_op1;
+
+gate failed: 'pcpi_rs1'
+
+		rvfi_rs2_addr <= dbg_rs2val_valid ? dbg_insn_rs2 : 0;
+
+gate failed: 'rvfi_rs2_addr'
+
+			is_jalr_addi_slti_sltiu_xori_ori_andi <= instr_jalr || is_alu_reg_imm && |{
+				mem_rdata_q[14:12] == 3'b000,
+				mem_rdata_q[14:12] == 3'b010,
+				mem_rdata_q[14:12] == 3'b011,
+				mem_rdata_q[14:12] == 3'b100,
+				mem_rdata_q[14:12] == 3'b110,
+				mem_rdata_q[14:12] == 3'b111
+			};
+
+gate failed: All arguments must be Z3 bit-vector expressions.
+
+	assign pcpi_rs2 = reg_op2;
+
+gate failed: 'pcpi_rs2'
+
+		rvfi_rs1_rdata <= dbg_rs1val_valid ? dbg_rs1val : 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+				rvfi_rs1_rdata <= 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+				rvfi_rs1_rdata <= 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+							instr_lb || instr_lbu: mem_wordsize <= 2;
+
+gate failed: Syntax error at '||', line 1
+
+							instr_lh || instr_lhu: mem_wordsize <= 1;
+
+gate failed: Syntax error at '||', line 1
+
+			is_sll_srl_sra <= is_alu_reg_reg && |{
+				mem_rdata_q[14:12] == 3'b001 && mem_rdata_q[31:25] == 7'b0000000,
+				mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0000000,
+				mem_rdata_q[14:12] == 3'b101 && mem_rdata_q[31:25] == 7'b0100000
+			};
+
+gate failed: All arguments must be Z3 bit-vector expressions.
+
+							latched_is_lh: reg_out <= $signed(mem_rdata_word[15:0]);
+
+gate failed: Syntax error at '$', line 1
+
+							latched_is_lb: reg_out <= $signed(mem_rdata_word[7:0]);
+
+gate failed: Syntax error at '$', line 1
+
+		rvfi_insn <= dbg_insn_opcode;
+
+gate failed: 'rvfi_insn'
+
+						reg_op2 <= is_slli_srli_srai && BARREL_SHIFTER ? decoded_rs2 : decoded_imm;
+
+gate failed: b'Sorts (_ BitVec 5) and (_ BitVec 32) are incompatible'
+
+				mem_la_wdata = reg_op2;
+
+gate failed: 'mem_la_wdata'
+
+				mem_la_wdata = {2{reg_op2[15:0]}};
+
+gate failed: 'mem_la_wdata'
+
+				mem_la_wdata = {4{reg_op2[7:0]}};
+
+gate failed: 'mem_la_wdata'
+
+		rvfi_rs2_rdata <= dbg_rs2val_valid ? dbg_rs2val : 0;
+
+gate failed: 'rvfi_rs2_rdata'
+
+						reg_op1 <= instr_lui ? 0 : reg_pc;
+
+gate failed: b'Sorts (_ BitVec 1) and (_ BitVec 32) are incompatible'
+
+						instr_slli || instr_sll: reg_op1 <= reg_op1 << 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srli || instr_srl: reg_op1 <= reg_op1 >> 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srai || instr_sra: reg_op1 <= $signed(reg_op1) >>> 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_slli || instr_sll: reg_op1 <= reg_op1 << 1;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srli || instr_srl: reg_op1 <= reg_op1 >> 1;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srai || instr_sra: reg_op1 <= $signed(reg_op1) >>> 1;
+
+gate failed: Syntax error at '||', line 1
+
+			cpuregs[latched_rd] <= cpuregs_wrdata;
+
+gate failed: Syntax error at '[', line 1
+
+			mem_rdata_q <= COMPRESSED_ISA ? mem_rdata_latched : mem_rdata;
+
+gate failed: 'mem_rdata'
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {2'b0, mem_rdata_latched[10:7], mem_rdata_latched[12:11], mem_rdata_latched[5], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {5'b0, mem_rdata_latched[5], mem_rdata_latched[12:10], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+							{mem_rdata_q[31:25], mem_rdata_q[11:7]} <= {5'b0, mem_rdata_latched[5], mem_rdata_latched[12:10], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[4:3],
+										mem_rdata_latched[5], mem_rdata_latched[2], mem_rdata_latched[6], 4'b0000});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:12] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b101;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0100000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b101;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b111;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b00) mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b01) mem_rdata_q[14:12] <= 3'b100;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b10) mem_rdata_q[14:12] <= 3'b110;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b11) mem_rdata_q[14:12] <= 3'b111;
+
+gate failed: Syntax error at '(', line 1
+
+								mem_rdata_q[31:25] <= mem_rdata_latched[6:5] == 2'b00 ? 7'b0100000 : 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							{ mem_rdata_q[31], mem_rdata_q[7], mem_rdata_q[30:25], mem_rdata_q[11:8] } <=
+									$signed({mem_rdata_latched[12], mem_rdata_latched[6:5], mem_rdata_latched[2],
+											mem_rdata_latched[11:10], mem_rdata_latched[4:3]});
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b001;
+
+gate failed: Syntax error at '[', line 1
+
+							{ mem_rdata_q[31], mem_rdata_q[7], mem_rdata_q[30:25], mem_rdata_q[11:8] } <=
+									$signed({mem_rdata_latched[12], mem_rdata_latched[6:5], mem_rdata_latched[2],
+											mem_rdata_latched[11:10], mem_rdata_latched[4:3]});
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b001;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {4'b0, mem_rdata_latched[3:2], mem_rdata_latched[12], mem_rdata_latched[6:4], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= 12'b0;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= 12'b0;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							{mem_rdata_q[31:25], mem_rdata_q[11:7]} <= {4'b0, mem_rdata_latched[8:7], mem_rdata_latched[12:9], 2'b00};
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+			rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+			rvfi_rd_addr <= latched_rd;
+
+gate failed: 'rvfi_rd_addr'
+
+			rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+				rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+				mem_wdata <= mem_la_wdata;
+
+gate failed: 'mem_wdata'
+
+				reg_pc[0] <= 0;
+
+gate failed: Syntax error at '[', line 1
+
+				reg_pc[1:0] <= 0;
+
+gate failed: Syntax error at '[', line 1
+
+	wire [31:0] dbg_mem_wdata = mem_wdata;
+
+gate failed: Syntax error at 'wire', line 1
+
+			cpuregs[latched_rd] <= cpuregs_wrdata;
+
+gate failed: Syntax error at '[', line 1
+
+						instr_slli || instr_sll: reg_op1 <= reg_op1 << 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srli || instr_srl: reg_op1 <= reg_op1 >> 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srai || instr_sra: reg_op1 <= $signed(reg_op1) >>> 4;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_slli || instr_sll: reg_op1 <= reg_op1 << 1;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srli || instr_srl: reg_op1 <= reg_op1 >> 1;
+
+gate failed: Syntax error at '||', line 1
+
+						instr_srai || instr_sra: reg_op1 <= $signed(reg_op1) >>> 1;
+
+gate failed: Syntax error at '||', line 1
+
+			rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+			rvfi_rd_wdata <= latched_rd ? cpuregs_wrdata : 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+			rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+				rvfi_rd_wdata <= 0;
+
+gate failed: 'rvfi_rd_wdata'
+
+			{ decoded_imm_j[31:20], decoded_imm_j[10:1], decoded_imm_j[11], decoded_imm_j[19:12], decoded_imm_j[0] } <= $signed({mem_rdata_latched[31:12], 1'b0});
+
+gate failed: Syntax error at '{', line 1
+
+				  decoded_imm_j[7], decoded_imm_j[3:1], decoded_imm_j[5], decoded_imm_j[0] } <= $signed({mem_rdata_latched[12:2], 1'b0});
+
+gate failed: Syntax error at '[', line 1
+
+							instr_lb || instr_lbu: mem_wordsize <= 2;
+
+gate failed: Syntax error at '||', line 1
+
+							instr_lh || instr_lhu: mem_wordsize <= 1;
+
+gate failed: Syntax error at '||', line 1
+
+	assign pcpi_rs2 = reg_op2;
+
+gate failed: 'pcpi_rs2'
+
+						if (!ENABLE_COUNTERS64) count_instr[63:32] <= 0;
+
+gate failed: Syntax error at '(', line 1
+
+		rvfi_rs1_addr <= dbg_rs1val_valid ? dbg_insn_rs1 : 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+				rvfi_rs1_addr <= 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+				rvfi_rs1_addr <= 0;
+
+gate failed: 'rvfi_rs1_addr'
+
+		rvfi_rs2_rdata <= dbg_rs2val_valid ? dbg_rs2val : 0;
+
+gate failed: 'rvfi_rs2_rdata'
+
+		rvfi_insn <= dbg_insn_opcode;
+
+gate failed: 'rvfi_insn'
+
+				decoded_rs1[regindex_bits-1] <= 1;
+
+gate failed: Syntax error at '[', line 1
+
+				rvfi_mem_wdata <= 0;
+
+gate failed: 'rvfi_mem_wdata'
+
+				rvfi_mem_wdata <= dbg_mem_wdata;
+
+gate failed: 'rvfi_mem_wdata'
+
+				mem_la_wdata = reg_op2;
+
+gate failed: 'mem_la_wdata'
+
+				mem_la_wdata = {2{reg_op2[15:0]}};
+
+gate failed: 'mem_la_wdata'
+
+				mem_la_wdata = {4{reg_op2[7:0]}};
+
+gate failed: 'mem_la_wdata'
+
+							latched_is_lh: reg_out <= $signed(mem_rdata_word[15:0]);
+
+gate failed: Syntax error at '$', line 1
+
+							latched_is_lb: reg_out <= $signed(mem_rdata_word[7:0]);
+
+gate failed: Syntax error at '$', line 1
+
+				mem_wdata <= mem_la_wdata;
+
+gate failed: 'mem_wdata'
+
+			if (!ENABLE_COUNTERS64) count_cycle[63:32] <= 0;
+
+gate failed: Syntax error at '(', line 1
+
+		rvfi_rs1_rdata <= dbg_rs1val_valid ? dbg_rs1val : 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+				rvfi_rs1_rdata <= 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+				rvfi_rs1_rdata <= 0;
+
+gate failed: 'rvfi_rs1_rdata'
+
+	assign pcpi_rs1 = reg_op1;
+
+gate failed: 'pcpi_rs1'
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {2'b0, mem_rdata_latched[10:7], mem_rdata_latched[12:11], mem_rdata_latched[5], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {5'b0, mem_rdata_latched[5], mem_rdata_latched[12:10], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+							{mem_rdata_q[31:25], mem_rdata_q[11:7]} <= {5'b0, mem_rdata_latched[5], mem_rdata_latched[12:10], mem_rdata_latched[6], 2'b00};
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[4:3],
+										mem_rdata_latched[5], mem_rdata_latched[2], mem_rdata_latched[6], 4'b0000});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:12] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b101;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0100000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b101;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b111;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= $signed({mem_rdata_latched[12], mem_rdata_latched[6:2]});
+
+gate failed: Syntax error at '[', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b00) mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b01) mem_rdata_q[14:12] <= 3'b100;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b10) mem_rdata_q[14:12] <= 3'b110;
+
+gate failed: Syntax error at '(', line 1
+
+								if (mem_rdata_latched[6:5] == 2'b11) mem_rdata_q[14:12] <= 3'b111;
+
+gate failed: Syntax error at '(', line 1
+
+								mem_rdata_q[31:25] <= mem_rdata_latched[6:5] == 2'b00 ? 7'b0100000 : 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+							{ mem_rdata_q[31], mem_rdata_q[7], mem_rdata_q[30:25], mem_rdata_q[11:8] } <=
+									$signed({mem_rdata_latched[12], mem_rdata_latched[6:5], mem_rdata_latched[2],
+											mem_rdata_latched[11:10], mem_rdata_latched[4:3]});
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b001;
+
+gate failed: Syntax error at '[', line 1
+
+							{ mem_rdata_q[31], mem_rdata_q[7], mem_rdata_q[30:25], mem_rdata_q[11:8] } <=
+									$signed({mem_rdata_latched[12], mem_rdata_latched[6:5], mem_rdata_latched[2],
+											mem_rdata_latched[11:10], mem_rdata_latched[4:3]});
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b001;
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[31:20] <= {4'b0, mem_rdata_latched[3:2], mem_rdata_latched[12], mem_rdata_latched[6:4], 2'b00};
+
+gate failed: Syntax error at '[', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= 12'b0;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:20] <= 12'b0;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[14:12] <= 3'b000;
+
+gate failed: Syntax error at '[', line 1
+
+								mem_rdata_q[31:25] <= 7'b0000000;
+
+gate failed: Syntax error at '[', line 1
+
+							{mem_rdata_q[31:25], mem_rdata_q[11:7]} <= {4'b0, mem_rdata_latched[8:7], mem_rdata_latched[12:9], 2'b00};
+
+gate failed: Syntax error at '{', line 1
+
+							mem_rdata_q[14:12] <= 3'b010;
+
+gate failed: Syntax error at '[', line 1
+
+			rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+			rvfi_rd_addr <= latched_rd;
+
+gate failed: 'rvfi_rd_addr'
+
+			rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+				rvfi_rd_addr <= 0;
+
+gate failed: 'rvfi_rd_addr'
+
+		rvfi_rs2_addr <= dbg_rs2val_valid ? dbg_insn_rs2 : 0;
+
+gate failed: 'rvfi_rs2_addr'
+

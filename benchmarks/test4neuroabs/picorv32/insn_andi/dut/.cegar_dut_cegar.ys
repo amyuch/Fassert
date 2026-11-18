@@ -1,0 +1,20 @@
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi/insn_andi.v
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi/rvfi_insn_check.sv
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi/wrapper.sv
+read_verilog -sv iter/1.v
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_andi/tb.sv
+prep -flatten -nordff -top testbench
+chformal -early
+memory
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+dffunmap
+async2sync
+sim -clock clock -reset reset -rstlen 1 -n 1 -w testbench
+write_btor iter/1.btor2

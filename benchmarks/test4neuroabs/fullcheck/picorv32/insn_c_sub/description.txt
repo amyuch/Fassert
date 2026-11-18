@@ -1,0 +1,5 @@
+Benchmark: picorv32 / insn_c_sub.
+Property focus: riscv-formal rvfi_insn_check for the C_SUB instruction.
+Instruction source: the RVFI instruction word (rvfi_insn; in the picorv32 wrapper this comes from mem_rdata).
+Decode guard: rvfi_valid && !insn_padding && insn_funct6 == 6'b 100011 && insn_funct2 == 2'b 00 && insn_opcode == 2'b 01
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

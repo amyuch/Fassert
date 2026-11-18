@@ -1,0 +1,40 @@
+{
+  "capture": {
+    "accepted": true,
+    "checks": {
+      "base": {
+        "query_sha256": "28044f82ad6ad74cc32039b452b083e269cea1a0a397ce44aacbbcccf6fcabd2",
+        "result": "unsat",
+        "seconds": 0.000365
+      },
+      "step": {
+        "query_sha256": "ec7e26adb79827ca8b205af694437d062b100812515dbcaa5d6a143108c53c44",
+        "result": "unsat",
+        "seconds": 0.000354
+      }
+    },
+    "evidence": "CHECKED",
+    "kind": "btor-smt",
+    "method": "induction",
+    "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+  },
+  "retirement": {
+    "accepted": true,
+    "checks": {
+      "base": {
+        "query_sha256": "ec20545330425bf44dab7df0f89db3761ea8f1e780e9864a093c0a19c503e589",
+        "result": "unsat",
+        "seconds": 0.000287
+      },
+      "step": {
+        "query_sha256": "258631dd9e84d25f975fc6b202c30eea75da774099036423ba65d252a41804d1",
+        "result": "unsat",
+        "seconds": 0.000361
+      }
+    },
+    "evidence": "CHECKED",
+    "kind": "btor-smt",
+    "method": "induction",
+    "model": "btor:e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+  }
+}

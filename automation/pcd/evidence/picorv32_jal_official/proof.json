@@ -1,0 +1,2031 @@
+{
+  "acceptance": "complete",
+  "case": "picorv32_jal_official",
+  "metadata": {
+    "completeness": "complete",
+    "notes": "Selected offline evidence package.",
+    "planner": {
+      "context_sha256": "2f28143de135262b93919afcbf8457c519a4ae9dabbf9dee0b7a17ef5f257217",
+      "name": "template",
+      "version": "0.1"
+    },
+    "run_mode": "blind"
+  },
+  "model_artifacts": {
+    "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5": {
+      "path": "models/primary.btor",
+      "sha256": "abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5"
+    }
+  },
+  "models": {
+    "primary": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5"
+  },
+  "nodes": [
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_jal_imm_ret"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G0",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-000-property.h_jal_imm_ret",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_jal_imm_ret",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_0",
+          "name": "G0",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_jal_imm_ret"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_jal_opcode_ret"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G1",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-001-property.h_jal_opcode_ret",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_jal_opcode_ret",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_1",
+          "name": "G1",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_jal_opcode_ret"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_jal_pc_ret"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G2",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-002-property.h_jal_pc_ret",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_jal_pc_ret",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_2",
+          "name": "G2",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_jal_pc_ret"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_jal_seen_ret"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G3",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-003-property.h_jal_seen_ret",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_jal_seen_ret",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_3",
+          "name": "G3",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_jal_seen_ret"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_jal_target_ret"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G4",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-004-property.h_jal_target_ret",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_jal_target_ret",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_4",
+          "name": "G4",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_jal_target_ret"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_launch_target"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G5",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-005-property.h_launch_target",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_launch_target",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_5",
+          "name": "G5",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_launch_target"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_no_irq_on_jal"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G6",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-006-property.h_no_irq_on_jal",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_no_irq_on_jal",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_6",
+          "name": "G6",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_no_irq_on_jal"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_no_trap_on_jal"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G7",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-007-property.h_no_trap_on_jal",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_no_trap_on_jal",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_7",
+          "name": "G7",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_no_trap_on_jal"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_pc_next"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G8",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-008-property.h_pc_next",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_pc_next",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_8",
+          "name": "G8",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_pc_next"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_pc_official"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G9",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-009-property.h_pc_official",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_pc_official",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_9",
+          "name": "G9",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_pc_official"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_rvfi_insn_eq"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G10",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-010-property.h_rvfi_insn_eq",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_rvfi_insn_eq",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_10",
+          "name": "G10",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_rvfi_insn_eq"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_rvfi_pc_eq"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G11",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-011-property.h_rvfi_pc_eq",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_rvfi_pc_eq",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_11",
+          "name": "G11",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_rvfi_pc_eq"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_rvfi_pc_rdata_eq"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G12",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-012-property.h_rvfi_pc_rdata_eq",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_rvfi_pc_rdata_eq",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_12",
+          "name": "G12",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_rvfi_pc_rdata_eq"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_rvfi_valid_eq"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G13",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-013-property.h_rvfi_valid_eq",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_rvfi_valid_eq",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_13",
+          "name": "G13",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_rvfi_valid_eq"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/tb.sv",
+          "name": "h_spec_pc_eq"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G14",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-014-property.h_spec_pc_eq",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.h_spec_pc_eq",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_14",
+          "name": "G14",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property h_spec_pc_eq"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_addr_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G15",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-015-property.o_mem_addr_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_addr_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_15",
+          "name": "G15",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_addr_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_rdata_eq_wdata_i"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G16",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-016-property.o_mem_rdata_eq_wdata_i",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_rdata_eq_wdata_i",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_16",
+          "name": "G16",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_rdata_eq_wdata_i"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_rmask_set_i"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G17",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-017-property.o_mem_rmask_set_i",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_rmask_set_i",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_17",
+          "name": "G17",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_rmask_set_i"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_wdata_match_i"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G18",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-018-property.o_mem_wdata_match_i",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_wdata_match_i",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_18",
+          "name": "G18",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_wdata_match_i"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_wmask_implies_rmask_i"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G19",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-019-property.o_mem_wmask_implies_rmask_i",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_wmask_implies_rmask_i",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_19",
+          "name": "G19",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_wmask_implies_rmask_i"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_mem_wmask_set_i"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G20",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-020-property.o_mem_wmask_set_i",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_mem_wmask_set_i",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_20",
+          "name": "G20",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_mem_wmask_set_i"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_pc_rdata"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G21",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-021-property.o_pc_rdata",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_pc_rdata",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_21",
+          "name": "G21",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_pc_rdata"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_pc_wdata_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G22",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-022-property.o_pc_wdata_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_pc_wdata_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_22",
+          "name": "G22",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_pc_wdata_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rd_addr_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G23",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-023-property.o_rd_addr_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rd_addr_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_23",
+          "name": "G23",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rd_addr_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rd_wdata_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G24",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-024-property.o_rd_wdata_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rd_wdata_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_24",
+          "name": "G24",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rd_wdata_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rs1_addr_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G25",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-025-property.o_rs1_addr_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rs1_addr_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_25",
+          "name": "G25",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rs1_addr_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rs1_rdata_zero"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G26",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-026-property.o_rs1_rdata_zero",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rs1_rdata_zero",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_26",
+          "name": "G26",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rs1_rdata_zero"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rs2_addr_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G27",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-027-property.o_rs2_addr_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rs2_addr_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_27",
+          "name": "G27",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rs2_addr_match"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_rs2_rdata_zero"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G28",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-028-property.o_rs2_rdata_zero",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_rs2_rdata_zero",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_28",
+          "name": "G28",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_rs2_rdata_zero"
+    },
+    {
+      "certificate": {
+        "assertion": {
+          "file": "case/input/rtl/rvfi_insn_check.sv",
+          "name": "o_trap_match"
+        },
+        "evidence": "REPLAY",
+        "format": "replay",
+        "goal": "G29",
+        "run": {
+          "bmc_seconds": 16.880431,
+          "command": [
+            "ric3",
+            "cill",
+            "check"
+          ],
+          "cwd": "case/.pcd-build",
+          "engine_seconds": 289.163918,
+          "engine_wall_seconds": 291.696,
+          "id": "engine-029-property.o_trap_match",
+          "ind_seconds": 272.283487,
+          "log": "logs/engine-cill.log",
+          "log_sha256": "3e16435e039cdba8a7853c9b87f0510b5e0a00109b7ab1ffa2f88a453c6afec1",
+          "model_sha256": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+          "seconds": 291.696,
+          "statistic": "case/.pcd-build/ric3proj/cill/statistic.ron",
+          "statistic_sha256": "37631eef09c2e023f8e8a982977d82d91ef9aed2cae39f191d53a953dec0b350",
+          "timing_source": "statistic.ron",
+          "tool": "ric3",
+          "version": "rIC3 1.5.2"
+        },
+        "verdict": "proved"
+      },
+      "id": "property.o_trap_match",
+      "kind": "replay",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "p_29",
+          "name": "G29",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [],
+      "role": "observe",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "engine checks bad property o_trap_match"
+    },
+    {
+      "certificate": {
+        "checker": "z3-implication",
+        "evidence": "CHECKED",
+        "format": "smt-implication",
+        "goal": "GOAL",
+        "payload": {
+          "goal": "GOAL",
+          "premises": [
+            {
+              "guarantee": "G0",
+              "node": "property.h_jal_imm_ret"
+            },
+            {
+              "guarantee": "G1",
+              "node": "property.h_jal_opcode_ret"
+            },
+            {
+              "guarantee": "G2",
+              "node": "property.h_jal_pc_ret"
+            },
+            {
+              "guarantee": "G3",
+              "node": "property.h_jal_seen_ret"
+            },
+            {
+              "guarantee": "G4",
+              "node": "property.h_jal_target_ret"
+            },
+            {
+              "guarantee": "G5",
+              "node": "property.h_launch_target"
+            },
+            {
+              "guarantee": "G6",
+              "node": "property.h_no_irq_on_jal"
+            },
+            {
+              "guarantee": "G7",
+              "node": "property.h_no_trap_on_jal"
+            },
+            {
+              "guarantee": "G8",
+              "node": "property.h_pc_next"
+            },
+            {
+              "guarantee": "G9",
+              "node": "property.h_pc_official"
+            },
+            {
+              "guarantee": "G10",
+              "node": "property.h_rvfi_insn_eq"
+            },
+            {
+              "guarantee": "G11",
+              "node": "property.h_rvfi_pc_eq"
+            },
+            {
+              "guarantee": "G12",
+              "node": "property.h_rvfi_pc_rdata_eq"
+            },
+            {
+              "guarantee": "G13",
+              "node": "property.h_rvfi_valid_eq"
+            },
+            {
+              "guarantee": "G14",
+              "node": "property.h_spec_pc_eq"
+            },
+            {
+              "guarantee": "G15",
+              "node": "property.o_mem_addr_match"
+            },
+            {
+              "guarantee": "G16",
+              "node": "property.o_mem_rdata_eq_wdata_i"
+            },
+            {
+              "guarantee": "G17",
+              "node": "property.o_mem_rmask_set_i"
+            },
+            {
+              "guarantee": "G18",
+              "node": "property.o_mem_wdata_match_i"
+            },
+            {
+              "guarantee": "G19",
+              "node": "property.o_mem_wmask_implies_rmask_i"
+            },
+            {
+              "guarantee": "G20",
+              "node": "property.o_mem_wmask_set_i"
+            },
+            {
+              "guarantee": "G21",
+              "node": "property.o_pc_rdata"
+            },
+            {
+              "guarantee": "G22",
+              "node": "property.o_pc_wdata_match"
+            },
+            {
+              "guarantee": "G23",
+              "node": "property.o_rd_addr_match"
+            },
+            {
+              "guarantee": "G24",
+              "node": "property.o_rd_wdata_match"
+            },
+            {
+              "guarantee": "G25",
+              "node": "property.o_rs1_addr_match"
+            },
+            {
+              "guarantee": "G26",
+              "node": "property.o_rs1_rdata_zero"
+            },
+            {
+              "guarantee": "G27",
+              "node": "property.o_rs2_addr_match"
+            },
+            {
+              "guarantee": "G28",
+              "node": "property.o_rs2_rdata_zero"
+            },
+            {
+              "guarantee": "G29",
+              "node": "property.o_trap_match"
+            }
+          ],
+          "smt2": "(set-logic ALL)\n(declare-const p_0 Bool)\n(declare-const p_1 Bool)\n(declare-const p_10 Bool)\n(declare-const p_11 Bool)\n(declare-const p_12 Bool)\n(declare-const p_13 Bool)\n(declare-const p_14 Bool)\n(declare-const p_15 Bool)\n(declare-const p_16 Bool)\n(declare-const p_17 Bool)\n(declare-const p_18 Bool)\n(declare-const p_19 Bool)\n(declare-const p_2 Bool)\n(declare-const p_20 Bool)\n(declare-const p_21 Bool)\n(declare-const p_22 Bool)\n(declare-const p_23 Bool)\n(declare-const p_24 Bool)\n(declare-const p_25 Bool)\n(declare-const p_26 Bool)\n(declare-const p_27 Bool)\n(declare-const p_28 Bool)\n(declare-const p_29 Bool)\n(declare-const p_3 Bool)\n(declare-const p_4 Bool)\n(declare-const p_5 Bool)\n(declare-const p_6 Bool)\n(declare-const p_7 Bool)\n(declare-const p_8 Bool)\n(declare-const p_9 Bool)\n(assert p_0)\n(assert p_1)\n(assert p_2)\n(assert p_3)\n(assert p_4)\n(assert p_5)\n(assert p_6)\n(assert p_7)\n(assert p_8)\n(assert p_9)\n(assert p_10)\n(assert p_11)\n(assert p_12)\n(assert p_13)\n(assert p_14)\n(assert p_15)\n(assert p_16)\n(assert p_17)\n(assert p_18)\n(assert p_19)\n(assert p_20)\n(assert p_21)\n(assert p_22)\n(assert p_23)\n(assert p_24)\n(assert p_25)\n(assert p_26)\n(assert p_27)\n(assert p_28)\n(assert p_29)\n(assert (not (and p_0 p_1 p_2 p_3 p_4 p_5 p_6 p_7 p_8 p_9 p_10 p_11 p_12 p_13 p_14 p_15 p_16 p_17 p_18 p_19 p_20 p_21 p_22 p_23 p_24 p_25 p_26 p_27 p_28 p_29)))\n(check-sat)\n"
+        },
+        "verdict": "proved"
+      },
+      "id": "root",
+      "kind": "linear",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "phase": "any",
+      "provides": [
+        {
+          "expr": "(and p_0 p_1 p_2 p_3 p_4 p_5 p_6 p_7 p_8 p_9 p_10 p_11 p_12 p_13 p_14 p_15 p_16 p_17 p_18 p_19 p_20 p_21 p_22 p_23 p_24 p_25 p_26 p_27 p_28 p_29)",
+          "name": "GOAL",
+          "sort": "Bool"
+        }
+      ],
+      "requires": [
+        {
+          "guarantee": "G0",
+          "node": "property.h_jal_imm_ret"
+        },
+        {
+          "guarantee": "G1",
+          "node": "property.h_jal_opcode_ret"
+        },
+        {
+          "guarantee": "G2",
+          "node": "property.h_jal_pc_ret"
+        },
+        {
+          "guarantee": "G3",
+          "node": "property.h_jal_seen_ret"
+        },
+        {
+          "guarantee": "G4",
+          "node": "property.h_jal_target_ret"
+        },
+        {
+          "guarantee": "G5",
+          "node": "property.h_launch_target"
+        },
+        {
+          "guarantee": "G6",
+          "node": "property.h_no_irq_on_jal"
+        },
+        {
+          "guarantee": "G7",
+          "node": "property.h_no_trap_on_jal"
+        },
+        {
+          "guarantee": "G8",
+          "node": "property.h_pc_next"
+        },
+        {
+          "guarantee": "G9",
+          "node": "property.h_pc_official"
+        },
+        {
+          "guarantee": "G10",
+          "node": "property.h_rvfi_insn_eq"
+        },
+        {
+          "guarantee": "G11",
+          "node": "property.h_rvfi_pc_eq"
+        },
+        {
+          "guarantee": "G12",
+          "node": "property.h_rvfi_pc_rdata_eq"
+        },
+        {
+          "guarantee": "G13",
+          "node": "property.h_rvfi_valid_eq"
+        },
+        {
+          "guarantee": "G14",
+          "node": "property.h_spec_pc_eq"
+        },
+        {
+          "guarantee": "G15",
+          "node": "property.o_mem_addr_match"
+        },
+        {
+          "guarantee": "G16",
+          "node": "property.o_mem_rdata_eq_wdata_i"
+        },
+        {
+          "guarantee": "G17",
+          "node": "property.o_mem_rmask_set_i"
+        },
+        {
+          "guarantee": "G18",
+          "node": "property.o_mem_wdata_match_i"
+        },
+        {
+          "guarantee": "G19",
+          "node": "property.o_mem_wmask_implies_rmask_i"
+        },
+        {
+          "guarantee": "G20",
+          "node": "property.o_mem_wmask_set_i"
+        },
+        {
+          "guarantee": "G21",
+          "node": "property.o_pc_rdata"
+        },
+        {
+          "guarantee": "G22",
+          "node": "property.o_pc_wdata_match"
+        },
+        {
+          "guarantee": "G23",
+          "node": "property.o_rd_addr_match"
+        },
+        {
+          "guarantee": "G24",
+          "node": "property.o_rd_wdata_match"
+        },
+        {
+          "guarantee": "G25",
+          "node": "property.o_rs1_addr_match"
+        },
+        {
+          "guarantee": "G26",
+          "node": "property.o_rs1_rdata_zero"
+        },
+        {
+          "guarantee": "G27",
+          "node": "property.o_rs2_addr_match"
+        },
+        {
+          "guarantee": "G28",
+          "node": "property.o_rs2_rdata_zero"
+        },
+        {
+          "guarantee": "G29",
+          "node": "property.o_trap_match"
+        }
+      ],
+      "role": "compose",
+      "schema_version": "pcd-obligation/0.1",
+      "statement": "all official RVFI checks for insn_jal"
+    }
+  ],
+  "primary_model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+  "schema_version": "pcd-proof/0.1",
+  "targets": [
+    {
+      "composition": {
+        "checker": "z3-implication",
+        "mode": "CHECKED",
+        "notes": "conjunction of independently discharged properties",
+        "payload": {
+          "goal": "GOAL",
+          "premises": [
+            {
+              "guarantee": "G0",
+              "node": "property.h_jal_imm_ret"
+            },
+            {
+              "guarantee": "G1",
+              "node": "property.h_jal_opcode_ret"
+            },
+            {
+              "guarantee": "G2",
+              "node": "property.h_jal_pc_ret"
+            },
+            {
+              "guarantee": "G3",
+              "node": "property.h_jal_seen_ret"
+            },
+            {
+              "guarantee": "G4",
+              "node": "property.h_jal_target_ret"
+            },
+            {
+              "guarantee": "G5",
+              "node": "property.h_launch_target"
+            },
+            {
+              "guarantee": "G6",
+              "node": "property.h_no_irq_on_jal"
+            },
+            {
+              "guarantee": "G7",
+              "node": "property.h_no_trap_on_jal"
+            },
+            {
+              "guarantee": "G8",
+              "node": "property.h_pc_next"
+            },
+            {
+              "guarantee": "G9",
+              "node": "property.h_pc_official"
+            },
+            {
+              "guarantee": "G10",
+              "node": "property.h_rvfi_insn_eq"
+            },
+            {
+              "guarantee": "G11",
+              "node": "property.h_rvfi_pc_eq"
+            },
+            {
+              "guarantee": "G12",
+              "node": "property.h_rvfi_pc_rdata_eq"
+            },
+            {
+              "guarantee": "G13",
+              "node": "property.h_rvfi_valid_eq"
+            },
+            {
+              "guarantee": "G14",
+              "node": "property.h_spec_pc_eq"
+            },
+            {
+              "guarantee": "G15",
+              "node": "property.o_mem_addr_match"
+            },
+            {
+              "guarantee": "G16",
+              "node": "property.o_mem_rdata_eq_wdata_i"
+            },
+            {
+              "guarantee": "G17",
+              "node": "property.o_mem_rmask_set_i"
+            },
+            {
+              "guarantee": "G18",
+              "node": "property.o_mem_wdata_match_i"
+            },
+            {
+              "guarantee": "G19",
+              "node": "property.o_mem_wmask_implies_rmask_i"
+            },
+            {
+              "guarantee": "G20",
+              "node": "property.o_mem_wmask_set_i"
+            },
+            {
+              "guarantee": "G21",
+              "node": "property.o_pc_rdata"
+            },
+            {
+              "guarantee": "G22",
+              "node": "property.o_pc_wdata_match"
+            },
+            {
+              "guarantee": "G23",
+              "node": "property.o_rd_addr_match"
+            },
+            {
+              "guarantee": "G24",
+              "node": "property.o_rd_wdata_match"
+            },
+            {
+              "guarantee": "G25",
+              "node": "property.o_rs1_addr_match"
+            },
+            {
+              "guarantee": "G26",
+              "node": "property.o_rs1_rdata_zero"
+            },
+            {
+              "guarantee": "G27",
+              "node": "property.o_rs2_addr_match"
+            },
+            {
+              "guarantee": "G28",
+              "node": "property.o_rs2_rdata_zero"
+            },
+            {
+              "guarantee": "G29",
+              "node": "property.o_trap_match"
+            }
+          ],
+          "smt2": "(set-logic ALL)\n(declare-const p_0 Bool)\n(declare-const p_1 Bool)\n(declare-const p_10 Bool)\n(declare-const p_11 Bool)\n(declare-const p_12 Bool)\n(declare-const p_13 Bool)\n(declare-const p_14 Bool)\n(declare-const p_15 Bool)\n(declare-const p_16 Bool)\n(declare-const p_17 Bool)\n(declare-const p_18 Bool)\n(declare-const p_19 Bool)\n(declare-const p_2 Bool)\n(declare-const p_20 Bool)\n(declare-const p_21 Bool)\n(declare-const p_22 Bool)\n(declare-const p_23 Bool)\n(declare-const p_24 Bool)\n(declare-const p_25 Bool)\n(declare-const p_26 Bool)\n(declare-const p_27 Bool)\n(declare-const p_28 Bool)\n(declare-const p_29 Bool)\n(declare-const p_3 Bool)\n(declare-const p_4 Bool)\n(declare-const p_5 Bool)\n(declare-const p_6 Bool)\n(declare-const p_7 Bool)\n(declare-const p_8 Bool)\n(declare-const p_9 Bool)\n(assert p_0)\n(assert p_1)\n(assert p_2)\n(assert p_3)\n(assert p_4)\n(assert p_5)\n(assert p_6)\n(assert p_7)\n(assert p_8)\n(assert p_9)\n(assert p_10)\n(assert p_11)\n(assert p_12)\n(assert p_13)\n(assert p_14)\n(assert p_15)\n(assert p_16)\n(assert p_17)\n(assert p_18)\n(assert p_19)\n(assert p_20)\n(assert p_21)\n(assert p_22)\n(assert p_23)\n(assert p_24)\n(assert p_25)\n(assert p_26)\n(assert p_27)\n(assert p_28)\n(assert p_29)\n(assert (not (and p_0 p_1 p_2 p_3 p_4 p_5 p_6 p_7 p_8 p_9 p_10 p_11 p_12 p_13 p_14 p_15 p_16 p_17 p_18 p_19 p_20 p_21 p_22 p_23 p_24 p_25 p_26 p_27 p_28 p_29)))\n(check-sat)\n",
+          "timeout_ms": 30000
+        }
+      },
+      "goal": "GOAL",
+      "id": "root",
+      "model": "btor:abc34c5083b204fd22b5ce283ffb6f5b2d3de729e92bff82a14e0c6ca6894bb5",
+      "requires": [
+        {
+          "guarantee": "G0",
+          "node": "property.h_jal_imm_ret"
+        },
+        {
+          "guarantee": "G1",
+          "node": "property.h_jal_opcode_ret"
+        },
+        {
+          "guarantee": "G2",
+          "node": "property.h_jal_pc_ret"
+        },
+        {
+          "guarantee": "G3",
+          "node": "property.h_jal_seen_ret"
+        },
+        {
+          "guarantee": "G4",
+          "node": "property.h_jal_target_ret"
+        },
+        {
+          "guarantee": "G5",
+          "node": "property.h_launch_target"
+        },
+        {
+          "guarantee": "G6",
+          "node": "property.h_no_irq_on_jal"
+        },
+        {
+          "guarantee": "G7",
+          "node": "property.h_no_trap_on_jal"
+        },
+        {
+          "guarantee": "G8",
+          "node": "property.h_pc_next"
+        },
+        {
+          "guarantee": "G9",
+          "node": "property.h_pc_official"
+        },
+        {
+          "guarantee": "G10",
+          "node": "property.h_rvfi_insn_eq"
+        },
+        {
+          "guarantee": "G11",
+          "node": "property.h_rvfi_pc_eq"
+        },
+        {
+          "guarantee": "G12",
+          "node": "property.h_rvfi_pc_rdata_eq"
+        },
+        {
+          "guarantee": "G13",
+          "node": "property.h_rvfi_valid_eq"
+        },
+        {
+          "guarantee": "G14",
+          "node": "property.h_spec_pc_eq"
+        },
+        {
+          "guarantee": "G15",
+          "node": "property.o_mem_addr_match"
+        },
+        {
+          "guarantee": "G16",
+          "node": "property.o_mem_rdata_eq_wdata_i"
+        },
+        {
+          "guarantee": "G17",
+          "node": "property.o_mem_rmask_set_i"
+        },
+        {
+          "guarantee": "G18",
+          "node": "property.o_mem_wdata_match_i"
+        },
+        {
+          "guarantee": "G19",
+          "node": "property.o_mem_wmask_implies_rmask_i"
+        },
+        {
+          "guarantee": "G20",
+          "node": "property.o_mem_wmask_set_i"
+        },
+        {
+          "guarantee": "G21",
+          "node": "property.o_pc_rdata"
+        },
+        {
+          "guarantee": "G22",
+          "node": "property.o_pc_wdata_match"
+        },
+        {
+          "guarantee": "G23",
+          "node": "property.o_rd_addr_match"
+        },
+        {
+          "guarantee": "G24",
+          "node": "property.o_rd_wdata_match"
+        },
+        {
+          "guarantee": "G25",
+          "node": "property.o_rs1_addr_match"
+        },
+        {
+          "guarantee": "G26",
+          "node": "property.o_rs1_rdata_zero"
+        },
+        {
+          "guarantee": "G27",
+          "node": "property.o_rs2_addr_match"
+        },
+        {
+          "guarantee": "G28",
+          "node": "property.o_rs2_rdata_zero"
+        },
+        {
+          "guarantee": "G29",
+          "node": "property.o_trap_match"
+        }
+      ],
+      "statement": "all official RVFI checks for insn_jal",
+      "tcb": []
+    }
+  ]
+}

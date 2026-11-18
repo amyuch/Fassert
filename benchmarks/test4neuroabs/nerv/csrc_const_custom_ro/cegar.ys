@@ -1,0 +1,18 @@
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro/rvfi_csrc_const_check_pp.sv
+read_verilog -sv /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro/wrapper.v
+read_verilog -sv -I/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro/tb.sv
+prep -flatten -nordff -top testbench
+chformal -early
+memory
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+dffunmap
+async2sync
+sim -clock clock -reset reset -rstlen 1 -n 1 -w testbench
+write_btor /home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/nerv/csrc_const_custom_ro/wrapper_abstract_llm_new.btor2

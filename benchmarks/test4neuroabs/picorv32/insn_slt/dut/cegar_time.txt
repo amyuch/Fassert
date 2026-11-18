@@ -1,0 +1,4 @@
+/home/AM2/sec/cur_work/fassert/benchmarks/test4neuroabs/picorv32/insn_slt/dut_cegar.ys
+The total iteration is: 10
+The total time is: 2.317299
+The average time of cegar: 0.231730

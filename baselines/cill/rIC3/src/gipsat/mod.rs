@@ -1,0 +1,427 @@
+mod analyze;
+mod cdb;
+mod domain;
+mod eq;
+mod propagate;
+mod search;
+mod simplify;
+mod statistic;
+mod ts;
+mod vsids;
+
+use crate::gipsat::eq::Eqc;
+use analyze::Analyze;
+pub use cdb::ClauseKind;
+use cdb::{CREF_NONE, CRef, ClauseDB};
+use domain::Domain;
+use giputils::bitvec::BitVec;
+use giputils::gvec::Gvec;
+use logicrs::satif::Satif;
+use logicrs::{DagCnf, Lbool, VarAssign, VarRange};
+use logicrs::{Lit, LitSet, LitVec, Var, VarMap};
+use propagate::Watchers;
+use rand::Rng;
+use rand::{SeedableRng, rngs::StdRng};
+use simplify::Simplify;
+pub use statistic::SolverStatistic;
+use std::iter::empty;
+use std::time::Instant;
+pub use ts::*;
+use vsids::Vsids;
+
+#[derive(Clone)]
+pub struct DagCnfSolver {
+    cdb: ClauseDB,
+    watchers: Watchers,
+    value: VarAssign,
+    trail: Gvec<Lit>,
+    pos_in_trail: Vec<u32>,
+    level: VarMap<u32>,
+    reason: VarMap<CRef>,
+    propagated: u32,
+    vsids: Vsids,
+    phase_saving: VarMap<Lbool>,
+    analyze: Analyze,
+    simplify: Simplify,
+    eqc: Eqc,
+    unsat_core: LitSet,
+    domain: Domain,
+    temporary_domain: bool,
+    prepared_vsids: bool,
+    constrain_act: Var,
+    dc: DagCnf,
+    trivial_unsat: bool,
+    mark: LitSet,
+    rng: StdRng,
+    pub cfg: Config,
+
+    assump: LitVec,
+    constraint: Vec<LitVec>,
+
+    statistic: SolverStatistic,
+}
+
+#[derive(Debug, Clone)]
+pub struct Config {
+    pub phase_saving: bool,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self { phase_saving: true }
+    }
+}
+
+impl DagCnfSolver {
+    pub fn new(dc: &DagCnf) -> Self {
+        let constrain_act = Var::CONST;
+        let mut solver = Self {
+            dc: dc.clone(),
+            cdb: Default::default(),
+            watchers: Default::default(),
+            value: VarAssign::new_with(constrain_act),
+            trail: Default::default(),
+            pos_in_trail: Default::default(),
+            level: VarMap::new_with(constrain_act),
+            reason: VarMap::new_with(constrain_act),
+            propagated: Default::default(),
+            vsids: Default::default(),
+            phase_saving: Default::default(),
+            analyze: Default::default(),
+            simplify: Default::default(),
+            eqc: Default::default(),
+            unsat_core: Default::default(),
+            domain: Domain::new(),
+            temporary_domain: Default::default(),
+            prepared_vsids: false,
+            constrain_act,
+            assump: Default::default(),
+            constraint: Default::default(),
+            statistic: Default::default(),
+            trivial_unsat: false,
+            rng: StdRng::seed_from_u64(0),
+            cfg: Default::default(),
+            mark: Default::default(),
+        };
+        while solver.num_var() < solver.dc.num_var() {
+            solver.new_var();
+        }
+        for cls in dc.clause() {
+            solver.add_clause_inner(cls, ClauseKind::Trans);
+        }
+        assert!(solver.propagate() == CREF_NONE);
+        solver
+    }
+
+    #[inline]
+    #[allow(unused)]
+    pub fn set_rseed(&mut self, rseed: u64) {
+        self.rng = StdRng::seed_from_u64(rseed);
+    }
+
+    fn simplify_clause(&mut self, clause: &[Lit]) -> Option<LitVec> {
+        assert!(self.highest_level() == 0);
+        let mut clause = logicrs::LitVec::from(clause);
+        clause.sort();
+        let clause = clause.ordered_simp(&self.value)?;
+        if clause.is_empty() {
+            self.trivial_unsat = true;
+            return None;
+        }
+        Some(clause)
+    }
+
+    fn add_clause_inner(&mut self, clause: &[Lit], mut kind: ClauseKind) -> CRef {
+        if let Some(clause) = self.simplify_clause(clause) {
+            if clause.iter().any(|l| l.var() == self.constrain_act) {
+                kind = ClauseKind::Temporary;
+            }
+            if clause.len() == 1 {
+                assert!(clause[0].var() != self.constrain_act);
+                match self.value.v(clause[0]) {
+                    Lbool::TRUE | Lbool::FALSE => todo!(),
+                    _ => {
+                        self.assign(clause[0], CREF_NONE);
+                        if self.propagate() != CREF_NONE {
+                            self.trivial_unsat = true;
+                        }
+                        CREF_NONE
+                    }
+                }
+            } else {
+                self.attach_clause(&clause, kind)
+            }
+        } else {
+            CREF_NONE
+        }
+    }
+
+    pub fn add_eq(&mut self, x: Lit, y: Lit) {
+        self.eqc.add_eq(x, y);
+    }
+
+    // #[allow(unused)]
+    // pub fn lemmas(&mut self) -> Vec<LitOrdVec> {
+    //     self.reset();
+    //     let mut lemmas = Vec::new();
+    //     for t in self.trail.iter() {
+    //         if self.dc.is_latch(t.var()) {
+    //             lemmas.push(LitOrdVec::new(LitVec::from([!*t])));
+    //         }
+    //     }
+    //     for l in self.cdb.lemmas.iter() {
+    //         let lemma = LitVec::from_iter(self.cdb.get(*l).slice().iter().map(|l| !*l));
+    //         lemmas.push(LitOrdVec::new(lemma));
+    //     }
+    //     lemmas
+    // }
+
+    fn reset(&mut self) {
+        self.backtrack(0, false);
+        self.clean_temporary();
+        self.prepared_vsids = false;
+        self.domain.reset();
+        assert!(!self.temporary_domain);
+    }
+
+    fn new_round(
+        &mut self,
+        domain: impl Iterator<Item = Var>,
+        constraint: Vec<LitVec>,
+        bucket: bool,
+    ) -> bool {
+        self.backtrack(0, self.temporary_domain);
+        self.clean_temporary();
+        self.prepared_vsids = false;
+
+        for mut c in constraint {
+            c.push(!self.constrain_act.lit());
+            if let Some(c) = self.simplify_clause(&c) {
+                assert!(!c.is_empty());
+                if c.len() == 1 {
+                    return false;
+                }
+                self.add_clause_inner(&c, ClauseKind::Temporary);
+            }
+        }
+
+        if !self.temporary_domain {
+            self.domain.enable_local(domain, &self.dc, &self.value);
+            assert!(!self.domain.has(self.constrain_act));
+            self.domain.insert(self.constrain_act);
+            if bucket {
+                self.vsids.enable_bucket = true;
+                self.vsids.bucket.clear();
+            } else {
+                self.vsids.enable_bucket = false;
+                self.vsids.heap.clear();
+            }
+        }
+        self.statistic.avg_decide_var +=
+            self.domain.len() as f64 / (self.dc.num_var() - self.trail.len()) as f64;
+        true
+    }
+
+    pub fn solve_with_param(
+        &mut self,
+        assump: &[Lit],
+        constraint: Vec<LitVec>,
+        domain: impl Iterator<Item = Var>,
+        limit: Option<usize>,
+    ) -> Option<bool> {
+        self.assump = assump.into();
+        self.constraint = constraint.clone();
+        if self.trivial_unsat {
+            self.unsat_core.clear();
+            return Some(false);
+        }
+        self.statistic.num_solve += 1;
+        let start = Instant::now();
+        let mut assumption;
+        if self.propagate() != CREF_NONE {
+            self.trivial_unsat = true;
+            self.unsat_core.clear();
+            self.statistic.avg_solve_time += start.elapsed();
+            return Some(false);
+        }
+        let assump = if !constraint.is_empty() {
+            assumption = LitVec::new();
+            assumption.push(self.constrain_act.lit());
+            assumption.extend_from_slice(assump);
+            let mut cc = Vec::new();
+            for c in constraint.iter() {
+                for l in c.iter() {
+                    cc.push(*l);
+                }
+            }
+            if !self.new_round(
+                domain.chain(assump.iter().chain(cc.iter()).map(|l| l.var())),
+                constraint,
+                true,
+            ) {
+                self.unsat_core.clear();
+                self.statistic.avg_solve_time += start.elapsed();
+                return Some(false);
+            };
+            &assumption
+        } else {
+            assert!(self.new_round(domain.chain(assump.iter().map(|l| l.var())), vec![], true));
+            assump
+        };
+        self.clean_learnt(true);
+        self.simplify();
+        let res = self.search_with_restart(assump, limit);
+        self.statistic.avg_solve_time += start.elapsed();
+        res
+    }
+
+    pub fn solve_with_restart_limit(
+        &mut self,
+        assumps: &[Lit],
+        constraint: Vec<LitVec>,
+        limit: usize,
+    ) -> Option<bool> {
+        self.solve_with_param(assumps, constraint, empty::<Var>(), Some(limit))
+    }
+
+    pub fn solve_with_domain(
+        &mut self,
+        assumps: &[Lit],
+        domain: impl Iterator<Item = Var>,
+    ) -> bool {
+        self.solve_with_param(assumps, vec![], domain, None)
+            .unwrap()
+    }
+
+    #[allow(unused)]
+    pub fn imply<'a>(
+        &mut self,
+        domain: impl Iterator<Item = Var>,
+        assump: impl Iterator<Item = &'a Lit>,
+    ) {
+        self.reset();
+        self.domain.enable_local(domain, &self.dc, &self.value);
+        self.new_level();
+        for a in assump {
+            if let Lbool::FALSE = self.value.v(*a) {
+                panic!();
+            }
+            self.assign(*a, CREF_NONE);
+        }
+        assert!(self.propagate() == CREF_NONE);
+    }
+
+    #[inline]
+    #[allow(unused)]
+    pub fn assert_value(&mut self, lit: Lit) -> Option<bool> {
+        self.reset();
+        self.value.v(lit).into()
+    }
+
+    #[inline]
+    pub fn statistic(&self) -> &SolverStatistic {
+        &self.statistic
+    }
+
+    #[allow(unused)]
+    pub fn sat_value_bitvet(&mut self) -> BitVec {
+        let mut res = BitVec::new();
+        for v in VarRange::new_inclusive(Var::CONST, self.max_var()) {
+            if let Some(v) = self.sat_value(v.lit()) {
+                res.push(v);
+            } else {
+                res.push(self.rng.random_bool(0.5));
+            }
+        }
+        res
+    }
+
+    #[allow(unused)]
+    pub fn sat_value_iter(&self) -> impl Iterator<Item = &'_ Lit> {
+        let constrain_act = self.constrain_act;
+        self.trail.iter().filter(move |l| l.var() != constrain_act)
+    }
+
+    pub fn minimal_premise(
+        &mut self,
+        assump: &[Lit],
+        premise: &[Lit],
+        consequent: &[Lit],
+    ) -> Option<LitVec> {
+        let assump = LitVec::from_iter(assump.iter().chain(premise.iter()).copied());
+        if self.solve_with_constraint(&assump, vec![LitVec::from(consequent)]) {
+            return None;
+        }
+        Some(
+            premise
+                .iter()
+                .filter(|l| self.unsat_has(**l))
+                .copied()
+                .collect(),
+        )
+    }
+}
+
+impl Satif for DagCnfSolver {
+    #[inline]
+    fn new_var(&mut self) -> Var {
+        self.reset();
+        let v = self.constrain_act;
+        let var = Var::new(self.num_var() + 1);
+        self.value.reserve(var);
+        self.level.reserve(var);
+        self.reason.reserve(var);
+        self.watchers.reserve(var);
+        self.vsids.reserve(var);
+        self.phase_saving.reserve(var);
+        self.eqc.reserve(var);
+        self.analyze.reserve(var);
+        self.unsat_core.reserve(var);
+        self.domain.reserve(var);
+        self.mark.reserve(var);
+        self.constrain_act = var;
+        v
+    }
+
+    #[inline]
+    fn num_var(&self) -> usize {
+        self.constrain_act.into()
+    }
+
+    fn add_clause(&mut self, clause: &[Lit]) {
+        self.reset();
+        for l in clause.iter() {
+            self.add_domain(l.var(), true);
+        }
+        self.add_clause_inner(clause, ClauseKind::Lemma);
+    }
+
+    fn solve(&mut self, assumps: &[Lit]) -> bool {
+        self.solve_with_param(assumps, vec![], empty::<Var>(), None)
+            .unwrap()
+    }
+
+    fn solve_with_constraint(&mut self, assumps: &[Lit], constraint: Vec<LitVec>) -> bool {
+        self.solve_with_param(assumps, constraint, empty::<Var>(), None)
+            .unwrap()
+    }
+
+    #[inline]
+    fn sat_value(&self, lit: Lit) -> Option<bool> {
+        match self.value.v(lit) {
+            Lbool::TRUE => Some(true),
+            Lbool::FALSE => Some(false),
+            _ => None,
+        }
+    }
+
+    #[inline]
+    fn unsat_has(&self, lit: Lit) -> bool {
+        self.unsat_core.has(lit)
+    }
+
+    #[inline]
+    fn flip_to_none(&mut self, var: Var) -> bool {
+        self.flip_to_none_inner(var)
+    }
+}

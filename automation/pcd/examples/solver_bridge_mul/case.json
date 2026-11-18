@@ -1,0 +1,62 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "max_iterations": 1,
+    "total_seconds": 60
+  },
+  "build": {
+    "expected_model": {
+      "kind": "btor",
+      "sha256": "e604ff16502da4da1a0b757fde7c145905fc3ea612c730569e4f27868a4d58b8"
+    },
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": "models/original.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ]
+    }
+  },
+  "case": "solver_bridge_mul",
+  "claim_scope": "safety",
+  "description": "Checked Z3-to-rIC3 import on a real multiplier pipeline",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "frontend": "yosys",
+      "reset": "reset",
+      "top": "bridge_mul"
+    },
+    "files": [
+      {
+        "path": "input/rtl/mul.sv",
+        "role": "rtl",
+        "sha256": "73b66bf50305c166f0cf54d5952180cb7b5d681f651f083eda92ba1ae39b3fa6"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "dev",
+    "oracle_paths": [],
+    "planner": "manual",
+    "pre_registered": false
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "id": "root",
+      "model_ref": "primary",
+      "required_properties": [
+        "o_result"
+      ],
+      "statement": "The original 32-bit MUL pipeline retires the low product of the captured operands"
+    }
+  ]
+}

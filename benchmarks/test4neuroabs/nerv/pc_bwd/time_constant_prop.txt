@@ -1,0 +1,1 @@
+The total time of constant propagation is: 9.026074

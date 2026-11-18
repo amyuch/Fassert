@@ -1,0 +1,4 @@
+Benchmark: nerv / bus_dmem.
+Property focus: data-memory bus handshake / protocol.
+Checker: riscv-formal rvfi_bus_dmem_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

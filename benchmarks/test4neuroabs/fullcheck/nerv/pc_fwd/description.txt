@@ -1,0 +1,4 @@
+Benchmark: nerv / pc_fwd.
+Property focus: forward program-counter behavior.
+Checker: riscv-formal rvfi_pc_fwd_check.
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

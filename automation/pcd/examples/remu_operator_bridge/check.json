@@ -1,0 +1,376 @@
+{
+  "accepted": true,
+  "composition": {
+    "checked_edges": {
+      "operator_property": {
+        "accepted": true,
+        "checks": {
+          "implication": {
+            "query_sha256": "317d1f441ede367cc93992f1977d81c6b8dda12db1266dfba36eb962bc14f6d6",
+            "result": "unsat",
+            "seconds": 0.003235
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "combinational",
+        "model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+      },
+      "q_disjoint": {
+        "accepted": true,
+        "checks": {
+          "implication": {
+            "query_sha256": "24035309795f5a4e7e223f0a1ff7cb0653b71ab7329a1fb733b93b2ac1910a8e",
+            "result": "unsat",
+            "seconds": 0.021331
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "combinational",
+        "model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+      },
+      "q_integer": {
+        "accepted": true,
+        "checks": {
+          "implication": {
+            "query_sha256": "7cd418cd4563163fdd524c5dece851073073dc77b8cc34da12163a5c40cf73cd",
+            "result": "unsat",
+            "seconds": 0.000322
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "combinational",
+        "model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+      },
+      "q_lower_clear": {
+        "accepted": true,
+        "checks": {
+          "base": {
+            "query_sha256": "dfe5a25664d60bfd759177cf9eb6790366b1ff378f9a577a5212714d89dad783",
+            "result": "unsat",
+            "seconds": 0.001117
+          },
+          "step": {
+            "query_sha256": "5faaf043a717b38ec3e9901786e06f41a036088d85a9726d896156a341777235",
+            "result": "unsat",
+            "seconds": 0.175859
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "induction",
+        "model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+      },
+      "q_step": {
+        "accepted": true,
+        "checks": {
+          "step": {
+            "query_sha256": "61a9bfe3a7089a1d22e973ccd6f4c2825e618fcfe40cbbab07847f9fe0beaa54",
+            "result": "unsat",
+            "seconds": 0.008771
+          }
+        },
+        "evidence": "CHECKED",
+        "kind": "btor-smt",
+        "method": "step",
+        "model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+      },
+      "transfer.h_commit_rd": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_commit_rd",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 277,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_commit_rd"
+      },
+      "transfer.h_remu_capture": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_capture",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 274,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_capture"
+      },
+      "transfer.h_remu_div_k": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_div_k",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 274,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_div_k"
+      },
+      "transfer.h_remu_finish": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_finish",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 275,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_finish"
+      },
+      "transfer.h_remu_msk_k": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_msk_k",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 273,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_msk_k"
+      },
+      "transfer.h_remu_mux": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_mux",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 271,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_mux"
+      },
+      "transfer.h_remu_rvfi_rd": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_rvfi_rd",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 279,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_rvfi_rd"
+      },
+      "transfer.h_remu_rvfi_wdata": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_rvfi_wdata",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 284,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_rvfi_wdata"
+      },
+      "transfer.h_remu_start_d": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_start_d",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 274,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_start_d"
+      },
+      "transfer.h_remu_start_divisor": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_start_divisor",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 274,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_start_divisor"
+      },
+      "transfer.h_remu_start_msk": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_start_msk",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 273,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_start_msk"
+      },
+      "transfer.h_remu_start_q": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_start_q",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 273,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_start_q"
+      },
+      "transfer.h_remu_start_sign": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_start_sign",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 273,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_start_sign"
+      },
+      "transfer.h_remu_step_d": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_step_d",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 280,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_step_d"
+      },
+      "transfer.h_remu_step_msk": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_step_msk",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 276,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_step_msk"
+      },
+      "transfer.h_remu_step_q": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_step_q",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 280,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_step_q"
+      },
+      "transfer.h_remu_wb": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "h_remu_wb",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 271,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "h_remu_wb"
+      },
+      "transfer.o_pc_wdata_match": {
+        "accepted": true,
+        "destination_model": "btor:74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1",
+        "destination_property": "o_pc_wdata_match",
+        "discharged_constraints": {},
+        "evidence": "CHECKED",
+        "kind": "btor-projection",
+        "mapped_inputs": 3,
+        "mapped_states": 282,
+        "source_constraints": 4,
+        "source_model": "btor:a8e22b973c42ca986d7a3bf14f6c1a90e0c59e9705b6e9422da0ae8fe0e11471",
+        "source_property": "o_pc_wdata_match"
+      }
+    },
+    "status": "checked",
+    "unresolved": []
+  },
+  "errors": [],
+  "node_evidence": {
+    "operator_property": "CHECKED",
+    "q_disjoint": "CHECKED",
+    "q_integer": "CHECKED",
+    "q_lower_clear": "CHECKED",
+    "q_step": "CHECKED",
+    "root": "CHECKED",
+    "source.h_commit_rd": "REPLAY",
+    "source.h_remu_capture": "REPLAY",
+    "source.h_remu_div_k": "REPLAY",
+    "source.h_remu_finish": "REPLAY",
+    "source.h_remu_msk_k": "REPLAY",
+    "source.h_remu_mux": "REPLAY",
+    "source.h_remu_rvfi_rd": "REPLAY",
+    "source.h_remu_rvfi_wdata": "REPLAY",
+    "source.h_remu_start_d": "REPLAY",
+    "source.h_remu_start_divisor": "REPLAY",
+    "source.h_remu_start_msk": "REPLAY",
+    "source.h_remu_start_q": "REPLAY",
+    "source.h_remu_start_sign": "REPLAY",
+    "source.h_remu_step_d": "REPLAY",
+    "source.h_remu_step_msk": "REPLAY",
+    "source.h_remu_step_q": "REPLAY",
+    "source.h_remu_wb": "REPLAY",
+    "source.o_pc_wdata_match": "REPLAY",
+    "transfer.h_commit_rd": "CHECKED",
+    "transfer.h_remu_capture": "CHECKED",
+    "transfer.h_remu_div_k": "CHECKED",
+    "transfer.h_remu_finish": "CHECKED",
+    "transfer.h_remu_msk_k": "CHECKED",
+    "transfer.h_remu_mux": "CHECKED",
+    "transfer.h_remu_rvfi_rd": "CHECKED",
+    "transfer.h_remu_rvfi_wdata": "CHECKED",
+    "transfer.h_remu_start_d": "CHECKED",
+    "transfer.h_remu_start_divisor": "CHECKED",
+    "transfer.h_remu_start_msk": "CHECKED",
+    "transfer.h_remu_start_q": "CHECKED",
+    "transfer.h_remu_start_sign": "CHECKED",
+    "transfer.h_remu_step_d": "CHECKED",
+    "transfer.h_remu_step_msk": "CHECKED",
+    "transfer.h_remu_step_q": "CHECKED",
+    "transfer.h_remu_wb": "CHECKED",
+    "transfer.o_pc_wdata_match": "CHECKED"
+  },
+  "targets": {
+    "root": {
+      "composition": "CHECKED",
+      "evidence": "REPLAY",
+      "premises": [
+        "operator_property.L",
+        "q_step.L"
+      ],
+      "tcb": [],
+      "tcb_deps": []
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,17 @@
+read_verilog -sv picorv32_input_constant.v
+
+hierarchy -check -top picorv32
+proc
+
+memory -nordff
+opt_expr
+synth
+opt_clean
+
+write_verilog problem_0.v
+techmap
+dffunmap
+abc -fast -g AND
+write_verilog problem_1.v
+delete t:$print
+write_aiger -vmap map.txt -symbols -zinit -ascii picorv32_input_constant.aag

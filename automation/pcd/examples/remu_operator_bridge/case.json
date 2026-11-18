@@ -1,0 +1,96 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "max_iterations": 1,
+    "total_seconds": 60
+  },
+  "build": {
+    "expected_model": {
+      "kind": "btor",
+      "sha256": "74e54c657c23521095de34945d0c15e813c40c6adefa2a289848b462edd2bde1"
+    },
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": "models/observed.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "python3",
+        "prepare.py"
+      ]
+    }
+  },
+  "case": "remu_operator_bridge",
+  "claim_scope": "safety",
+  "description": "REMU operator bridge; not a full architectural instruction proof",
+  "inputs": {
+    "environment": {
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "other",
+        "sha256": "2df3a020f2b2d45982c30254ee4c8fff176c5f913d552b148f7ac7e591105259"
+      },
+      {
+        "path": "input/rtl/helpers_remu.sv",
+        "role": "other",
+        "sha256": "4be8108a752855cae415ba16b4e5712f12163a38ff09c7c80f16dc5390653f78"
+      },
+      {
+        "path": "input/rtl/insn_remu.v",
+        "role": "other",
+        "sha256": "2e463714feb1a831dd01fb3db1f89e8061d5038e450e6dd09d7f2b78df5da0e4"
+      },
+      {
+        "path": "input/rtl/picorv32.sv",
+        "role": "other",
+        "sha256": "d5b1cf69e0f780509ef3e7ecced5c1c36a28b4aaa0eabef28276bbdcdc623d96"
+      },
+      {
+        "path": "input/rtl/rvfi_insn_check.sv",
+        "role": "other",
+        "sha256": "2a15000e492e58d207ff3801c9b9b378cc835942d8bf800575b490b75b3de8ed"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "other",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "other",
+        "sha256": "a04942b7200b67a1a8f10d0173934d80d610a0115084ddd73d118df00ab20fee"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "other",
+        "sha256": "d15530b786933029e87c56f223a87fe9e0485a76bc458e4626c1b47d5b77351e"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "dev",
+    "oracle_paths": [],
+    "planner": "manual",
+    "pre_registered": false
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "id": "root",
+      "model_ref": "primary",
+      "required_properties": [
+        "o_remu_or_add"
+      ],
+      "statement": "REMU active-loop quotient OR agrees with addition and the sampled integer quotient step"
+    }
+  ]
+}

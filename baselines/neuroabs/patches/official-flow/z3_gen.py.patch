@@ -1,0 +1,65 @@
+--- NeuroAbs/src/z3_gen.py	2026-10-04 22:27:30.478666477 +0800
++++ /tmp/opencode/na/src/z3_gen.py	2026-10-04 22:51:08.553636997 +0800
+@@ -1,5 +1,31 @@
+ from z3 import *
+-from functools import reduce  
++from functools import reduce   
++
++def _fit_width(expr, size):
++    """Resize a bit-vector to `size` following Verilog's implicit extension."""
++    current = expr.size()
++    if current == size:
++        return expr
++    if current < size:
++        return ZeroExt(size - current, expr)
++    return Extract(size - 1, 0, expr)
++
++def fit_width_pair(lhs, rhs):
++    """Give two bit-vectors of different widths a common width.
++
++    A literal is resized to the width of the symbolic operand, which is what
++    Verilog does for an unsized or partially sized constant on either side of
++    an assignment or a binary expression. Two literals are widened to the wider
++    of the two.
++    """
++    lhs_const = isinstance(lhs, BitVecNumRef)
++    rhs_const = isinstance(rhs, BitVecNumRef)
++    if rhs_const and not lhs_const:
++        return lhs, _fit_width(rhs, lhs.size())
++    if lhs_const and not rhs_const:
++        return _fit_width(lhs, rhs.size()), rhs
++    size = max(lhs.size(), rhs.size())
++    return _fit_width(lhs, size), _fit_width(rhs, size)  
+ 
+ 
+ 
+@@ -119,11 +145,11 @@
+                 self.unknown_vars[new_lhs] = var
+                 return new_lhs == rhs            
+             elif (not isinstance(lhs, BoolRef)) and (not isinstance(rhs, BoolRef)) and lhs.size() != rhs.size():
+-                assert isinstance(lhs, BitVecNumRef) and isinstance(rhs, BitVecNumRef)
+-                if isinstance(rhs, BitVecNumRef):
+-                    rhs = BitVecVal(int(rhs.as_string()), left.size())
+-                else:
+-                    lhs = BitVecVal(int(lhs.as_string()), rhs.size())
++                # Verilog implicitly zero-extends the narrower operand. The
++                # original code asserted that both sides were literals, which
++                # crashes on statements such as `count_instr <= 0;` where the
++                # 64-bit lhs meets an unsized literal.
++                lhs, rhs = fit_width_pair(lhs, rhs)
+                 return lhs == rhs
+             else:    
+                 if isinstance(rhs, BoolRef):
+@@ -150,11 +176,7 @@
+                 else:    
+                     right = self.refine_unknown_width(right ,left.size())
+             elif (not isinstance(left, BoolRef)) and (not isinstance(right, BoolRef))  and left.size() != right.size():
+-                assert isinstance(left, BitVecNumRef) and isinstance(right, BitVecNumRef)
+-                if isinstance(right, BitVecNumRef):
+-                    right = BitVecVal(int(right.as_string()), left.size())
+-                else:
+-                    left = BitVecVal(int(left.as_string()), right.size())
++                left, right = fit_width_pair(left, right)
+             # 对于逻辑运算符，保持Bool类型
+             if op in ['&&', '||']:
+                 # 如果操作数是BitVec，转换为Bool

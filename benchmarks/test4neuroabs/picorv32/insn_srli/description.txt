@@ -1,0 +1,5 @@
+Benchmark: picorv32 / insn_srli.
+Property focus: riscv-formal rvfi_insn_check for the SRLI instruction.
+Instruction source: the RVFI instruction word (rvfi_insn; in the picorv32 wrapper this comes from mem_rdata).
+Decode guard: rvfi_valid && !insn_padding && insn_funct6 == 6'b 000000 && insn_funct3 == 3'b 101 && insn_opcode == 7'b 0010011 && (!insn_shamt[5] || `RISCV_FORMAL_XLEN == 64)
+Harness: wrapper.sv + tb.sv (top = testbench), single RVFI channel, unbounded check.

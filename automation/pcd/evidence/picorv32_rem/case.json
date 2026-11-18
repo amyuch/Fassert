@@ -1,0 +1,110 @@
+{
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 120
+    },
+    "max_iterations": 4,
+    "total_seconds": 600
+  },
+  "build": {
+    "expected_model": {
+      "kind": "btor",
+      "sha256": "4edc786fe7da68f59ce0739354676064f3dca65a1fd6fc547a07408c81b8a32b"
+    },
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": "models/primary.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ],
+      "cwd": ".",
+      "timeout_s": 240
+    }
+  },
+  "case": "picorv32_rem",
+  "claim_scope": "safety",
+  "description": "picorv32 REM instruction against the riscv-formal RVFI ISA model",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "ecea0c36ccb21bec2c19adc9fce9b99d38e49f3bf30e3d323c0a962242196a94"
+      },
+      {
+        "path": "input/rtl/insn_rem.v",
+        "role": "spec",
+        "sha256": "5e68a211e367d4ed0d67420c6d031dea622b6cd08fecc3ca850ce2e2380ef8fc"
+      },
+      {
+        "path": "input/rtl/picorv32.sv",
+        "role": "rtl",
+        "sha256": "fd9b57f934d6762555d8e12379986aa449f88726cd3252599ad62a4e344fdb72"
+      },
+      {
+        "path": "input/rtl/rvfi_insn_check.sv",
+        "role": "checker",
+        "sha256": "2a15000e492e58d207ff3801c9b9b378cc835942d8bf800575b490b75b3de8ed"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "a770ca56a7820426e5adee76b9843d74b6323a56aee86276ed35d489a95d588f"
+      },
+      {
+        "path": "input/rtl/helpers_rem.sv",
+        "role": "helper",
+        "sha256": "f09ae256f5c924745293efd158019febf4c7cda39ee93b9cfbff2c4a0da35ac2"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "d15530b786933029e87c56f223a87fe9e0485a76bc458e4626c1b47d5b77351e"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "blind",
+    "notes": "inputs are the benchmark RTL/spec only; the manual candidate is untrusted and no prior decomposition is staged",
+    "oracle_paths": [
+      "oracle/"
+    ],
+    "planner": "manual",
+    "pre_registered": true
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "guard": "!reset && check",
+      "id": "root",
+      "model_ref": "primary",
+      "observation": "rvfi retire",
+      "required_properties": [
+        "o_pc_wdata_match",
+        "o_rd_wdata_match"
+      ],
+      "statement": "REM retires with the RVFI PC and destination-register write data matching the ISA model"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+/tmp/opencode/nerv_reg_cegar.ys
+The total iteration is: 2
+The total time is: 0.987521
+The average time of cegar: 0.493760

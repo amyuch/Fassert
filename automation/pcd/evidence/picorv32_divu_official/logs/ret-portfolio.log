@@ -1,0 +1,20 @@
+[17:34:23 INFO] the model to be checked: /tmp/opencode/divu_min_pruned/ric3proj/dut/dut.btor
+[17:34:23 INFO] start engine ic3_inn_noctg
+[17:34:23 INFO] start engine bmc_kissat_dyn
+[17:34:23 INFO] start engine ic3_ctg_limit
+[17:34:23 INFO] start engine ic3_inn_dynamic
+[17:34:23 INFO] start engine ic3
+[17:34:23 INFO] start engine bmc
+[17:34:23 INFO] start engine ic3_inn
+[17:34:23 INFO] start engine bmc_kissat_10
+[17:34:23 INFO] start engine ic3_abs_all
+[17:34:23 INFO] start engine ic3_abs_cst
+[17:34:23 INFO] start engine ic3_no_preproc
+[17:34:23 INFO] start engine kind
+[17:34:23 INFO] start engine ic3_inn_ctp
+[17:34:23 INFO] start engine bmc_kissat_65
+[17:34:23 INFO] start engine ic3_no_parent
+[17:34:23 INFO] start engine ic3_predprop
+[17:37:20 INFO] best configuration: /tmp/opencode/divu_min_pruned/ric3proj/dut/dut.btor ic3 --inn --ctg=false --rseed 10
+UNSAT
+rc=0

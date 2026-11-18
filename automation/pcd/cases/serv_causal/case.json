@@ -1,0 +1,162 @@
+{
+  "acceptance": "complete",
+  "budgets": {
+    "engine_seconds": {
+      "ric3": 1200
+    },
+    "max_iterations": 4,
+    "total_seconds": 1800
+  },
+  "build": {
+    "kind": "btor",
+    "outputs": [
+      {
+        "kind": "btor",
+        "path": ".pcd-build/ric3proj/dut/dut.btor"
+      }
+    ],
+    "recipe": {
+      "command": [
+        "sh",
+        "build/build.sh"
+      ],
+      "cwd": ".",
+      "timeout_s": 300
+    }
+  },
+  "case": "serv_causal",
+  "claim_scope": "safety",
+  "description": "official riscv-formal benchmark causal",
+  "inputs": {
+    "environment": {
+      "clock": "clock",
+      "defines": [
+        "RISCV_FORMAL"
+      ],
+      "frontend": "yosys-slang",
+      "reset": "reset",
+      "top": "testbench"
+    },
+    "files": [
+      {
+        "path": "input/rtl/rtl/serv_bufreg.v",
+        "role": "rtl",
+        "sha256": "9ac396c35017349bdc22adbc8910e44882972e0b3d6b9dcfe2c29f366672c80b"
+      },
+      {
+        "path": "input/rtl/rtl/serv_bufreg2.v",
+        "role": "rtl",
+        "sha256": "f5769d3e8eefb1069f96a2f7dc1748f4525769d8cb2b04ad7ab31603b976a4f2"
+      },
+      {
+        "path": "input/rtl/rtl/serv_alu.v",
+        "role": "rtl",
+        "sha256": "2e0c31b5b992618e514083aacf10cb38c2229b68b3b1e93d6663104f32143332"
+      },
+      {
+        "path": "input/rtl/rtl/serv_csr.v",
+        "role": "rtl",
+        "sha256": "55ab97af291492cf659e2eadb93516e369619d847e1fa960ea22c050353c2169"
+      },
+      {
+        "path": "input/rtl/rtl/serv_ctrl.v",
+        "role": "rtl",
+        "sha256": "6a10176222a2a7d2350b3b6362ca6d52358e832556f1c386885dd4e5547b221b"
+      },
+      {
+        "path": "input/rtl/rtl/serv_decode.v",
+        "role": "rtl",
+        "sha256": "36298dc341d4310fac381082129c06025ef4215211b1f7193bbeba7424b8255e"
+      },
+      {
+        "path": "input/rtl/rtl/serv_immdec.v",
+        "role": "rtl",
+        "sha256": "d105ce9a37bf9bfa362d4437fd6fa439dd07d6107959c6683ff650fb23ee03c9"
+      },
+      {
+        "path": "input/rtl/rtl/serv_mem_if.v",
+        "role": "rtl",
+        "sha256": "3736c17680c919116527e53de7d91259cda600957b74aa1f26d3e0efcdbfba72"
+      },
+      {
+        "path": "input/rtl/rtl/serv_rf_if.v",
+        "role": "rtl",
+        "sha256": "ef899352aadb8fb2d1a4ef904b745250a294d1ba4fe4a290f0d6006b64ec0864"
+      },
+      {
+        "path": "input/rtl/rtl/serv_rf_ram.v",
+        "role": "rtl",
+        "sha256": "e1bf335d7ff441520fa474f38fed145e1cdbd65b56ffb27957049b3ec80a7012"
+      },
+      {
+        "path": "input/rtl/rtl/serv_rf_ram_if.v",
+        "role": "rtl",
+        "sha256": "cf9eae1e5cf104c9c3c32485039914f316167dd9d8923c1f8ddbee12d80a0998"
+      },
+      {
+        "path": "input/rtl/rtl/serv_state.v",
+        "role": "rtl",
+        "sha256": "945dc416224db30af5e8f0ccfecf838095e13dbb60271579f5ef5238e878ff78"
+      },
+      {
+        "path": "input/rtl/rtl/serv_debug.v",
+        "role": "rtl",
+        "sha256": "b6a38e601c31f3e832f2b189d3970b876a816246a2173db3084b8156d3821e88"
+      },
+      {
+        "path": "input/rtl/rtl/serv_top.v",
+        "role": "rtl",
+        "sha256": "107876629cd0e2f9229eeb362eddc2ab249a809b162ee969c688024280d32b7a"
+      },
+      {
+        "path": "input/rtl/rtl/serv_rf_top.v",
+        "role": "rtl",
+        "sha256": "6e290e312f2d145096252f5521940946c6982198b05a842b1fc02f7ea35c323e"
+      },
+      {
+        "path": "input/rtl/rvfi_causal_check.sv",
+        "role": "checker",
+        "sha256": "5eabb50f77eddeff5ad1d5fc63bd9a0c8b34ad1b4578bf0f2a4df8ace3543e3e"
+      },
+      {
+        "path": "input/rtl/wrapper.sv",
+        "role": "harness",
+        "sha256": "9c40ab293adc4e8fe06b77d3b766a7fc327a192b585298aa2ccfbbaa63b531d6"
+      },
+      {
+        "path": "input/rtl/tb.sv",
+        "role": "harness",
+        "sha256": "b74be47cf0972bebbba83aebffda029507975f85acc297057d147761e5a661cc"
+      },
+      {
+        "path": "input/rtl/defines.sv",
+        "role": "defines",
+        "sha256": "a73831a09a10696e641672655ac6fe222d51452995f7f42d8310f0e9ec81c2e6"
+      },
+      {
+        "path": "input/rtl/rvfi_macros.vh",
+        "role": "include",
+        "sha256": "e8c3933048eb64a0beef15f7541a451ae6b0ea9e51daf0ef7f7f2e81eca46d68"
+      }
+    ]
+  },
+  "run_policy": {
+    "mode": "blind",
+    "notes": "imported official benchmark; no prior proof, run, oracle, or ric3proj is staged",
+    "oracle_paths": [],
+    "planner": "template",
+    "pre_registered": true,
+    "template_backend": "cill"
+  },
+  "schema_version": "pcd-case/0.1",
+  "targets": [
+    {
+      "claim_level": "root",
+      "guard": "!reset && check",
+      "id": "root",
+      "model_ref": "primary",
+      "observation": "rvfi retire",
+      "statement": "all official RVFI checks for causal"
+    }
+  ]
+}

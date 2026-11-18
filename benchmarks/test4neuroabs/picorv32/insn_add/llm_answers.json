@@ -1,0 +1,14 @@
+{
+ "\\uut.cached_insn_opcode <= _2579_;": "\\uut.cached_insn_opcode <= 'bx;",
+ "\\uut.count_cycle <= _3079_;": "\\uut.count_cycle <= 'bx;",
+ "\\uut.count_instr <= _1968_;": "\\uut.count_instr <= 'bx;",
+ "\\uut.instr_ecall_ebreak <= _2372_;": "\\uut.instr_ecall_ebreak <= 'bx;",
+ "\\uut.instr_fence <= _2370_;": "\\uut.instr_fence <= 'bx;",
+ "\\uut.instr_rdcycle <= _2380_;": "\\uut.instr_rdcycle <= 'bx;",
+ "\\uut.instr_rdcycleh <= _2378_;": "\\uut.instr_rdcycleh <= 'bx;",
+ "\\uut.instr_rdinstr <= _2376_;": "\\uut.instr_rdinstr <= 'bx;",
+ "\\uut.instr_rdinstrh <= _2374_;": "\\uut.instr_rdinstrh <= 'bx;",
+ "\\uut.next_insn_opcode <= _2987_;": "\\uut.next_insn_opcode <= 'bx;",
+ "assign \\uut.mem_rdata_latched = _3103_;": "assign \\uut.mem_rdata_latched = 'bx;",
+ "assign _0315_ = _2533_;": "assign _0315_ = 'bx;"
+}

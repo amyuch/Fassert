@@ -1,0 +1,15 @@
+# command: ric3 check models/ric3.btor kind --prop 0 --time-limit 15
+# cwd: /home/AM2/sec/cur_work/fassert/automation/pcd/examples/solver_bridge_mul
+# timeout_s: 20
+# ---
+[12:54:31 INFO] the model to be checked: /home/AM2/sec/cur_work/fassert/automation/pcd/examples/solver_bridge_mul/models/ric3.btor
+[12:54:31 INFO] origin ts has 20417 vars, 66 inputs, 228 latches, 69811 clauses, 2 constraints
+[12:54:32 INFO] trivial simplified ts: 4857 vars, 66 inputs, 196 latches, 25757 clauses, 2 constraints
+[12:54:32 INFO] scorr: eliminates 1 latchs out of 196 in 0.15s
+[12:54:32 INFO] scorr: simplified ts: 4854 vars, 66 inputs, 194 latches, 25753 clauses, 2 constraints
+[12:54:32 INFO] frts: eliminates 1 out of 4854 vars in 0.03s
+[12:54:32 INFO] frts: simplified ts: 4853 vars, 66 inputs, 194 latches, 25752 clauses, 2 constraints
+[12:54:32 INFO] preprocessed ts has 4853 vars, 66 inputs, 194 latches, 25752 clauses, 2 constraints
+[12:54:32 INFO] Kind found no counterexample up to depth 0
+[12:54:32 INFO] Kind proved the property
+UNSAT

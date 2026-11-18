@@ -1,0 +1,7 @@
+family,functions,function_proved,function_open,case_rows,case_proved,case_open,open_functions
+picorv32,24,24,0,32,32,0,
+nerv,3,3,0,3,3,0,
+serv,4,2,2,4,2,2,pc_bwd; reg
+flute,5,0,5,5,0,5,addi; bne; jal; sb; add
+piccolo,5,0,5,5,0,5,andi; beq; jal; lb; add
+total,41,29,12,49,37,12,
