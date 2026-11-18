@@ -1,6 +1,6 @@
 # Optional QF_BV backend for model-bound SMT checks.
 #
-# Z3 remains installed by requirements.txt and is still used for ordinary
+# Z3 remains installed by the root requirements.txt and is still used for ordinary
 # queries.  `checkers/model_smt.py` runs a bounded portfolio and uses
 # Bitwuzla for wide-multiplier goals that Z3 cannot bit-blast inside the
 # default timeout (for example the MUL monitor arithmetic lemma).  Without

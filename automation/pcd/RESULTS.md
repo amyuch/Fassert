@@ -1,6 +1,6 @@
 # Results
 
-Current proved rows: **37 / 49** case rows, covering **29 / 41** functions. The artifact bundles **24** cases: **12** with self-contained offline evidence and **12** complete source cases for the normal build and discharge flow.
+The artifact bundles **24** cases: **12** with self-contained offline evidence and **12** complete source cases for the normal build and discharge flow.
 
 The `bundle` column is descriptive, not a requirement:
 
@@ -11,7 +11,7 @@ The `bundle` column is descriptive, not a requirement:
 - `—`: the row is an alternate model or smoke duplicate that is not bundled in the artifact.
 
 
-The 13 alternate rows are retained in this table because the 37/49 count is a row count, not a function count. The 24 bundled cases are the artifact view; the full local development matrix stays outside the artifact.
+Alternate rows are retained in this table because the table is a row view, not a function view. The 24 bundled cases are the artifact view; the full local development matrix stays outside the artifact.
 
 
 | row | family | function | exact status | evidence | obligations | bundle |
@@ -54,8 +54,8 @@ The 13 alternate rows are retained in this table because the 37/49 count is a ro
 | `picorv32_mul` | picorv32 | mul | proved | exact | 32 | [offline](evidence/picorv32_mul/README.md) |
 | `picorv32_rem` | picorv32 | rem | proved | corrected-contract | 48 | [offline](evidence/picorv32_rem/README.md) |
 
-All 37 rows are functionally `proved`; the `exact status` column is the
-separate exactness axis. It can be `needs_check` where the functional contract
+Every row listed above is functionally `proved`; the `exact status` column is
+the separate exactness axis. It can be `needs_check` where the functional contract
 is corrected or a helper/transfer residual remains, while the architectural
 contract is still discharged.
 

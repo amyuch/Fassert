@@ -1,0 +1,6 @@
+# Core Python dependencies shared by PCD and the artifact tooling.
+# Python 3.10+ is required.
+jsonschema>=4.18
+referencing>=0.30
+z3-solver>=4.12
+PyYAML>=6.0

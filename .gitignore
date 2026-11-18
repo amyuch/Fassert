@@ -4,7 +4,10 @@
 
 # Ad-hoc automation campaigns and temporary working directories.
 # automation/pcd itself is kept as the organised workbench.
+/automation/.frozen/
 /automation/.tmp_serv/
+/automation/RESULTS*
+/automation/SUMMARY*
 /automation/picorv32-smoke-blind.*
 /automation/smoke-proof-*
 /automation/mul-proof-audit-*
@@ -21,6 +24,9 @@
 /benchmarks-orig/
 
 # Generated benchmark artifacts.
+/benchmarks/**/*.log
+/benchmarks/**/parser.out
+/benchmarks/**/parsetab.py
 /benchmarks/test4neuroabs/**/*_extract.txt
 /benchmarks/test4neuroabs/**/iter/
 /benchmarks/test4neuroabs/**/llm_prompts.jsonl

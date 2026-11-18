@@ -14,6 +14,8 @@ table is in [`RESULTS.md`](RESULTS.md).
 
 ## Install
 
+From the repository root:
+
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
@@ -23,7 +25,7 @@ pip install -r requirements.txt
 Optional wide-multiplier portfolio backend:
 
 ```sh
-pip install -r requirements-optional.txt
+pip install -r automation/pcd/requirements-optional.txt
 ```
 
 The core install needs Python 3.10+, `jsonschema`, `referencing`, `z3-solver`,
@@ -160,7 +162,7 @@ The artifact is the flow, the current docs, the selected cases, and the offline
 evidence. It does not include research logs, prior matrices, prior run
 directories, build caches, or oracle material. The `.gitignore` keeps those
 local-only paths out of the published tree. The full local development matrix is
-kept outside the artifact; `RESULTS.md` is the 37/49 proved-row view and the
+kept outside the artifact; `RESULTS.md` is the row-level status table and the
 24-case bundle map.
 
 ## Tests

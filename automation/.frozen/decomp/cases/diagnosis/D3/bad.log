@@ -1,6 +1,0 @@
-[09:20:02 INFO] BMC: Checking correctness of all properties.
-[09:20:22 INFO] BMC found no CEX in limited steps.
-[09:20:22 INFO] Checking inductiveness of all properties.
- [38;5;11m[1mID[0m  [38;5;11m[1mProperty[0m   [38;5;11m[1mResult[0m        
- 0   h_div_mux  [38;5;9mNot Inductive[39m 
-Please run 'ric3 cill select <ID>' to select an non-inductive assertion for CTI generation.

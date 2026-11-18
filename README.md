@@ -9,7 +9,7 @@ and composing formal proof obligations.
 
 | Path | Contents |
 |---|---|
-| `automation/` | PCD workbench, proof infrastructure, cases, and the current result ledger |
+| `automation/` | PCD workbench, proof infrastructure, and cases |
 | `baselines/` | Baseline implementations and experiment drivers, without run logs or result trees |
 | `benchmarks/` | RISC-V/RVFI benchmark cases and the shared riscv-formal inputs |
 
@@ -27,16 +27,26 @@ The published benchmark snapshot covers:
 - the corresponding NeuroAbs-format case sources where they are part of the
   benchmark set.
 
-The result ledger at `automation/RESULTS_FULL.csv` records the full
-experimental matrix; rows for families outside this checkout are retained for
-provenance, not for local reproduction.
+## Dependencies
+
+Core Python dependencies are listed in the root `requirements.txt`:
+`jsonschema`, `referencing`, `z3-solver`, and `PyYAML` (Python 3.10+). Install
+them from the repository root:
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Model building and replay also require the external tools named by each case
+build recipe, normally Yosys and rIC3. Baseline-specific Python extras remain
+in `baselines/*/requirements.txt`.
 
 ## Results
 
-The current functional and exact-status tables are:
-
-- `automation/RESULTS_FULL.csv`
-- `automation/RESULTS_FULL.md`
+The PCD case table is in `automation/pcd/RESULTS.md`. Result ledgers generated
+by experiments are local outputs and are not bundled.
 
 Only a kernel-computed `proved` status is an acceptance. `needs_check` is an
 open obligation ledger, not a partial proof. The detailed rules are in
@@ -52,28 +62,26 @@ cd automation/pcd
 # Offline kernel, checker, pipeline, and package tests.
 ./pcd selftest
 
+# Recheck all bundled offline evidence packages.
+./pcd bench suites/offline.json
+
 # Check the bundled real-ADD composition example.
 ./pcd compose \
   --case examples/composition_add/case.json \
   --proof examples/composition_add/proof.json
 ```
 
-The current reproof matrix can be regenerated with:
-
-```sh
-cd automation/pcd
-python3 experiments/formal_reproof/run.py \
-  --out experiments/formal_reproof/results-$(date -u +%Y%m%d) \
-  --timeout 45 \
-  --max-candidates 5
-```
+Source-case end-to-end runs use the external engines named by the case build
+recipe.
 
 ## Baselines
 
 Baseline directories contain the baseline code, patches, and experiment
 drivers only. Upstream dependencies such as rIC3, Yosys, Yosys-Slang, and
 PyVerilog are fetched or pinned separately; build trees, run logs, and result
-trees are not part of the artifact.
+trees are not part of the artifact. Install the shared core Python dependencies
+from the root `requirements.txt`; baseline-specific extras are listed in each
+baseline's own `requirements.txt`.
 
 ## Trust boundary
 
